@@ -29,6 +29,11 @@ As a CA, I want to be able to enter my availability for staff meetings.
 
 As a Professor, I want to schedule meetings such that as many of the head CAs can meet with me, along with as many other CAs as possible after that. 
 
+As a Professor, I need to specify how long the meeting needs to last. 
+
+As a Professor, I want to be able to enter my availability. 
+
+
 
 
 ### Nice to have
@@ -37,7 +42,7 @@ As an professor, I want to be able to send out emails to confirm meeting time so
 
 As a professor, I want multiple schedules suggested so that I have more than one option.
 
-A
+
 
 
 ## Software Architecture
