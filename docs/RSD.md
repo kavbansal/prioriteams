@@ -40,7 +40,7 @@ As a Professor, I want to be able to enter my availability.
 
 As an professor, I want to be able to send out emails to confirm meeting time so that I can stay organized with my hires easily. 
 
-As a professor, I want multiple schedules suggested so that I have more than one option.
+As a professor, I want multiple meeting times suggested so that I have more than one option.
 
 
 
