@@ -3,7 +3,7 @@ A UML class diagram reflecting the "model" for that iteration only.
 Use a software to draw this (e.g. draw.io) and save the diagram as an image. 
 Upload the image and link it in here using this sintax
 
-![](2020-spring-group-Lads/docs/image.png)
+![](docs/image.png)
 
 # Wireframe
 One (or a few) simple sketch of how the user interacts with the application. 
