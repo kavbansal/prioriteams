@@ -10,8 +10,11 @@ One (or a few) simple sketch of how the user interacts with the application.
 This could be a sketch of your user interface. 
 You can draw it with hand and insert it here as an image.
 
+![](docs/wireframe.png)
+
 # Iteration Backlog
 List the User Stories that you will implement in this iteration.
+
 
 # Tasks
 A tentative list of the "to do" in order to sucessfully complete this iteration. 
