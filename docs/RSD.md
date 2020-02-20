@@ -42,6 +42,10 @@ As an professor, I want to be able to send out emails to confirm meeting time so
 
 As a professor, I want multiple meeting times suggested so that I have more than one option.
 
+As a CA, I want to be able to notify a professor as to whether or not I will be in attendence for a meeting via email so that I can interact with my team more effectively. 
+
+As a professor, I want to create a poll to gauge which of the multiple schedules that was produced is ideal if their are ties in priority so that I can make a subjective judgement call above and beyond the algorithm. 
+
 
 
 
