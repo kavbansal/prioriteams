@@ -35,3 +35,4 @@ Create basic interface to enter availability. We should be able to prompt and re
 
 Implement algorithm to give a meeting time. Given the data we have in our database, we want to suggest a meeting time in which the person with the highest priority can be present and thereafter the number of people that can make it is maximized. This is a basic, rudimentary algorithm that we will likely only stick with for this iteration. 
 
+Create Professor, Event, and CA classes. Using instances of these classes, the goal is to extract the attributes and values of their fields and store them into a database. 
