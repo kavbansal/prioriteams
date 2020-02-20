@@ -29,8 +29,7 @@ It does not need to be exhustive.
 
 Create a database containing tables storing the following information - names of people, position, priorities, times available.
 
-Create basic interface to enter availability.
+Create basic interface to enter availability. We should be able to prompt and read in the people's availability. Then, we want to parse availabilities and store them with, along with the person to which they correspond to, in a database.
 
-Implement algorithm to give a meeting time.
+Implement algorithm to give a meeting time. Given the data we have in our database, we want to suggest a meeting time in which the person with the highest priority can be present and thereafter the number of people that can make it is maximized. This is a basic, rudimentary algorithm that we will likely only stick with for this iteration. 
 
-Implement required classes, as shown in the UML.
