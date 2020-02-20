@@ -10,7 +10,8 @@ One (or a few) simple sketch of how the user interacts with the application.
 This could be a sketch of your user interface. 
 You can draw it with hand and insert it here as an image.
 
-<img src="/docs/wireframe.png" />
+<img src="/docs/WireframeDoc1.jpeg" />
+<img src="/docs/WireframeDoc2.jpeg" />
 
 
 # Iteration Backlog
