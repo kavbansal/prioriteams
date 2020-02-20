@@ -4,7 +4,7 @@
 
 > Write a few sentences that describes the problem you are trying to solve. In other words, justify why this software project is needed.
 
-Existing scheduling services and platforms do not factor in priority. Many of these software solutions simply involve finding times in which there the highest number of people can attend. An example is the scheduling of CA staff meeting during the course of a semester. Naturally, it is most pertinent that the Head CA(s) and the Professor(s) are present at the meeting since they are the main stakeholders in directing the class. Ideally, the meeting time that will be chosen will be one at which all of the Head CA(s) and Professor(s) are present as well as the maximum number of other CAs. We will create a software solution that will find these optimal times in a sorted fashion. 
+Existing scheduling services and platforms do not factor in priority. Many of these software solutions simply involve finding times in which there the highest number of people can attend. An example is the scheduling of CA staff meetings during the course of a semester. Naturally, it is most pertinent that the Head CA(s) and the Professor(s) are present at the meeting since they are the main stakeholders in directing the class. Ideally, the meeting time that will be chosen will be one at which all of the Head CA(s) and Professor(s) are present as well as the maximum number of other CAs. Perhaps, the Professor also wants to assign different CAs varying priorities. 
 
 
 ## Potential Clients
@@ -15,7 +15,7 @@ In this specific case, CAs and Professors are affected by this problem and will 
 ## Proposed Solution
 > Write a few sentences that describes how a software solution will solve the problem described above.
 
-A software solution can take in everyone's schedules and priorities. It will then use an algorithm that picks a time "hot-spot" based on maxiumum number of people available to meet and the priorities. 
+A software solution can take in everyone's schedules and priorities and then use an algorithm that picks a time "hot-spot" based on maxiumum number of people available to meet and the priorities. The goal is to determine if there is a tradeoff and  minimize the tradeoff between having as many people present at the meeting and also ensuring that the most prioritized people will be present at the suggested meeting time. 
 
 ## Functional Requirements
 > List the (functional) requirements that software needs to have in order to solve the problem stated above. It is useful to write the requirements in form of **User Stories** and group them into those that are essential (must have), and those which are non-essential (but nice to have).
