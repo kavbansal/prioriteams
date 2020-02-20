@@ -22,6 +22,8 @@ As a Professor, I want to schedule meetings such that as many of the head CAs ca
 
 As a Professor, I want to be able to enter my availability.
 
+As a Professor, I want to specify how long my meeting will last and that the Head TA must be present. I want the software to suggest a meeting time which satisfies these parameters.
+
 # Tasks
 A tentative list of the "to do" in order to sucessfully complete this iteration. 
 This list will change and it is good to keep it updated. 
