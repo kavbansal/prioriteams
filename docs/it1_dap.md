@@ -17,23 +17,27 @@ You can draw it with hand and insert it here as an image.
 # Iteration Backlog
 List the User Stories that you will implement in this iteration.
 
-As a CA, I want to be able to enter my availability for staff meetings.
+As a professor, I want to create a poll so that I can figure out when everyone is available.
 
-As a Professor, I want to schedule meetings such that as many of the head CAs can meet with me, along with as many other CAs as possible after that.
-
-As a Professor, I want to be able to enter my availability.
-
-As a Professor, I want to specify how long my meeting will last and that the Head TA must be present. I want the software to suggest a meeting time which satisfies these parameters.
 
 # Tasks
 A tentative list of the "to do" in order to sucessfully complete this iteration. 
 This list will change and it is good to keep it updated. 
 It does not need to be exhustive.
 
-Create a database containing tables storing the following information - names of people, position, priorities, times available.
+For this iteration:
 
-Create basic interface to enter availability. We should be able to prompt and read in the people's availability. Then, we want to parse availabilities and store them with, along with the person to which they correspond to, in a database.
+-Create a basic interface that professor can interact with to create the poll
 
-Implement algorithm to give a meeting time. Given the data we have in our database, we want to suggest a meeting time in which the person with the highest priority can be present and thereafter the number of people that can make it is maximized. This is a basic, rudimentary algorithm that we will likely only stick with for this iteration. 
+-Create a database to store the availability from the CAs once it is collected (will probably simulate data for this iteration)
 
-Create Professor, Event, and CA classes. Using instances of these classes, the goal is to extract the attributes and values of their fields and store them into a database. 
+
+Long Term:
+
+-Create a database containing tables storing the following information - names of people, position, priorities, times available.
+
+-Create basic interface to enter availability. We should be able to prompt and read in the people's availability. Then, we want to parse availabilities and store them with, along with the person to which they correspond to, in a database.
+
+-Implement algorithm to give a meeting time. Given the data we have in our database, we want to suggest a meeting time in which the person with the highest priority can be present and thereafter the number of people that can make it is maximized. This is a basic, rudimentary algorithm that we will likely only stick with for this iteration. 
+
+-Create Professor, Event, and CA classes. Using instances of these classes, the goal is to extract the attributes and values of their fields and store them into a database. 
