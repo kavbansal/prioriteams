@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1dc813c4-0799-4417-8a71-45e9a7eb248f" name="Default Changelist" comment="" />
+    <list default="true" id="1dc813c4-0799-4417-8a71-45e9a7eb248f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Store.db" beforeDir="false" afterPath="$PROJECT_DIR$/Store.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/create.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/create.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/events.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/events.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/create.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/create.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/events.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/events.hbs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,7 +38,11 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1YNCd4xCfYr589UGbBEI1ourrdU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -61,6 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1582773748668</updated>
       <workItem from="1582773751340" duration="150000" />
+      <workItem from="1582774736138" duration="258000" />
     </task>
     <servers />
   </component>
@@ -68,21 +99,21 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1037" height="159" key="GridCell.Tab.0.bottom" timestamp="1582773901606">
+    <state width="1084" height="181" key="GridCell.Tab.0.bottom" timestamp="1582774994406">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1037" height="159" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1582773901606" />
-    <state width="1037" height="159" key="GridCell.Tab.0.center" timestamp="1582773901605">
+    <state width="1084" height="181" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1582774994406" />
+    <state width="1084" height="181" key="GridCell.Tab.0.center" timestamp="1582774994406">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1037" height="159" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1582773901605" />
-    <state width="1037" height="159" key="GridCell.Tab.0.left" timestamp="1582773901604">
+    <state width="1084" height="181" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1582774994406" />
+    <state width="1084" height="181" key="GridCell.Tab.0.left" timestamp="1582774994406">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1037" height="159" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1582773901604" />
-    <state width="1037" height="159" key="GridCell.Tab.0.right" timestamp="1582773901605">
+    <state width="1084" height="181" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1582774994406" />
+    <state width="1084" height="181" key="GridCell.Tab.0.right" timestamp="1582774994406">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
-    <state width="1037" height="159" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1582773901605" />
+    <state width="1084" height="181" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1582774994406" />
   </component>
 </project>
