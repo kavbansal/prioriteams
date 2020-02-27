@@ -6,7 +6,7 @@ Currently, scheudling apps lilke When2Meet and Calendly find the best times for 
 
 
 # Iteration 1:
-We separate the front end and back end of our web application into two projects names as such. Do as follows to get the web app up and running:
+We separated the front end and back end of our web application into two projects names as such. Do as follows to get the web app up and running:
 
 1. Open both the FrontEnd and BackEnd projects in different intelliJ windows.
 2. In the src directory of the BackEnd, navigate to the ApiServer class and run the main method to get the Api server up and running.
