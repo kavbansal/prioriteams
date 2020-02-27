@@ -30,5 +30,11 @@ public class WebServer {
       response.redirect("/");
       return null;
     }), new HandlebarsTemplateEngine());
+
+    get("/events", ((request, response) -> {
+      Map<String, Object> model = new HashMap<>();
+      model.put("eventList", eventDao.findAllEvents());
+      return new ModelAndView(model, "events.hbs");
+    }),  new HandlebarsTemplateEngine());
   }
 }
