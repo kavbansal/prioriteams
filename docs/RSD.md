@@ -45,6 +45,6 @@ As a professor, I want to create a poll to gauge which of the multiple schedules
 
 
 ## Software Architecture
-> Will this be a Web/desktop/mobile (all, or some other kind of) application? Would it conform to the Client-Server software architecture? 
+> Will this be a Web/desktop/mobile (all, or some other kind of) application? Would it conform to the Client-Server software architecture?   
 
 This will be a Web application; yes, it would conform it to the Client-Server software architecture. The CAs and Professors would input their schedule/time availabilities and their priorities; the Server would store these availabilities and priorities, perform an algorithm, and then send back a few "optimal" staff meeting times. 
