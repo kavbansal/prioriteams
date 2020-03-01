@@ -1,11 +1,6 @@
 
-
-
 # UML
-
-![](/docs/image.png)
-
-
+![](/docs/UMLIteration2.png)
 
 # Iteration Backlog
 
