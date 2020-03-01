@@ -23,26 +23,21 @@ A software solution can take in everyone's schedules and priorities and then use
 
 ### Must have
 
-As a professor, I want to be able to assign priority to different peoples’ schedules so my time can be valued more.
+As a CA, I want to view all the events that the Professor created.
 
-As a CA, I want to be able to enter my availability for staff meetings. 
+As a CA, I want to register for an event.
 
-As a Professor, I want to schedule meetings such that as many of the head CAs can meet with me, along with as many other CAs as possible after that. 
+As a CA, once I register for an event, I want to add my availability for the event. My availabilitiy can differ by the day of the week. 
 
-As a Professor, I need to specify how long the meeting needs to last. 
+As a CA, once I have submitted my availabilities for events, I want to view what my availability submissions for these events.
 
-As a Professor, I want to be able to enter my availability. 
-
-
-
+As a Professor, I want the software to output an optimal meeting time based on the availability submissions. 
 
 ### Nice to have
 
-As an professor, I want to be able to send out emails to confirm meeting time so that I can stay organized with my hires easily. 
+As a Professor, I want there to be a sign-in page so that only my CAs and myself can view and register for events. 
 
 As a professor, I want multiple meeting times suggested so that I have more than one option.
-
-As a CA, I want to be able to notify a professor as to whether or not I will be in attendence for a meeting via email so that I can interact with my team more effectively. 
 
 As a professor, I want to create a poll to gauge which of the multiple schedules that was produced is ideal if their are ties in priority so that I can make a subjective judgement call above and beyond the algorithm. 
 
@@ -50,6 +45,6 @@ As a professor, I want to create a poll to gauge which of the multiple schedules
 
 
 ## Software Architecture
-> Will this be a Web/desktop/mobile (all, or some other kind of) application? Would it conform to the Client-Server software architecture? 
+> Will this be a Web/desktop/mobile (all, or some other kind of) application? Would it conform to the Client-Server software architecture?   
 
 This will be a Web application; yes, it would conform it to the Client-Server software architecture. The CAs and Professors would input their schedule/time availabilities and their priorities; the Server would store these availabilities and priorities, perform an algorithm, and then send back a few "optimal" staff meeting times. 
