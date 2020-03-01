@@ -26,6 +26,7 @@ public class ApiServer {
         Sql2o sql2o = getSql2o();
         createEventTable(sql2o);
         createProfessorsTable(sql2o);
+        createAvailabilityTable(sql2o);
         EventDao eventDao = getEventDao(sql2o);
         ProfessorDao professorDao = getProfessorDao(sql2o);
         initData(eventDao);
@@ -37,6 +38,7 @@ public class ApiServer {
         postEvents(eventDao);
         getProfessors(professorDao);
         postProfessors(professorDao);
+
 
         app.exception(ApiError.class, (exception, ctx) -> {
             ApiError err = (ApiError) exception;
@@ -135,6 +137,20 @@ public class ApiServer {
                 "id INTEGER PRIMARY KEY," +
                 "name VARCHAR(100) NOT NULL," +
                 "email VARCHAR(100) NOT NULL" +
+                ");";
+        try (Connection conn = sql2o.open()) {
+            conn.createQuery(sql).executeUpdate();
+        }
+    }
+
+    private static void createAvailabilityTable(Sql2o sql2o) {
+        String sql= "CREATE TABLE IF NOT EXISTS Availabilities(" +
+                "id INTEGER PRIMARY KEY," +
+                "eventId Integer NOT NULL," +
+                "personId Integer NOT NULL" +
+                "startTime Integer NOT NULL" +
+                "endTime Integer NOT NULL" +
+                "dayOfweek Integer NOT NULL" +
                 ");";
         try (Connection conn = sql2o.open()) {
             conn.createQuery(sql).executeUpdate();
