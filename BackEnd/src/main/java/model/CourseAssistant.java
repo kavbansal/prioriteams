@@ -4,11 +4,15 @@ public class CourseAssistant implements Person {
 
     private String name;
     private String email;
+    private String username;
+    private String password;
     private int id;
 
-    public CourseAssistant(String name, String email) {
+    public CourseAssistant(String name, String email, String uname, String pwd) {
         this.name= name;
         this.email=email;
+        this.username=uname;
+        this.password=pwd;
     }
 
     @Override
@@ -39,5 +43,25 @@ public class CourseAssistant implements Person {
     @Override
     public void setEmail(String email) {
 
+    }
+
+    @Override
+    public String getUsername() {
+        return this.username;
+    }
+
+    @Override
+    public String getPwd() {
+        return this.password;
+    }
+
+    @Override
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public void setPwd(String pwd) {
+        this.password = pwd;
     }
 }

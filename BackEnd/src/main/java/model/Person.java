@@ -8,4 +8,8 @@ public interface Person {
     void setName(String name);
     String getEmail();
     void setEmail(String email);
+    String getUsername();
+    String getPwd();
+    void setUsername(String username);
+    void setPwd(String pwd);
 }

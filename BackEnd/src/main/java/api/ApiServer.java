@@ -168,12 +168,12 @@ public class ApiServer {
     }
 
     private static void initCAs(CourseAssistantDao caDao) {
-        caDao.add(new CourseAssistant("Irfan Jamil","ijamil1@jhu.edu"));
-        caDao.add(new CourseAssistant("Vishnu Joshi", "vjoshi1@jhu.edu"));
-        caDao.add(new CourseAssistant("Ryan Hubley","rhubley1@jhu.edu"));
-        caDao.add(new CourseAssistant("Dara Moini", "dmoini1@jhu.edu"));
-        caDao.add(new CourseAssistant("Kavan Bansal","kbansal1@jhu.edu"));
-        caDao.add(new CourseAssistant("Justin Song","LauFalls69@jhu.edu"));
+        caDao.add(new CourseAssistant("Irfan Jamil","ijamil1@jhu.edu", "ijamil1", "irfan"));
+        caDao.add(new CourseAssistant("Vishnu Joshi", "vjoshi1@jhu.edu", "vjoshi6", "vishnu"));
+        caDao.add(new CourseAssistant("Ryan Hubley","rhubley1@jhu.edu", "rhubley1", "ryan"));
+        caDao.add(new CourseAssistant("Dara Moini", "dmoini1@jhu.edu", "dmoini1", "dara"));
+        caDao.add(new CourseAssistant("Kavan Bansal","kbansal1@jhu.edu", "kbansal1", "kavan"));
+        caDao.add(new CourseAssistant("Justin Song","LauFalls69@jhu.edu", "jsong1", "justin"));
     }
 
     private static Javalin startServer() {
