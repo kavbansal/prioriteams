@@ -7,6 +7,7 @@ import exception.DaoException;
 import io.javalin.Javalin;
 import io.javalin.plugin.json.JavalinJson;
 import model.Availability;
+import model.CourseAssistant;
 import model.Event;
 import model.Professor;
 import org.sql2o.Connection;
@@ -25,13 +26,15 @@ public class ApiServer {
         createEventTable(sql2o);
         createProfessorsTable(sql2o);
         createAvailabilityTable(sql2o);
+        createCAsTable(sql2o);
         EventDao eventDao = getEventDao(sql2o);
         ProfessorDao professorDao = getProfessorDao(sql2o);
         AvailabilityDao availDao = getAvailabilityDao(sql2o);
+        CourseAssistantDao caDao = getCADao(sql2o);
         initData(eventDao);
         initData(professorDao);
         initAvails(availDao);
-
+        initCAs(caDao);
         app = startServer();
         app.get("/", ctx -> ctx.result("Welcome to the Lads' App"));
         getEvents(eventDao);
@@ -59,10 +62,9 @@ public class ApiServer {
     }
 
     private static ProfessorDao getProfessorDao(Sql2o sql2o) { return new Sql2oProfessorDao(sql2o); }
-    private static EventDao getEventDao(Sql2o sql2o) {
-        return new Sql2oEventDao(sql2o);
-    }
+    private static EventDao getEventDao(Sql2o sql2o) { return new Sql2oEventDao(sql2o); }
     private static AvailabilityDao getAvailabilityDao(Sql2o sql2o) { return new Sql2oAvailabilityDao(sql2o);}
+    private static CourseAssistantDao getCADao(Sql2o sql2o) { return new Sql2oCADao(sql2o);}
 
     private static void getEvents(EventDao eventDao) {
         app.get("/events", ctx -> {
@@ -142,6 +144,15 @@ public class ApiServer {
         aDao.addAvailability(new Availability(1,3,9,1,1));
     }
 
+    private static void initCAs(CourseAssistantDao caDao) {
+        caDao.add(new CourseAssistant("Irfan Jamil","ijamil1@jhu.edu"));
+        caDao.add(new CourseAssistant("Vishnu Joshi", "vjoshi1@jhu.edu"));
+        caDao.add(new CourseAssistant("Ryan Hubley","rhubley1@jhu.edu"));
+        caDao.add(new CourseAssistant("Dara Moini", "dmoini1@jhu.edu"));
+        caDao.add(new CourseAssistant("Kavan Bansal","kbansal1@jhu.edu"));
+        caDao.add(new CourseAssistant("Justin Song","LauFalls69@jhu.edu"));
+    }
+
     private static Javalin startServer() {
         Gson gson = new Gson();
         JavalinJson.setFromJsonMapper(gson::fromJson);
@@ -190,6 +201,24 @@ public class ApiServer {
         }
     }
 
+    private static void createCAsTable(Sql2o sql2o) {
+        dropCATableIfExists(sql2o);
+        String sql="CREATE TABLE IF NOT EXISTS CourseAssistants(" +
+                "id Integer Primary Key," +
+                "name VARCHAR(100) NOT NULL," +
+                "email VARCHAR(100) NOT NULL" +
+                ");";
+        try (Connection conn = sql2o.open()) {
+            conn.createQuery(sql).executeUpdate();
+        }
+    }
+
+    private static void dropCATableIfExists(Sql2o sql2o) {
+        String sql="Drop TABLE if exists CourseAssistants;";
+        try (Connection conn = sql2o.open()) {
+            conn.createQuery(sql).executeUpdate();
+        }
+    }
     private static void dropEventsTableIfExists(Sql2o sql2o) {
         String sql = "DROP TABLE IF EXISTS Events;";
         try (Connection conn = sql2o.open()) {
