@@ -10,4 +10,5 @@ public interface AvailabilityDao {
     List<Availability> findAvailabilitiesbyEventId(int eventId);
     List<Availability> findAvailabilitiesbyPersonId(int personId);
     List<Availability> findAvailabilitiesbyPersonandEvent(int personId, int eventId);
+    List<Availability> findAllAvails();
 }

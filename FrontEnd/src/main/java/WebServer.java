@@ -1,4 +1,6 @@
+import dao.AvailabilityDao;
 import dao.EventDao;
+import dao.UnireastAvailabilityDao;
 import dao.UnireastEventDao;
 import model.Availability;
 import model.Event;
@@ -15,6 +17,7 @@ public class WebServer {
   public static void main(String[] args) {
 
     EventDao eventDao = new UnireastEventDao();
+    AvailabilityDao aDao = new UnireastAvailabilityDao();
 
     get("/", (req, res) -> {
       return new ModelAndView(null, "create.hbs");
@@ -40,7 +43,8 @@ public class WebServer {
 
     get("/register",((request,response)->{
       Map<String, Object> model = new HashMap<>();
-      model.put("eventList", eventDao.findAllEvents());
+      //model.put("eventList", eventDao.findAllEvents());
+      model.put("AvailList", aDao.findAllAvails());
       return new ModelAndView(model,"register.hbs");
     }),new HandlebarsTemplateEngine());
 
@@ -51,7 +55,7 @@ public class WebServer {
       int et = Integer.parseInt(request.queryParams("et"));
       int dow = Integer.parseInt(request.queryParams("dow"));
       Availability a = new Availability(eId,pId,st,et,dow);
-
+      aDao.addAvailability(a);
       response.redirect("/register");
       return null;
     }), new HandlebarsTemplateEngine());

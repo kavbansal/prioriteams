@@ -58,4 +58,11 @@ public class Sql2oAvailabilityDao implements AvailabilityDao {
         }
     }
 
+    public List<Availability> findAllAvails() {
+        String sql= "Select * from Availabilities";
+        try (Connection conn = sql2o.open()) {
+            return conn.createQuery(sql).executeAndFetch(Availability.class);
+        }
+    }
+
 }

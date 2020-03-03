@@ -9,11 +9,14 @@
 </head>
 <body>
 
+
+
 <ul>
-    {{#each eventList}}
-        <li> {{id}}: {{ eventName }} at {{ location }} for {{ duration }} minutes</li>
+    {{#each AvailList}}
+        <li> {{pId}} can attend {{eId}} from {{st}} to {{et}} on the {{dow}} day of the week.  </li>
     {{/each}}
 </ul>
+
 
 <form action="/register" method="post">
     <p> Enter Event Id<input type="number" placeholder="Event Id" name="eId"> </p>

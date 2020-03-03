@@ -35,6 +35,8 @@ public class ApiServer {
         app.get("/", ctx -> ctx.result("Welcome to the Lads' App"));
         getEvents(eventDao);
         postEvents(eventDao);
+        getAvailabilities(availDao);
+        postAvailabilities(availDao);
         getProfessors(professorDao);
         postProfessors(professorDao);
 
@@ -75,6 +77,16 @@ public class ApiServer {
             ctx.status(200); // everything ok!
         });
     }
+
+    private static void getAvailabilities(AvailabilityDao aDao) {
+        app.get("/availabilities", ctx->{
+            List<Availability> avails = aDao.findAllAvails();
+            ctx.json(avails);
+            ctx.status(200);
+        });
+    }
+
+
     private static void postEvents(EventDao eventDao) {
         // client adds a course through HTTP POST request
         app.post("/events", ctx -> {
@@ -105,9 +117,28 @@ public class ApiServer {
         });
     }
 
+    private static void postAvailabilities(AvailabilityDao aDao) {
+        app.post("/availabilities", ctx->{
+           Availability availability = ctx.bodyAsClass(Availability.class);
+           try {
+               aDao.addAvailability(availability);
+               ctx.status(201);
+               ctx.json(availability);
+           } catch (DaoException ex) {
+               throw new ApiError(ex.getMessage(),500);
+           }
+        });
+    }
+
     private static void initData(EventDao eventDao) {
         eventDao.add(new Event(60, "Oose Staff Meeting", "Malone"));
         eventDao.add(new Event(30, "DS Staff Meeting", "Hackerman"));
+    }
+
+    private static void initAvails(AvailabilityDao aDao) {
+        aDao.addAvailability(new Availability(1,1,9,12,1));
+        aDao.addAvailability(new Availability(1,2,10,11,1));
+        aDao.addAvailability(new Availability(1,3,9,1,1));
     }
 
     private static Javalin startServer() {
