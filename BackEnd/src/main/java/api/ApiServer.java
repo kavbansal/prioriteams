@@ -89,6 +89,29 @@ public class ApiServer {
         });
     }
 
+    private static void getAvailabilitiesByEventId(AvailabilityDao aDao) {
+        app.get("/availabilities/:eventId", ctx->{
+            List<Availability> avails = aDao.findAvailabilitiesbyEventId(Integer.parseInt(ctx.pathParam(("eventId"))));
+            ctx.json(avails);
+            ctx.status(200);
+        });
+    }
+
+    private static void getAvailabilitiesByPersonId(AvailabilityDao aDao) {
+        app.get("/availabilities/:personId", ctx->{
+            List<Availability> avails = aDao.findAvailabilitiesbyEventId(Integer.parseInt(ctx.pathParam(("personId"))));
+            ctx.json(avails);
+            ctx.status(200);
+        });
+    }
+
+    private static void getAvailabilitiesByEventIdandPersonId(AvailabilityDao aDao) {
+        app.get("/availabilities/:eventId/:personId", ctx->{
+            List<Availability> avails = aDao.findAvailabilitiesbyPersonandEvent(Integer.parseInt(ctx.pathParam(("eventId"))), Integer.parseInt(ctx.pathParam(("personId"))));
+            ctx.json(avails);
+            ctx.status(200);
+        });
+    }
 
     private static void postEvents(EventDao eventDao) {
         // client adds a course through HTTP POST request

@@ -31,17 +31,45 @@ public class UnireastAvailabilityDao implements AvailabilityDao {
 
     @Override
     public List<Availability> findAvailabilitiesbyEventId(int eventId) {
+        final String URL = BASE_URL + "availabilities/" + eventId;
+        HttpResponse<JsonNode> jsonResponse = null;
+        try {
+            jsonResponse = Unirest.get(URL).asJson();
+            Availability[] avails = gson.fromJson(jsonResponse.getBody().toString(), Availability[].class);
+            return new ArrayList<>(Arrays.asList(avails));
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public List<Availability> findAvailabilitiesbyPersonId(int personId) {
+        final String URL = BASE_URL + "availabilities/" + personId;
+        HttpResponse<JsonNode> jsonResponse = null;
+        try {
+            jsonResponse = Unirest.get(URL).asJson();
+            Availability[] avails = gson.fromJson(jsonResponse.getBody().toString(), Availability[].class);
+            return new ArrayList<>(Arrays.asList(avails));
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public List<Availability> findAvailabilitiesbyPersonandEvent(int personId, int eventId) {
+        final String URL = BASE_URL + "availabilities/" + eventId + "/" + personId;
+        HttpResponse<JsonNode> jsonResponse = null;
+        try {
+            jsonResponse = Unirest.get(URL).asJson();
+            Availability[] avails = gson.fromJson(jsonResponse.getBody().toString(), Availability[].class);
+            return new ArrayList<>(Arrays.asList(avails));
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
         return null;
+
     }
 
     @Override
