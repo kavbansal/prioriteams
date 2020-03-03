@@ -6,8 +6,8 @@ public class CourseAssistant implements Person {
     private String email;
     private int id;
 
-    public CourseAssistant(String Name, String email) {
-        this.name= Name;
+    public CourseAssistant(String name, String email) {
+        this.name= name;
         this.email=email;
     }
 

@@ -43,7 +43,7 @@ public class WebServer {
 
     get("/register",((request,response)->{
       Map<String, Object> model = new HashMap<>();
-      //model.put("eventList", eventDao.findAllEvents());
+      model.put("eventList", eventDao.findAllEvents());
       model.put("AvailList", aDao.findAllAvails());
       return new ModelAndView(model,"register.hbs");
     }),new HandlebarsTemplateEngine());

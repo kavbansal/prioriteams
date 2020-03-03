@@ -26,15 +26,15 @@ public class ApiServer {
         createEventTable(sql2o);
         createProfessorsTable(sql2o);
         createAvailabilityTable(sql2o);
-        createCAsTable(sql2o);
+       // createCAsTable(sql2o);
         EventDao eventDao = getEventDao(sql2o);
         ProfessorDao professorDao = getProfessorDao(sql2o);
         AvailabilityDao availDao = getAvailabilityDao(sql2o);
-        CourseAssistantDao caDao = getCADao(sql2o);
+        //CourseAssistantDao caDao = getCADao(sql2o);
         initData(eventDao);
         initData(professorDao);
         initAvails(availDao);
-        initCAs(caDao);
+        //initCAs(caDao);
         app = startServer();
         app.get("/", ctx -> ctx.result("Welcome to the Lads' App"));
         getEvents(eventDao);
