@@ -7,7 +7,6 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import exception.DaoException;
 import model.Availability;
-import model.Event;
 
 import java.util.ArrayList;
 import java.util.Arrays;

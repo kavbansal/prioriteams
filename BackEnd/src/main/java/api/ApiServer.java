@@ -26,15 +26,15 @@ public class ApiServer {
         createEventTable(sql2o);
         createProfessorsTable(sql2o);
         createAvailabilityTable(sql2o);
-       // createCAsTable(sql2o);
+       createCAsTable(sql2o);
         EventDao eventDao = getEventDao(sql2o);
         ProfessorDao professorDao = getProfessorDao(sql2o);
         AvailabilityDao availDao = getAvailabilityDao(sql2o);
-        //CourseAssistantDao caDao = getCADao(sql2o);
+        CourseAssistantDao caDao = getCADao(sql2o);
         initData(eventDao);
         initData(professorDao);
         initAvails(availDao);
-        //initCAs(caDao);
+        initCAs(caDao);
         app = startServer();
         app.get("/", ctx -> ctx.result("Welcome to the Lads' App"));
         getEvents(eventDao);
@@ -80,6 +80,15 @@ public class ApiServer {
             ctx.status(200); // everything ok!
         });
     }
+
+    private static void getCA(CourseAssistantDao caDao) {
+        app.get("/CourseAssistants/:username/:password", ctx-> {
+            List<CourseAssistant> CAs = caDao.findCA(ctx.pathParam("username"),ctx.pathParam("password"));
+            ctx.json(CAs);
+            ctx.status(200);
+        });
+    }
+
 
     private static void getAvailabilities(AvailabilityDao aDao) {
         app.get("/availabilities", ctx->{
@@ -228,8 +237,8 @@ public class ApiServer {
         dropCATableIfExists(sql2o);
         String sql="CREATE TABLE IF NOT EXISTS CourseAssistants(" +
                 "id Integer Primary Key," +
-                "name VARCHAR(100) NOT NULL," +
-                "email VARCHAR(100) NOT NULL" +
+                "name VARCHAR(100)," +
+                "email VARCHAR(100)" +
                 ");";
         try (Connection conn = sql2o.open()) {
             conn.createQuery(sql).executeUpdate();

@@ -5,10 +5,8 @@ import model.CourseAssistant;
 
 import java.util.List;
 
-public interface CourseAssistantDao {
-
+public interface CADao {
     void add(CourseAssistant ca) throws DaoException;
-    List<CourseAssistant> findAllCAs();
+
     List<CourseAssistant> findCA(String username, String password);
 }
-
