@@ -15,6 +15,8 @@ public class Event {
         this.location = l;
     }
 
+
+
     public int getDuration() {
         return this.duration;
     }

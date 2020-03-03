@@ -1,14 +1,12 @@
 package api;
 
 import com.google.gson.Gson;
-import dao.EventDao;
-import dao.ProfessorDao;
-import dao.Sql2oEventDao;
-import dao.Sql2oProfessorDao;
+import dao.*;
 import exception.ApiError;
 import exception.DaoException;
 import io.javalin.Javalin;
 import io.javalin.plugin.json.JavalinJson;
+import model.Availability;
 import model.Event;
 import model.Professor;
 import org.sql2o.Connection;
@@ -29,6 +27,7 @@ public class ApiServer {
         createAvailabilityTable(sql2o);
         EventDao eventDao = getEventDao(sql2o);
         ProfessorDao professorDao = getProfessorDao(sql2o);
+        AvailabilityDao availDao = getAvailabilityDao(sql2o);
         initData(eventDao);
         initData(professorDao);
 
@@ -60,6 +59,7 @@ public class ApiServer {
     private static EventDao getEventDao(Sql2o sql2o) {
         return new Sql2oEventDao(sql2o);
     }
+    private static AvailabilityDao getAvailabilityDao(Sql2o sql2o) { return new Sql2oAvailabilityDao(sql2o);}
 
     private static void getEvents(EventDao eventDao) {
         app.get("/events", ctx -> {
@@ -119,7 +119,7 @@ public class ApiServer {
     }
 
     private static void createEventTable(Sql2o sql2o) {
-        dropEventsTableIfExists(sql2o);
+        //dropEventsTableIfExists(sql2o);
         String sql = "CREATE TABLE IF NOT EXISTS Events(" +
                 "id INTEGER PRIMARY KEY," +
                 "duration INTEGER," +
@@ -132,7 +132,7 @@ public class ApiServer {
     }
 
     private static void createProfessorsTable(Sql2o sql2o) {
-        dropPersonsTableIfExists(sql2o);
+       // dropPersonsTableIfExists(sql2o);
         String sql = "CREATE TABLE IF NOT EXISTS Professors(" +
                 "id INTEGER PRIMARY KEY," +
                 "name VARCHAR(100) NOT NULL," +
@@ -147,9 +147,9 @@ public class ApiServer {
         String sql= "CREATE TABLE IF NOT EXISTS Availabilities(" +
                 "id INTEGER PRIMARY KEY," +
                 "eventId Integer NOT NULL," +
-                "personId Integer NOT NULL" +
-                "startTime Integer NOT NULL" +
-                "endTime Integer NOT NULL" +
+                "personId Integer NOT NULL," +
+                "startTime Integer NOT NULL," +
+                "endTime Integer NOT NULL," +
                 "dayOfweek Integer NOT NULL" +
                 ");";
         try (Connection conn = sql2o.open()) {

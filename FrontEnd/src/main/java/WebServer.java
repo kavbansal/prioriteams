@@ -1,5 +1,6 @@
 import dao.EventDao;
 import dao.UnireastEventDao;
+import model.Availability;
 import model.Event;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -36,5 +37,23 @@ public class WebServer {
       model.put("eventList", eventDao.findAllEvents());
       return new ModelAndView(model, "events.hbs");
     }),  new HandlebarsTemplateEngine());
+
+    get("/register",((request,response)->{
+      Map<String, Object> model = new HashMap<>();
+      model.put("eventList", eventDao.findAllEvents());
+      return new ModelAndView(model,"register.hbs");
+    }),new HandlebarsTemplateEngine());
+
+    post("/register", ((request,response)->{
+      int eId=Integer.parseInt(request.queryParams("eId"));
+      int pId=1; //default
+      int st=Integer.parseInt(request.queryParams("st"));
+      int et = Integer.parseInt(request.queryParams("et"));
+      int dow = Integer.parseInt(request.queryParams("dow"));
+      Availability a = new Availability(eId,pId,st,et,dow);
+
+      response.redirect("/register");
+      return null;
+    }), new HandlebarsTemplateEngine());
   }
 }
