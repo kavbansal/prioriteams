@@ -19,7 +19,7 @@ public class Sql2oAvailabilityDao implements AvailabilityDao {
     @Override
     public void addAvailability(Availability a) throws DaoException {
         try (Connection conn = sql2o.open()) {
-            String sql = "INSERT INTO Availabilities(eventId,personId,startTime,endTime,dayOfweek) VALUES(:eventId, :personId, :startTime, :endTime, :dayOfweek);";
+            String sql = "INSERT INTO Availabilities(eventId,personId,startTime,endTime,dow) VALUES(:eventId, :personId, :startTime, :endTime, :dow);";
             int id = (int) conn.createQuery(sql)
                     .bind(a)
                     .executeUpdate()

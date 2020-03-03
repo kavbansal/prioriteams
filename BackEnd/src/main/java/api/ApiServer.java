@@ -30,6 +30,7 @@ public class ApiServer {
         AvailabilityDao availDao = getAvailabilityDao(sql2o);
         initData(eventDao);
         initData(professorDao);
+        initAvails(availDao);
 
         app = startServer();
         app.get("/", ctx -> ctx.result("Welcome to the Lads' App"));
@@ -150,7 +151,7 @@ public class ApiServer {
     }
 
     private static void createEventTable(Sql2o sql2o) {
-        //dropEventsTableIfExists(sql2o);
+        dropEventsTableIfExists(sql2o);
         String sql = "CREATE TABLE IF NOT EXISTS Events(" +
                 "id INTEGER PRIMARY KEY," +
                 "duration INTEGER," +
@@ -163,7 +164,7 @@ public class ApiServer {
     }
 
     private static void createProfessorsTable(Sql2o sql2o) {
-       // dropPersonsTableIfExists(sql2o);
+        dropPersonsTableIfExists(sql2o);
         String sql = "CREATE TABLE IF NOT EXISTS Professors(" +
                 "id INTEGER PRIMARY KEY," +
                 "name VARCHAR(100) NOT NULL," +
@@ -175,13 +176,14 @@ public class ApiServer {
     }
 
     private static void createAvailabilityTable(Sql2o sql2o) {
+        dropAvailsTableIfExists(sql2o);
         String sql= "CREATE TABLE IF NOT EXISTS Availabilities(" +
                 "id INTEGER PRIMARY KEY," +
                 "eventId Integer NOT NULL," +
                 "personId Integer NOT NULL," +
                 "startTime Integer NOT NULL," +
                 "endTime Integer NOT NULL," +
-                "dayOfweek Integer NOT NULL" +
+                "dow Integer NOT NULL" +
                 ");";
         try (Connection conn = sql2o.open()) {
             conn.createQuery(sql).executeUpdate();
@@ -197,6 +199,13 @@ public class ApiServer {
 
     private static void dropPersonsTableIfExists(Sql2o sql2o) {
         String sql = "DROP TABLE IF EXISTS Professors;";
+        try (Connection conn = sql2o.open()) {
+            conn.createQuery(sql).executeUpdate();
+        }
+    }
+
+    private static void dropAvailsTableIfExists(Sql2o sql2o) {
+        String sql="Drop Table If Exists Availabilities;";
         try (Connection conn = sql2o.open()) {
             conn.createQuery(sql).executeUpdate();
         }

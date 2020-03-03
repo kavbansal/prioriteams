@@ -12,19 +12,12 @@
       <change beforePath="$PROJECT_DIR$/Store.db" beforeDir="false" afterPath="$PROJECT_DIR$/Store.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/api/ApiServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/api/ApiServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/AvailabilityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/AvailabilityDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/Sql2oAvailabilityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/Sql2oAvailabilityDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/WebServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/WebServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/WebServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/WebServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/AvailabilityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/AvailabilityDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastAvailabilityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastAvailabilityDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/register.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/register.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +104,8 @@
       <workItem from="1583072960589" duration="3493000" />
       <workItem from="1583086661963" duration="1809000" />
       <workItem from="1583089058797" duration="16000" />
-      <workItem from="1583206310946" duration="3985000" />
+      <workItem from="1583206310946" duration="4152000" />
+      <workItem from="1583246163930" duration="1290000" />
     </task>
     <task id="LOCAL-00001" summary="adding functionality">
       <created>1583208566414</created>
@@ -120,7 +114,21 @@
       <option name="project" value="LOCAL" />
       <updated>1583208566414</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="adding functionality">
+      <created>1583210462791</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1583210462791</updated>
+    </task>
+    <task id="LOCAL-00003" summary="adding functionality">
+      <created>1583210479306</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1583210479306</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,29 +151,29 @@
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state x="560" y="324" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1440.826@0.23.1440.826" timestamp="1583071267604" />
-    <state x="292" y="23" key="CommitChangelistDialog2" timestamp="1583210471488">
+    <state x="292" y="23" key="CommitChangelistDialog2" timestamp="1583210479104">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
-    <state x="292" y="23" key="CommitChangelistDialog2/0.23.1440.826@0.23.1440.826" timestamp="1583210471488" />
-    <state width="1358" height="199" key="GridCell.Tab.0.bottom" timestamp="1583210423851">
+    <state x="292" y="23" key="CommitChangelistDialog2/0.23.1440.826@0.23.1440.826" timestamp="1583210479104" />
+    <state width="1358" height="199" key="GridCell.Tab.0.bottom" timestamp="1583247366869">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
-    <state width="1358" height="199" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1583210423851" />
+    <state width="1358" height="199" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1583247366869" />
     <state width="1084" height="181" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1582774994406" />
-    <state width="1358" height="199" key="GridCell.Tab.0.center" timestamp="1583210423850">
+    <state width="1358" height="199" key="GridCell.Tab.0.center" timestamp="1583247366869">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
-    <state width="1358" height="199" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1583210423850" />
+    <state width="1358" height="199" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1583247366869" />
     <state width="1084" height="181" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1582774994406" />
-    <state width="1358" height="199" key="GridCell.Tab.0.left" timestamp="1583210423850">
+    <state width="1358" height="199" key="GridCell.Tab.0.left" timestamp="1583247366868">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
-    <state width="1358" height="199" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1583210423850" />
+    <state width="1358" height="199" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1583247366868" />
     <state width="1084" height="181" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1582774994406" />
-    <state width="1358" height="199" key="GridCell.Tab.0.right" timestamp="1583210423851">
+    <state width="1358" height="199" key="GridCell.Tab.0.right" timestamp="1583247366869">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
-    <state width="1358" height="199" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1583210423851" />
+    <state width="1358" height="199" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1583247366869" />
     <state width="1084" height="181" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1582774994406" />
     <state x="326" y="157" key="Vcs.Push.Dialog.v2" timestamp="1583081500434">
       <screen x="0" y="23" width="1440" height="826" />
@@ -175,10 +183,10 @@
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state x="382" y="250" key="com.intellij.ide.util.TipDialog/0.23.1440.826@0.23.1440.826" timestamp="1583089072374" />
-    <state x="515" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583208527716">
+    <state x="515" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583247458293">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
-    <state x="515" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.826@0.23.1440.826" timestamp="1583208527716" />
+    <state x="515" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.826@0.23.1440.826" timestamp="1583247458293" />
     <state x="391" y="173" width="670" height="676" key="search.everywhere.popup" timestamp="1583209145098">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
