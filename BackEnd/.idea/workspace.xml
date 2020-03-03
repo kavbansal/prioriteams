@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/CourseAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CourseAssistant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/WebServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/WebServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/register.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/register.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +128,7 @@
       <workItem from="1583206310946" duration="4152000" />
       <workItem from="1583246163930" duration="2934000" />
       <workItem from="1583249426471" duration="85000" />
-      <workItem from="1583259580405" duration="651000" />
+      <workItem from="1583259580405" duration="1372000" />
     </task>
     <task id="LOCAL-00001" summary="adding functionality">
       <created>1583208566414</created>
@@ -211,10 +212,10 @@
     </state>
     <state width="1358" height="199" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1583260457189" />
     <state width="1084" height="181" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1582774994406" />
-    <state x="326" y="157" key="Vcs.Push.Dialog.v2" timestamp="1583249500420">
+    <state x="326" y="157" key="Vcs.Push.Dialog.v2" timestamp="1583260948409">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
-    <state x="326" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.826@0.23.1440.826" timestamp="1583249500420" />
+    <state x="326" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.826@0.23.1440.826" timestamp="1583260948409" />
     <state x="382" y="250" key="com.intellij.ide.util.TipDialog" timestamp="1583249428999">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
