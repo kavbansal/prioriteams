@@ -3,14 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1dc813c4-0799-4417-8a71-45e9a7eb248f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-=======
       <change beforePath="$PROJECT_DIR$/Store.db" beforeDir="false" afterPath="$PROJECT_DIR$/Store.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/Sql2oCADao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/Sql2oCADao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/CourseAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CourseAssistant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastCADao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastCADao.java" afterDir="false" />
->>>>>>> 2e0383f39e6801fb34e821be71fe0e186f52e8dd
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
