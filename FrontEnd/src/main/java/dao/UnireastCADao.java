@@ -6,7 +6,6 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import exception.DaoException;
-import model.Availability;
 import model.CourseAssistant;
 
 import java.util.ArrayList;
@@ -31,7 +30,7 @@ public class UnireastCADao implements CADao {
 
     @Override
     public List<CourseAssistant> findCA(String username, String password) {
-        final String URL = BASE_URL + "CourseAssistants/:username/:password";
+        final String URL = BASE_URL + "CourseAssistants/"+ username +"/"+password;
         HttpResponse<JsonNode> jsonResponse = null;
         try {
             jsonResponse = Unirest.get(URL).asJson();

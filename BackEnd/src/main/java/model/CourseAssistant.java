@@ -8,11 +8,11 @@ public class CourseAssistant implements Person {
     private String password;
     private int id;
 
-    public CourseAssistant(String name, String email, String uname, String pwd) {
+    public CourseAssistant(String name, String email, String username, String password) {
         this.name= name;
         this.email=email;
-        this.username=uname;
-        this.password=pwd;
+        this.username=username;
+        this.password=password;
     }
 
     @Override

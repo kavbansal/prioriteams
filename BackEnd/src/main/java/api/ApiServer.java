@@ -26,7 +26,7 @@ public class ApiServer {
         createEventTable(sql2o);
         createProfessorsTable(sql2o);
         createAvailabilityTable(sql2o);
-       createCAsTable(sql2o);
+        createCAsTable(sql2o);
         EventDao eventDao = getEventDao(sql2o);
         ProfessorDao professorDao = getProfessorDao(sql2o);
         AvailabilityDao availDao = getAvailabilityDao(sql2o);
@@ -40,6 +40,7 @@ public class ApiServer {
         getEvents(eventDao);
         postEvents(eventDao);
         getAvailabilities(availDao);
+        //getCA(caDao);
         postAvailabilities(availDao);
         getProfessors(professorDao);
         postProfessors(professorDao);
@@ -177,12 +178,16 @@ public class ApiServer {
     }
 
     private static void initCAs(CourseAssistantDao caDao) {
+        caDao.add(new CourseAssistant("Irfan","ijamil1@jhu.edu","ij","ij"));
+        /*
         caDao.add(new CourseAssistant("Irfan Jamil","ijamil1@jhu.edu", "ijamil1", "irfan"));
         caDao.add(new CourseAssistant("Vishnu Joshi", "vjoshi1@jhu.edu", "vjoshi6", "vishnu"));
         caDao.add(new CourseAssistant("Ryan Hubley","rhubley1@jhu.edu", "rhubley1", "ryan"));
         caDao.add(new CourseAssistant("Dara Moini", "dmoini1@jhu.edu", "dmoini1", "dara"));
         caDao.add(new CourseAssistant("Kavan Bansal","kbansal1@jhu.edu", "kbansal1", "kavan"));
         caDao.add(new CourseAssistant("Justin Song","LauFalls69@jhu.edu", "jsong1", "justin"));
+        */
+
     }
 
     private static Javalin startServer() {
@@ -238,7 +243,9 @@ public class ApiServer {
         String sql="CREATE TABLE IF NOT EXISTS CourseAssistants(" +
                 "id Integer Primary Key," +
                 "name VARCHAR(100)," +
-                "email VARCHAR(100)" +
+                "email VARCHAR(100)," +
+                "username VARCHAR(100)," +
+                "password VARCHAR(100)"+
                 ");";
         try (Connection conn = sql2o.open()) {
             conn.createQuery(sql).executeUpdate();

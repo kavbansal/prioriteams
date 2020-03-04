@@ -2,13 +2,10 @@ package dao;
 
 import exception.DaoException;
 import model.CourseAssistant;
-import model.Professor;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
-
 import java.util.List;
-import java.util.zip.CheckedOutputStream;
 
 public class Sql2oCADao implements CourseAssistantDao {
 
@@ -21,7 +18,7 @@ public class Sql2oCADao implements CourseAssistantDao {
     @Override
     public void add(CourseAssistant ca) throws DaoException {
         try (Connection conn = sql2o.open()) {
-            String sql = "INSERT INTO CourseAssistants(name, email) VALUES(:name, :email);";
+            String sql = "INSERT INTO CourseAssistants(name, email, username, password) VALUES(:name, :email,:username, :password);";
             int id = (int) conn.createQuery(sql)
                     .bind(ca)
                     .executeUpdate()
