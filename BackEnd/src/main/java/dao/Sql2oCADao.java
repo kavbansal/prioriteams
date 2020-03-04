@@ -2,11 +2,9 @@ package dao;
 
 import exception.DaoException;
 import model.CourseAssistant;
-import model.Professor;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
-
 import java.util.List;
 
 public class Sql2oCADao implements CourseAssistantDao {
@@ -20,7 +18,7 @@ public class Sql2oCADao implements CourseAssistantDao {
     @Override
     public void add(CourseAssistant ca) throws DaoException {
         try (Connection conn = sql2o.open()) {
-            String sql = "INSERT INTO CourseAssistants(name, email) VALUES(:name, :email);";
+            String sql = "INSERT INTO CourseAssistants(name, email, username, password) VALUES(:name, :email,:username, :password);";
             int id = (int) conn.createQuery(sql)
                     .bind(ca)
                     .executeUpdate()
@@ -37,6 +35,13 @@ public class Sql2oCADao implements CourseAssistantDao {
         try (Connection conn = sql2o.open()) {
             return conn.createQuery(sql)
                     .executeAndFetch(CourseAssistant.class);
+        }
+    }
+
+    public List<CourseAssistant> findCA(String username, String password) {
+        String sql="Select * FROM CourseAssistants where CourseAssistants.username=:username AND CourseAssistants.password=:password";
+        try (Connection conn = sql2o.open()) {
+            return  conn.createQuery(sql).executeAndFetch(CourseAssistant.class);
         }
     }
 }
