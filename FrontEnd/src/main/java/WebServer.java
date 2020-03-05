@@ -25,10 +25,9 @@ public class WebServer {
     }, new HandlebarsTemplateEngine());
 
     post("/", (req,res)-> {
-
       String username = req.queryParams("username");
-      String pw=req.queryParams("pwd");
-      List<CourseAssistant> CAs = caDao.findCA(username,pw);
+      String password=req.queryParams("password");
+      List<CourseAssistant> CAs = caDao.findCA(username,password);
       if (CAs.size()==0) {
         res.redirect("/");
       }

@@ -17,32 +17,32 @@ public class CourseAssistant implements Person {
 
     @Override
     public int getId() {
-        return 0;
+        return this.id;
     }
 
     @Override
     public void setId(int id) {
-
+        this.id=id;
     }
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 
     @Override
     public void setName(String name) {
-
+        this.name=name;
     }
 
     @Override
     public String getEmail() {
-        return null;
+        return this.email;
     }
 
     @Override
     public void setEmail(String email) {
-
+        this.email=email;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class CourseAssistant implements Person {
     }
 
     @Override
-    public String getPwd() {
+    public String getPassword() {
         return this.password;
     }
 

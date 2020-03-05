@@ -40,7 +40,7 @@ public class ApiServer {
         getEvents(eventDao);
         postEvents(eventDao);
         getAvailabilities(availDao);
-        //getCA(caDao);
+        getCA(caDao);
         postAvailabilities(availDao);
         getProfessors(professorDao);
         postProfessors(professorDao);
@@ -83,8 +83,11 @@ public class ApiServer {
     }
 
     private static void getCA(CourseAssistantDao caDao) {
-        app.get("/CourseAssistants/:username/:password", ctx-> {
-            List<CourseAssistant> CAs = caDao.findCA(ctx.pathParam("username"),ctx.pathParam("password"));
+        app.get("/CourseAssistants/:namePW", ctx-> {
+            String namePW = ctx.pathParam("namePW");
+            String username=namePW.substring(0,namePW.indexOf(':'));
+            String password=namePW.substring(namePW.indexOf(':'));
+            List<CourseAssistant> CAs = caDao.findCA(username,password);
             ctx.json(CAs);
             ctx.status(200);
         });
@@ -177,18 +180,7 @@ public class ApiServer {
         aDao.addAvailability(new Availability(1,3,9,1,1));
     }
 
-    private static void initCAs(CourseAssistantDao caDao) {
-        caDao.add(new CourseAssistant("Irfan","ijamil1@jhu.edu","ij","ij"));
-        /*
-        caDao.add(new CourseAssistant("Irfan Jamil","ijamil1@jhu.edu", "ijamil1", "irfan"));
-        caDao.add(new CourseAssistant("Vishnu Joshi", "vjoshi1@jhu.edu", "vjoshi6", "vishnu"));
-        caDao.add(new CourseAssistant("Ryan Hubley","rhubley1@jhu.edu", "rhubley1", "ryan"));
-        caDao.add(new CourseAssistant("Dara Moini", "dmoini1@jhu.edu", "dmoini1", "dara"));
-        caDao.add(new CourseAssistant("Kavan Bansal","kbansal1@jhu.edu", "kbansal1", "kavan"));
-        caDao.add(new CourseAssistant("Justin Song","LauFalls69@jhu.edu", "jsong1", "justin"));
-        */
 
-    }
 
     private static Javalin startServer() {
         Gson gson = new Gson();
@@ -289,5 +281,13 @@ public class ApiServer {
     private static void initData(ProfessorDao pdao) {
         pdao.add(new Professor("Sarah More", "smore1@jhu.edu"));
         pdao.add(new Professor("Michael Dinitz", "mdinitz1@jhu.edu"));
+    }
+    private static void initCAs(CourseAssistantDao caDao) {
+        caDao.add(new CourseAssistant("Irfan Jamil","ijamil1@jhu.edu", "ijamil1", "irfan"));
+        caDao.add(new CourseAssistant("Vishnu Joshi", "vjoshi1@jhu.edu", "vjoshi6", "vishnu"));
+        caDao.add(new CourseAssistant("Ryan Hubley","rhubley1@jhu.edu", "rhubley1", "ryan"));
+        caDao.add(new CourseAssistant("Dara Moini", "dmoini1@jhu.edu", "dmoini1", "dara"));
+        caDao.add(new CourseAssistant("Kavan Bansal","kbansal1@jhu.edu", "kbansal1", "kavan"));
+        caDao.add(new CourseAssistant("Justin Song","LauFalls69@jhu.edu", "jsong1", "justin"));
     }
 }

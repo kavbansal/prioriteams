@@ -9,7 +9,7 @@ public interface Person {
     String getEmail();
     void setEmail(String email);
     String getUsername();
-    String getPwd();
+    String getPassword();
     void setUsername(String username);
     void setPwd(String pwd);
 }

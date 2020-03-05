@@ -18,7 +18,7 @@ public class Sql2oCADao implements CourseAssistantDao {
     @Override
     public void add(CourseAssistant ca) throws DaoException {
         try (Connection conn = sql2o.open()) {
-            String sql = "INSERT INTO CourseAssistants(name, email, username, password) VALUES(:name, :email,:username, :password);";
+            String sql = "INSERT INTO CourseAssistants(name, email, username, password) VALUES(:name, :email, :username, :password);";
             int id = (int) conn.createQuery(sql)
                     .bind(ca)
                     .executeUpdate()
