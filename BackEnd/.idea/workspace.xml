@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1dc813c4-0799-4417-8a71-45e9a7eb248f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Store.db" beforeDir="false" afterPath="$PROJECT_DIR$/Store.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/api/ApiServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/api/ApiServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/dao/Sql2oCADao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/dao/Sql2oCADao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/CourseAssistant.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/CourseAssistant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/Sql2oCADao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/Sql2oCADao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/CourseAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CourseAssistant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/WebServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/WebServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastCADao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastCADao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/signin.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/signin.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/signin.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/signin.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +136,7 @@
       <workItem from="1583259580405" duration="1372000" />
       <workItem from="1583334097750" duration="2564000" />
       <workItem from="1583336698868" duration="80000" />
-      <workItem from="1583380075532" duration="2927000" />
+      <workItem from="1583380075532" duration="3412000" />
     </task>
     <task id="LOCAL-00001" summary="adding functionality">
       <created>1583208566414</created>
@@ -204,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583336763810</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fixed bug in sign in page">
+      <created>1583383431044</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1583383431045</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +203,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adding functionality" />
     <MESSAGE value="sign-in page" />
-    <option name="LAST_COMMIT_MESSAGE" value="sign-in page" />
+    <MESSAGE value="fixed bug in sign in page" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug in sign in page" />
   </component>
   <component name="WindowStateProjectService">
     <state x="464" y="190" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1583080843794">
@@ -229,11 +220,11 @@
     </state>
     <state x="560" y="324" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1440.826@0.23.1440.826" timestamp="1583263915306" />
     <state x="653" y="371" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1680.955@0.23.1680.955" timestamp="1583261150197" />
-    <state x="292" y="23" key="CommitChangelistDialog2" timestamp="1583336763664">
+    <state x="292" y="23" key="CommitChangelistDialog2" timestamp="1583383726284">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state x="292" y="23" key="CommitChangelistDialog2/0.23.1440.826@0.23.1440.826" timestamp="1583265531144" />
-    <state x="292" y="23" key="CommitChangelistDialog2/0.23.1440.827@0.23.1440.827" timestamp="1583336763664" />
+    <state x="292" y="23" key="CommitChangelistDialog2/0.23.1440.827@0.23.1440.827" timestamp="1583383726284" />
     <state width="1358" height="249" key="GridCell.Tab.0.bottom" timestamp="1583383412877">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
@@ -274,21 +265,21 @@
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state width="1358" height="249" key="GridCell.Tab.1.right/0.23.1440.827@0.23.1440.827" timestamp="1583383412878" />
-    <state x="326" y="157" key="Vcs.Push.Dialog.v2" timestamp="1583336771099">
+    <state x="326" y="157" key="Vcs.Push.Dialog.v2" timestamp="1583383704089">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state x="326" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.826@0.23.1440.826" timestamp="1583265537133" />
-    <state x="326" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.827@0.23.1440.827" timestamp="1583336771099" />
+    <state x="326" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.827@0.23.1440.827" timestamp="1583383704089" />
     <state x="382" y="250" key="com.intellij.ide.util.TipDialog" timestamp="1583380083793">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state x="382" y="250" key="com.intellij.ide.util.TipDialog/0.23.1440.826@0.23.1440.826" timestamp="1583334104666" />
     <state x="382" y="250" key="com.intellij.ide.util.TipDialog/0.23.1440.827@0.23.1440.827" timestamp="1583380083793" />
-    <state x="515" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583336755980">
+    <state x="515" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583383732049">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state x="515" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.826@0.23.1440.826" timestamp="1583334138536" />
-    <state x="515" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.827@0.23.1440.827" timestamp="1583336755980" />
+    <state x="515" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.827@0.23.1440.827" timestamp="1583383732049" />
     <state x="391" y="173" width="670" height="676" key="search.everywhere.popup" timestamp="1583265107832">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
