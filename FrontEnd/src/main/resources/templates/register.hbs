@@ -1,19 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register for Events</title>
-</head>
-<body>
-
-<ul>
+{{#partial "content"}}
+    <h1>Register for Event</h1>
+    <ul>
     {{#each eventList}}
         <li> {{ eventName }} at {{location}} for {{duration}} minutes  </li>
     {{/each}}
-</ul>
+    </ul>
 
 
 
@@ -25,14 +16,13 @@
 
 
 <form action="/register" method="post">
-    <p> Enter Event Id<input type="number" placeholder="Event Id" name="eId"> </p>
+    <p> Enter Event ID <input type="number" placeholder="Event ID" name="eId"> </p>
     <p> Enter Start time <input type="number" placeholder="Start Time" name="st"> </p>
     <p> Enter End Time <input type="number" placeholder="End Time" name="et"> </p>
     <p> Enter Day of the Week this applies to <input type="number" placeholder="Day" name="dow" </p>
     <button>Submit</button>
 </form>
 
-<p><a href="/">Go back to create page.</a></p>
-
-</body>
-</html>
+    <p><a href="/">Go back to home page.</a></p>
+{{/partial}}
+{{> base.hbs }}

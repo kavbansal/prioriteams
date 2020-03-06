@@ -9,8 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static spark.Spark.get;
-import static spark.Spark.post;
+import static spark.Spark.*;
 
 public class WebServer {
   public static void main(String[] args) {
@@ -18,7 +17,7 @@ public class WebServer {
     EventDao eventDao = new UnireastEventDao();
     AvailabilityDao aDao = new UnireastAvailabilityDao();
     PersonDao personDao = new UnireastPersonDao();
-
+    staticFiles.location("/public");
     get("/", (req, res) -> {
       return new ModelAndView(null, "index.hbs");
     }, new HandlebarsTemplateEngine());
