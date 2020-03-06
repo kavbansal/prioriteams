@@ -1,11 +1,11 @@
 import dao.*;
 import model.Availability;
 import model.CourseAssistant;
-import model.Event;
+import model.Person;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
-import java.util.ArrayList;
+import java.time.Period;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +18,7 @@ public class WebServer {
 
     EventDao eventDao = new UnireastEventDao();
     AvailabilityDao aDao = new UnireastAvailabilityDao();
-    CADao caDao = new UnireastCADao();
+    PersonDao personDao = new UnireastPersonDao();
 
     get("/", (req, res) -> {
       return new ModelAndView(null, "signin.hbs");
@@ -27,8 +27,8 @@ public class WebServer {
     post("/", (req,res)-> {
       String username = req.queryParams("username");
       String password=req.queryParams("password");
-      List<CourseAssistant> CAs = caDao.findCA(username,password);
-      if (CAs.size()== 0) {
+      List<Person> person = personDao.findPerson(username,password);
+      if (person.size()== 0) {
         res.redirect("/");
       }
       else {

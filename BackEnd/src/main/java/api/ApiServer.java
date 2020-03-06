@@ -6,10 +6,7 @@ import exception.ApiError;
 import exception.DaoException;
 import io.javalin.Javalin;
 import io.javalin.plugin.json.JavalinJson;
-import model.Availability;
-import model.CourseAssistant;
-import model.Event;
-import model.Professor;
+import model.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
@@ -24,27 +21,24 @@ public class ApiServer {
     public static void main(String[] args) {
         Sql2o sql2o = getSql2o();
         createEventTable(sql2o);
-        createProfessorsTable(sql2o);
         createAvailabilityTable(sql2o);
-        createCAsTable(sql2o);
+        createPeopleTable(sql2o);
         EventDao eventDao = getEventDao(sql2o);
-        ProfessorDao professorDao = getProfessorDao(sql2o);
         AvailabilityDao availDao = getAvailabilityDao(sql2o);
-        CourseAssistantDao caDao = getCADao(sql2o);
+        PersonDao personDao = getPersonDao(sql2o);
         initData(eventDao);
-        initData(professorDao);
         initAvails(availDao);
-        initCAs(caDao);
+        initPeople(personDao);
         app = startServer();
         app.get("/", ctx -> ctx.result("Welcome to the Lads' App"));
         getEvents(eventDao);
         postEvents(eventDao);
         getAvailabilities(availDao);
-        getAllCourseAssistants(caDao);
-        getCA(caDao);
+        getAllPeople(personDao);
+        getProfessors(personDao);
+        getPerson(personDao);
+        //getCA(caDao);
         postAvailabilities(availDao);
-        getProfessors(professorDao);
-        postProfessors(professorDao);
 
 
         app.exception(ApiError.class, (exception, ctx) -> {
@@ -63,10 +57,9 @@ public class ApiServer {
         });
     }
 
-    private static ProfessorDao getProfessorDao(Sql2o sql2o) { return new Sql2oProfessorDao(sql2o); }
     private static EventDao getEventDao(Sql2o sql2o) { return new Sql2oEventDao(sql2o); }
     private static AvailabilityDao getAvailabilityDao(Sql2o sql2o) { return new Sql2oAvailabilityDao(sql2o);}
-    private static CourseAssistantDao getCADao(Sql2o sql2o) { return new Sql2oCADao(sql2o);}
+    private static PersonDao getPersonDao(Sql2o sql2o) { return new Sql2oPersonDao(sql2o);}
 
     private static void getEvents(EventDao eventDao) {
         app.get("/events", ctx -> {
@@ -76,39 +69,39 @@ public class ApiServer {
         });
     }
 
-    private static void getAllCourseAssistants(CourseAssistantDao caDao) {
-        app.get("/CourseAssistants",ctx->{
-            List<CourseAssistant> CAs= caDao.findAllCAs();
-            ctx.json(CAs);
+    private static void getAllPeople(PersonDao personDao) {
+        app.get("/People",ctx->{
+            List<Person> persons= personDao.findAllPeople();
+            ctx.json(persons);
             ctx.status(200);
         });
     }
 
 
 
-    private static void getProfessors(ProfessorDao pdao) {
+    private static void getProfessors(PersonDao pdao) {
         app.get("/professors", ctx -> {
-            List<Professor> professors = pdao.findAllProfessors();
+            List<Person> professors = pdao.findAllProfessors();
             ctx.json(professors);
             ctx.status(200); // everything ok!
         });
     }
 
-    private static void getCA(CourseAssistantDao caDao) {
-        app.get("/CourseAssistants/:username/:password", ctx-> {
+    private static void getPerson(PersonDao pDao) {
+        app.get("/Person/:username/:password", ctx-> {
             String username = ctx.pathParam("username");
             String password=ctx.pathParam("password");
-            List<CourseAssistant> CAs = caDao.findCA(username,password);
-            ctx.json(CAs);
+            List<Person> person = pDao.findPerson(username,password);
+            ctx.json(person);
             ctx.status(200);
         });
     }
 
-    private static void getCAbyUsername(CourseAssistantDao caDao) {
-        app.get("/CourseAssistants/:username",ctx->{
+    private static void getPersonbyUsername(PersonDao pDao) {
+        app.get("/Person/:username",ctx->{
            String username=ctx.pathParam("username");
-           List<CourseAssistant> CA = caDao.findCAbyName(username);
-           ctx.json(CA);
+           List<Person> person = pDao.findPersonbyUsername(username);
+           ctx.json(person);
            ctx.status(200);
         });
     }
@@ -160,16 +153,14 @@ public class ApiServer {
         });
     }
 
-
-
-    private static void postProfessors(ProfessorDao pdao) {
+    private static void postPeople(PersonDao pdao) {
         // client adds a course through HTTP POST request
-        app.post("/professors", ctx -> {
-            Professor professor = ctx.bodyAsClass(Professor.class);
+        app.post("/People", ctx -> {
+            Person person = ctx.bodyAsClass(Person.class);
             try {
-                pdao.add(professor);
+                pdao.add(person);
                 ctx.status(201); // created successfully
-                ctx.json(professor);
+                ctx.json(person);
             } catch (DaoException ex) {
                 throw new ApiError(ex.getMessage(), 500); // server internal error
             }
@@ -223,17 +214,6 @@ public class ApiServer {
         }
     }
 
-    private static void createProfessorsTable(Sql2o sql2o) {
-        dropPersonsTableIfExists(sql2o);
-        String sql = "CREATE TABLE IF NOT EXISTS Professors(" +
-                "id INTEGER PRIMARY KEY," +
-                "name VARCHAR(100) NOT NULL," +
-                "email VARCHAR(100) NOT NULL" +
-                ");";
-        try (Connection conn = sql2o.open()) {
-            conn.createQuery(sql).executeUpdate();
-        }
-    }
 
     private static void createAvailabilityTable(Sql2o sql2o) {
         dropAvailsTableIfExists(sql2o);
@@ -250,14 +230,15 @@ public class ApiServer {
         }
     }
 
-    private static void createCAsTable(Sql2o sql2o) {
-        dropCATableIfExists(sql2o);
-        String sql="CREATE TABLE IF NOT EXISTS CourseAssistants(" +
+    private static void createPeopleTable(Sql2o sql2o) {
+        dropPersonsTableIfExists(sql2o);
+        String sql="CREATE TABLE IF NOT EXISTS People(" +
                 "id Integer Primary Key," +
                 "name VARCHAR(100)," +
                 "email VARCHAR(100)," +
                 "username VARCHAR(100)," +
-                "password VARCHAR(100)"+
+                "password VARCHAR(100),"+
+                "priority Integer" +
                 ");";
         try (Connection conn = sql2o.open()) {
             conn.createQuery(sql).executeUpdate();
@@ -278,7 +259,7 @@ public class ApiServer {
     }
 
     private static void dropPersonsTableIfExists(Sql2o sql2o) {
-        String sql = "DROP TABLE IF EXISTS Professors;";
+        String sql = "DROP TABLE IF EXISTS People;";
         try (Connection conn = sql2o.open()) {
             conn.createQuery(sql).executeUpdate();
         }
@@ -298,17 +279,13 @@ public class ApiServer {
         return new Sql2o(URI, USERNAME, PASSWORD);
     }
 
-    private static void initData(ProfessorDao pdao) {
-        pdao.add(new Professor("Sarah More", "smore1@jhu.edu"));
-        pdao.add(new Professor("Michael Dinitz", "mdinitz1@jhu.edu"));
-    }
 
-    private static void initCAs(CourseAssistantDao caDao) {
-        caDao.add(new CourseAssistant("Irfan Jamil","ijamil1@jhu.edu", "ijamil1", "irfan"));
-        caDao.add(new CourseAssistant("Vishnu Joshi", "vjoshi1@jhu.edu", "vjoshi6", "vishnu"));
-        caDao.add(new CourseAssistant("Ryan Hubley","rhubley1@jhu.edu", "rhubley1", "ryan"));
-        caDao.add(new CourseAssistant("Dara Moini", "dmoini1@jhu.edu", "dmoini1", "dara"));
-        caDao.add(new CourseAssistant("Kavan Bansal","kbansal1@jhu.edu", "kbansal1", "kavan"));
-        caDao.add(new CourseAssistant("Justin Song","LauFalls69@jhu.edu", "jsong1", "justin"));
+    private static void initPeople(PersonDao personDao) {
+        personDao.add(new Person("Irfan Jamil","ijamil1@jhu.edu", "ijamil1", "irfan",2));
+        personDao.add(new Person("Vishnu Joshi", "vjoshi1@jhu.edu", "vjoshi6", "vishnu",2));
+        personDao.add(new Person("Ryan Hubley","rhubley1@jhu.edu", "rhubley1", "ryan",2));
+        personDao.add(new Person("Dara Moini", "dmoini1@jhu.edu", "dmoini1", "dara",2));
+        personDao.add(new Person("Kavan Bansal","kbansal1@jhu.edu", "kbansal1", "kavan",2));
+        personDao.add(new Person("Justin Song","LauFalls69@jhu.edu", "jsong1", "justin",2));
     }
 }
