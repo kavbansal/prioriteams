@@ -191,8 +191,6 @@ public class ApiServer {
         aDao.addAvailability(new Availability(1,3,9,1,1));
     }
 
-
-
     private static Javalin startServer() {
         Gson gson = new Gson();
         JavalinJson.setFromJsonMapper(gson::fromJson);
