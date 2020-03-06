@@ -1,11 +1,10 @@
 import dao.*;
 import model.Availability;
-import model.CourseAssistant;
+import model.Event;
 import model.Person;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
-import java.time.Period;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,23 +20,26 @@ public class WebServer {
     PersonDao personDao = new UnireastPersonDao();
 
     get("/", (req, res) -> {
-      return new ModelAndView(null, "signin.hbs");
+      return new ModelAndView(null, "index.hbs");
     }, new HandlebarsTemplateEngine());
 
-    post("/", (req,res)-> {
-      String username = req.queryParams("username");
-      String password=req.queryParams("password");
-      List<Person> person = personDao.findPerson(username,password);
-      if (person.size()== 0) {
-        res.redirect("/");
-      }
-      else {
-        res.redirect("/events");
-      }
-      return null;
+    get("/create", (req, res) -> {
+      return new ModelAndView(null, "create.hbs");
     }, new HandlebarsTemplateEngine());
-/*
-    post("/", ((request, response) -> {
+
+//    post("/", (req,res)-> {
+//      String username = req.queryParams("username");
+//      String password=req.queryParams("password");
+//      List<Person> people = personDao.findPerson(username, password);
+//      if (people.size() == 0) {
+//        res.redirect("/");
+//        return null;
+//      }
+//      res.redirect("/events");
+//      return null;
+//    }, new HandlebarsTemplateEngine());
+
+    post("/create", ((request, response) -> {
       // TODO Capture client's input
       String eventName = request.queryParams("eventname");
       String location = request.queryParams("location");
@@ -45,10 +47,10 @@ public class WebServer {
       // TODO create (and add) a event
       eventDao.add(new Event(duration, eventName, location));
       // TODO refresh create page to show the new addition
-      response.redirect("/");
+      response.redirect("/create");
       return null;
     }), new HandlebarsTemplateEngine());
-*/
+
     get("/events", ((request, response) -> {
       Map<String, Object> model = new HashMap<>();
       model.put("eventList", eventDao.findAllEvents());

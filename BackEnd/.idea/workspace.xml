@@ -2,35 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1dc813c4-0799-4417-8a71-45e9a7eb248f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/PersonDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/Sql2oPersonDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/PersonDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Store.db" beforeDir="false" afterPath="$PROJECT_DIR$/Store.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/api/ApiServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/api/ApiServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/dao/CourseAssistantDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/dao/ProfessorDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/dao/Sql2oCADao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/dao/Sql2oProfessorDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/CourseAssistant.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/CourseAssistant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Professor.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/Professor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CourseAssistantDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ProfessorDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/Sql2oCADao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/Sql2oProfessorDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/CourseAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CourseAssistant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Professor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -39,9 +13,15 @@
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/WebServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/WebServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/dao/UnireastCADao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/dao/CADao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/dao/UnireastPersonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/dao/UnireastPersonDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/model/CourseAssistant.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/model/CourseAssistant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/model/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/model/Person.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/WebServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/WebServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastCADao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastPersonDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/CADao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastPersonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastPersonDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/model/CourseAssistant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/model/Person.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +157,7 @@
       <workItem from="1583336698868" duration="80000" />
       <workItem from="1583380075532" duration="3458000" />
       <workItem from="1583428608791" duration="709000" />
-      <workItem from="1583456169031" duration="10210000" />
+      <workItem from="1583456169031" duration="11500000" />
     </task>
     <task id="LOCAL-00001" summary="adding functionality">
       <created>1583208566414</created>
@@ -249,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583462718990</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="refactored classes">
+      <created>1583468684279</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1583468684279</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +247,8 @@
     <MESSAGE value="sign-in page" />
     <MESSAGE value="fixed bug in sign in page" />
     <MESSAGE value="sign in page is functional; redirects to events page when user is authenticated" />
-    <option name="LAST_COMMIT_MESSAGE" value="sign in page is functional; redirects to events page when user is authenticated" />
+    <MESSAGE value="refactored classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored classes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="464" y="190" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1583080843794">
@@ -281,37 +269,37 @@
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state x="465" y="171" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.828@0.23.1440.828" timestamp="1583464159385" />
-    <state x="292" y="23" key="CommitChangelistDialog2" timestamp="1583462718731">
+    <state x="292" y="23" key="CommitChangelistDialog2" timestamp="1583468684118">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state x="292" y="23" key="CommitChangelistDialog2/0.23.1440.826@0.23.1440.826" timestamp="1583265531144" />
-    <state x="292" y="23" key="CommitChangelistDialog2/0.23.1440.827@0.23.1440.827" timestamp="1583462718731" />
-    <state width="1358" height="199" key="GridCell.Tab.0.bottom" timestamp="1583468569249">
+    <state x="292" y="23" key="CommitChangelistDialog2/0.23.1440.827@0.23.1440.827" timestamp="1583468684118" />
+    <state width="1358" height="199" key="GridCell.Tab.0.bottom" timestamp="1583469891636">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state width="1358" height="199" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1583334634487" />
-    <state width="1358" height="199" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1583468569249" />
+    <state width="1358" height="199" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1583469891636" />
     <state width="1358" height="199" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1583463920265" />
     <state width="1084" height="181" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1582774994406" />
-    <state width="1358" height="199" key="GridCell.Tab.0.center" timestamp="1583468569248">
+    <state width="1358" height="199" key="GridCell.Tab.0.center" timestamp="1583469891635">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state width="1358" height="199" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1583334634486" />
-    <state width="1358" height="199" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1583468569248" />
+    <state width="1358" height="199" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1583469891635" />
     <state width="1358" height="199" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1583463920264" />
     <state width="1084" height="181" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1582774994406" />
-    <state width="1358" height="199" key="GridCell.Tab.0.left" timestamp="1583468569247">
+    <state width="1358" height="199" key="GridCell.Tab.0.left" timestamp="1583469891634">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state width="1358" height="199" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1583334634486" />
-    <state width="1358" height="199" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1583468569247" />
+    <state width="1358" height="199" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1583469891634" />
     <state width="1358" height="199" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1583463920263" />
     <state width="1084" height="181" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1582774994406" />
-    <state width="1358" height="199" key="GridCell.Tab.0.right" timestamp="1583468569248">
+    <state width="1358" height="199" key="GridCell.Tab.0.right" timestamp="1583469891635">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state width="1358" height="199" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1583334634487" />
-    <state width="1358" height="199" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1583468569248" />
+    <state width="1358" height="199" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1583469891635" />
     <state width="1358" height="199" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1583463920264" />
     <state width="1084" height="181" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1582774994406" />
     <state width="1358" height="249" key="GridCell.Tab.1.bottom" timestamp="1583383412878">
@@ -330,11 +318,11 @@
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state width="1358" height="249" key="GridCell.Tab.1.right/0.23.1440.827@0.23.1440.827" timestamp="1583383412878" />
-    <state x="326" y="157" key="Vcs.Push.Dialog.v2" timestamp="1583462728045">
+    <state x="326" y="157" key="Vcs.Push.Dialog.v2" timestamp="1583468694065">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state x="326" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.826@0.23.1440.826" timestamp="1583265537133" />
-    <state x="326" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.827@0.23.1440.827" timestamp="1583462728045" />
+    <state x="326" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.827@0.23.1440.827" timestamp="1583468694065" />
     <state x="382" y="250" key="com.intellij.ide.util.TipDialog" timestamp="1583428607995">
       <screen x="0" y="23" width="1440" height="827" />
     </state>

@@ -6,7 +6,6 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import exception.DaoException;
-import model.CourseAssistant;
 import model.Person;
 
 import java.util.ArrayList;
@@ -64,6 +63,7 @@ public class UnireastPersonDao implements PersonDao {
         try {
             jsonResponse = Unirest.get(URL).asJson();
             Person[] people = gson.fromJson(jsonResponse.getBody().toString(),Person[].class);
+            return new ArrayList<>(Arrays.asList(people));
         } catch (UnirestException e) {
             e.printStackTrace();
         }
@@ -77,6 +77,7 @@ public class UnireastPersonDao implements PersonDao {
         try {
             jsonResponse = Unirest.get(URL).asJson();
             Person[] people = gson.fromJson(jsonResponse.getBody().toString(), Person[].class);
+            return new ArrayList<>(Arrays.asList(people));
         } catch (UnirestException e) {
             e.printStackTrace();
         }
