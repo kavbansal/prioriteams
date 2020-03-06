@@ -28,8 +28,11 @@ public class WebServer {
       String username = req.queryParams("username");
       String password=req.queryParams("password");
       List<CourseAssistant> CAs = caDao.findCA(username,password);
-      if (CAs.size()==0) {
+      if (CAs.size()== 0) {
         res.redirect("/");
+      }
+      else {
+        res.redirect("/events");
       }
       return null;
     }, new HandlebarsTemplateEngine());

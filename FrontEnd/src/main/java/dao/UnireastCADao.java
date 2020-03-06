@@ -30,11 +30,10 @@ public class UnireastCADao implements CADao {
 
     @Override
     public List<CourseAssistant> findCA(String username, String password) {
-        String mashedParams=username+":"+password;
-        final String URL = BASE_URL + "CourseAssistants/{namePW}";
+        final String URL = BASE_URL + "CourseAssistants" + "/" + username + "/" + password;
         HttpResponse<JsonNode> jsonResponse = null;
         try {
-            jsonResponse = Unirest.get(BASE_URL + "CourseAssistants/{namePW}").routeParam("namePW",mashedParams).asJson();
+            jsonResponse = Unirest.get(URL).asJson();
             CourseAssistant[] CAs = gson.fromJson(jsonResponse.getBody().toString(), CourseAssistant[].class);
             return new ArrayList<>(Arrays.asList(CAs));
         } catch (UnirestException e) {

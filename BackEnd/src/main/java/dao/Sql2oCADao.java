@@ -38,10 +38,18 @@ public class Sql2oCADao implements CourseAssistantDao {
         }
     }
 
+
     public List<CourseAssistant> findCA(String username, String password) {
         String sql="Select * FROM CourseAssistants where CourseAssistants.username=:username AND CourseAssistants.password=:password";
         try (Connection conn = sql2o.open()) {
-            return  conn.createQuery(sql).executeAndFetch(CourseAssistant.class);
+            return  conn.createQuery(sql).addParameter("username",username).addParameter("password",password).executeAndFetch(CourseAssistant.class);
+        }
+    }
+
+    public List<CourseAssistant> findCAbyName(String username) {
+        String sql="Select * From CourseAssistants where CourseAssistants.username=:username";
+        try (Connection conn = sql2o.open()) {
+            return conn.createQuery(sql).executeAndFetch(CourseAssistant.class);
         }
     }
 }

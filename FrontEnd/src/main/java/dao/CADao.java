@@ -7,6 +7,5 @@ import java.util.List;
 
 public interface CADao {
     void add(CourseAssistant ca) throws DaoException;
-
     List<CourseAssistant> findCA(String username, String password);
 }

@@ -40,6 +40,7 @@ public class ApiServer {
         getEvents(eventDao);
         postEvents(eventDao);
         getAvailabilities(availDao);
+        getAllCourseAssistants(caDao);
         getCA(caDao);
         postAvailabilities(availDao);
         getProfessors(professorDao);
@@ -74,6 +75,17 @@ public class ApiServer {
             ctx.status(200); // everything ok!
         });
     }
+
+    private static void getAllCourseAssistants(CourseAssistantDao caDao) {
+        app.get("/CourseAssistants",ctx->{
+            List<CourseAssistant> CAs= caDao.findAllCAs();
+            ctx.json(CAs);
+            ctx.status(200);
+        });
+    }
+
+
+
     private static void getProfessors(ProfessorDao pdao) {
         app.get("/professors", ctx -> {
             List<Professor> professors = pdao.findAllProfessors();
@@ -83,13 +95,21 @@ public class ApiServer {
     }
 
     private static void getCA(CourseAssistantDao caDao) {
-        app.get("/CourseAssistants/:namePW", ctx-> {
-            String namePW = ctx.pathParam("namePW");
-            String username=namePW.substring(0,namePW.indexOf(':'));
-            String password=namePW.substring(namePW.indexOf(':'));
+        app.get("/CourseAssistants/:username/:password", ctx-> {
+            String username = ctx.pathParam("username");
+            String password=ctx.pathParam("password");
             List<CourseAssistant> CAs = caDao.findCA(username,password);
             ctx.json(CAs);
             ctx.status(200);
+        });
+    }
+
+    private static void getCAbyUsername(CourseAssistantDao caDao) {
+        app.get("/CourseAssistants/:username",ctx->{
+           String username=ctx.pathParam("username");
+           List<CourseAssistant> CA = caDao.findCAbyName(username);
+           ctx.json(CA);
+           ctx.status(200);
         });
     }
 
@@ -282,6 +302,7 @@ public class ApiServer {
         pdao.add(new Professor("Sarah More", "smore1@jhu.edu"));
         pdao.add(new Professor("Michael Dinitz", "mdinitz1@jhu.edu"));
     }
+
     private static void initCAs(CourseAssistantDao caDao) {
         caDao.add(new CourseAssistant("Irfan Jamil","ijamil1@jhu.edu", "ijamil1", "irfan"));
         caDao.add(new CourseAssistant("Vishnu Joshi", "vjoshi1@jhu.edu", "vjoshi6", "vishnu"));
