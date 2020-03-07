@@ -29,12 +29,27 @@ li:last-child{
     padding: 0;
 }
 
+.headedit {
+    margin-bottom: 20px;
+    margin-top: 50px;
+    font-family: 'Bebas Neue';
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+}
+
 .page{
     background-color: #fff;
     border-radius: 5px;
-    margin: 40px auto;
+    margin: 30px auto;
     padding: 20px 40px 40px 40px;
     width: 600px;
+}
+
+.form-actions {
+    margin: 0;
+    background-color: transparent;
+    text-align: center;
 }
 
 input{

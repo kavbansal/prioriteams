@@ -1,14 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CA Meeting Scheduler App</title>
-</head>
-<body>
-
+{{#partial "content"}}
     <h1>All Events</h1>
 
     <ul>
@@ -17,7 +7,9 @@
         {{/each}}
     </ul>
 
-    <p><a href="/">Go back to create page.</a></p>
+    <p><a href="/events">View Events</a></p>
+    <p><a href="/register"> Register for an Event</a></p>
+    <p><a href="/">Home</a></p>
+{{/partial}}
 
-</body>
-</html>
+{{> base.hbs }}
