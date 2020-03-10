@@ -58,7 +58,7 @@ public class WebServer {
 
     post("/events", ((request, response) -> {
       Map<String, Object> model = new HashMap<>();
-      model.put("eventList", eventDao.calcOTime(1, aDao.findAvailabilitiesbyEventId(1)));
+      model.put("eventList", eventDao.calcOTime(Integer.parseInt(request.queryParams("eId")), aDao.findAvailabilitiesbyEventId(Integer.parseInt(request.queryParams("eId")))));
       return new ModelAndView(model, "events.hbs");
     }), new HandlebarsTemplateEngine());
 
@@ -71,7 +71,8 @@ public class WebServer {
 
     post("/register", ((request,response)->{
       int eId=Integer.parseInt(request.queryParams("eId"));
-      int pId=1; //default
+      //int pId=1; //default
+      int pId=Integer.parseInt(request.queryParams("pId"));
       int st=Integer.parseInt(request.queryParams("st"));
       int et = Integer.parseInt(request.queryParams("et"));
       int dow = Integer.parseInt(request.queryParams("dow"));
@@ -80,5 +81,7 @@ public class WebServer {
       response.redirect("/register");
       return null;
     }), new HandlebarsTemplateEngine());
+
+
   }
 }

@@ -69,10 +69,13 @@ public class UnireastEventDao implements EventDao {
             }
         }
         if (event == null) {
-            return null;
+            return eList;
         }
 
         Random rand = new Random();
+        if (aList.size() == 0) {
+            return eList;
+        }
         Availability bestAvailability = aList.get(rand.nextInt(aList.size()));
 
         event.setOptimalTime(bestAvailability.getStartTime());
