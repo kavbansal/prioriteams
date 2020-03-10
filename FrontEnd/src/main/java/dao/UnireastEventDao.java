@@ -46,7 +46,7 @@ public class UnireastEventDao implements EventDao {
     }
 
     @Override
-    public void calcOTime(int id, List<Availability> aList) {
+    public List<Event> calcOTime(int id, List<Availability> aList) {
         final String URL = BASE_URL + "events";
         List<Event> eList = null;
         HttpResponse<JsonNode> jsonResponse = null;
@@ -59,7 +59,7 @@ public class UnireastEventDao implements EventDao {
             e.printStackTrace();
         }
         if (eList == null) {
-            return;
+            return null;
         }
 
         Event event = null;
@@ -69,7 +69,7 @@ public class UnireastEventDao implements EventDao {
             }
         }
         if (event == null) {
-            return;
+            return null;
         }
 
         Random rand = new Random();
@@ -77,5 +77,6 @@ public class UnireastEventDao implements EventDao {
 
         event.setOptimalTime(bestAvailability.getStartTime());
 
+        return eList;
     }
 }

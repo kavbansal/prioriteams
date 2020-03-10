@@ -3,9 +3,13 @@
 
     <ul>
         {{#each eventList}}
-            <li> {{ eventName }} at {{ location }} for {{ duration }} minutes</li>
+            <li> {{ eventName }} at {{ location }} for {{ duration }} minutes............OptimalTime: {{ optimalTime }}</li>
         {{/each}}
     </ul>
+
+    <form action="/events" method="post">
+        <button>calc O times</button>
+    </form>
 
     <p><a href="/events">View Events</a></p>
     <p><a href="/register"> Register for an Event</a></p>

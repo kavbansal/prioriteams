@@ -32,6 +32,8 @@ public class Event {
         return this.id;
     }
 
+    public int getOptimalTime() { return this.optimalTime; }
+
     public void setDuration(int d) {
         this.duration = d;
     }

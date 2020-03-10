@@ -11,5 +11,5 @@ public interface EventDao {
 
     List<Event> findAllEvents();
 
-    void calcOTime(int id, List<Availability> aList);
+    List<Event> calcOTime(int id, List<Availability> aList);
 }

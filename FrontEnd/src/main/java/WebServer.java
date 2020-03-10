@@ -56,6 +56,12 @@ public class WebServer {
       return new ModelAndView(model, "events.hbs");
     }),  new HandlebarsTemplateEngine());
 
+    post("/events", ((request, response) -> {
+      Map<String, Object> model = new HashMap<>();
+      model.put("eventList", eventDao.calcOTime(1, aDao.findAvailabilitiesbyEventId(1)));
+      return new ModelAndView(model, "events.hbs");
+    }), new HandlebarsTemplateEngine());
+
     get("/register",((request,response)->{
       Map<String, Object> model = new HashMap<>();
       model.put("eventList", eventDao.findAllEvents());

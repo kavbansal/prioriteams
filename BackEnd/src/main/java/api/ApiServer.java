@@ -37,6 +37,7 @@ public class ApiServer {
         getAllPeople(personDao);
         getProfessors(personDao);
         getPerson(personDao);
+        getAvailabilitiesByEventId(availDao);
         //getCA(caDao);
         postAvailabilities(availDao);
 
