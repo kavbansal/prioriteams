@@ -76,6 +76,8 @@ public class UnireastEventDao implements EventDao {
         if (aList.size() == 0) {
             return eList;
         }
+        //Write method to find availability by associated persons priority, temporarily use this by selecting
+        //a person in priority 1's time as bestAvailability. Later use this in algorithm.
         Availability bestAvailability = aList.get(rand.nextInt(aList.size()));
 
         event.setOptimalTime(bestAvailability.getStartTime());

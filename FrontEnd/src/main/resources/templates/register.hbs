@@ -6,19 +6,20 @@
     {{/each}}
     </ul>
 
-    <h2>Entered Availabilities</h2>
+    <h3>Previously Entered Availabilities</h3>
 
 <ul>
     {{#each AvailList}}
-        <li> {{ personId }} can attend {{ eventId }} from {{ startTime }} to {{ endTime }} on the {{ dow }} day of the week.  </li>
+        <li>  Person {{ personId }} can attend Event {{ eventId }} from {{ startTime }} to {{ endTime }} on day {{ dow }}  of the week.  </li>
     {{/each}}
 </ul>
 
 
 <form action="/register" method="post">
-    <p> Enter Your ID <input type="number" placeholder="Your ID" name="pId"> </p>
-    <p> Enter Event ID <input type="number" placeholder="Event ID" name="eId"> </p>
-    <select id="dow" name ="dow">
+    <p> Enter Your ID Number <input type="number" placeholder="Your ID Number " name="pId"> </p>
+    <p> Enter Event ID Number <input type="number" placeholder="Event ID Number" name="eId"> </p>
+
+   <p> <a> Select available day</a> <select id="dow" name ="dow">
         <option value=1>Monday</option>
         <option value=2>Tuesday</option>
         <option value=3>Wednesday</option>
@@ -27,8 +28,9 @@
         <option value=6>Saturday</option>
         <option value=7>Sunday</option>
     </select>
-    <p> Enter Start time <input type="number" placeholder="Start Time" name="st"> </p>
-    <p> Enter End Time <input type="number" placeholder="End Time" name="et"> </p>
+   </p>
+    <p> Enter start time of availability <input type="number" placeholder="Start Time" name="st"> </p>
+    <p> Enter end time of availability <input type="number" placeholder="End Time" name="et"> </p>
     <button>Submit</button>
 </form>
 
