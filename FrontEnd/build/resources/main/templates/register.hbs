@@ -16,10 +16,18 @@
 
 
 <form action="/register" method="post">
-    <p> Enter Your ID Number <input type="number" placeholder="Your ID Number " name="pId"> </p>
-    <p> Enter Event ID Number <input type="number" placeholder="Event ID Number" name="eId"> </p>
-
-   <p> <a> Select available day</a> <select id="dow" name ="dow">
+    <table>
+        <tr>
+            <td>
+                <p> Enter Your ID Number <input type="number" placeholder="Your ID Number " name="pId"> </p>
+            </td>
+            <td>
+            <p> Enter Event ID Number <input type="number" placeholder="Event ID Number" name="eId"> </p>
+            </td>
+        </tr>
+    </table>
+    <br>
+   <p> <a> Select available day </a> <select id="dow" name ="dow">
         <option value=1>Monday</option>
         <option value=2>Tuesday</option>
         <option value=3>Wednesday</option>
@@ -29,11 +37,136 @@
         <option value=7>Sunday</option>
     </select>
    </p>
-    <p> Enter start time of availability <input type="number" placeholder="Start Time" name="st"> </p>
-    <p> Enter end time of availability <input type="number" placeholder="End Time" name="et"> </p>
+    <table>
+        <tr>
+            <th>Start Time</th>
+            <th>End Time</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="start8" name="st" value =8>
+                <label for="start8"> 8am</label><br>
+            </td>
+            <td>
+                <input type="checkbox" id="end9" name="et" value =9>
+                <label for="end9"> 9am</label><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="start9" name="st" value =9>
+                <label for="start9"> 9am</label><br>
+            </td>
+            <td>
+                <input type="checkbox" id="end10" name="et" value =10>
+                <label for="end10"> 10am</label><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="start10" name="st" value=10>
+                <label for="start10"> 10am</label><br>
+            </td>
+            <td>
+                <input type="checkbox" id="end11" name="et" value =11>
+                <label for="end11"> 11am</label><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="start11" name="st" value=11>
+                <label for="start11"> 11am</label><br>
+            </td>
+            <td>
+                <input type="checkbox" id="end12" name="et" value =12>
+                <label for="end12"> 12pm</label><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="start12" name="st" value=12>
+                <label for="start12"> 12pm</label><br>
+            </td>
+            <td>
+                <input type="checkbox" id="end13" name="et" value =1>
+                <label for="end13"> 1pm</label><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="start13" name="st" value=1>
+                <label for="start13"> 1pm</label><br>
+            </td>
+            <td>
+                <input type="checkbox" id="end14" name="et" value =2>
+                <label for="end14"> 2pm</label><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="start14" name="st" value=2>
+                <label for="start14"> 2pm</label><br>
+            </td>
+            <td>
+                <input type="checkbox" id="end15" name="et" value =3>
+                <label for="end15"> 3pm</label><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="start15" name="st" value=3>
+                <label for="start15"> 3pm</label><br>
+            </td>
+            <td>
+                <input type="checkbox" id="end16" name="et" value =4>
+                <label for="end16"> 4pm</label><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="start16" name="st" value=4>
+                <label for="start16"> 4pm</label><br>
+            </td>
+            <td>
+                <input type="checkbox" id="end17" name="et" value =5>
+                <label for="end17"> 5pm</label><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="start17" name="st" value=5>
+                <label for="start17"> 5pm</label><br>
+            </td>
+            <td>
+                <input type="checkbox" id="end18" name="et" value =6>
+                <label for="end18"> 6pm</label><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="start18" name="st" value =6>
+                <label for="start18"> 6pm</label><br>
+            </td>
+            <td>
+                <input type="checkbox" id="end19" name="et" value =7>
+                <label for="end19"> 7pm</label><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="start19" name="st" value =7>
+                <label for="start19"> 7pm</label><br>
+            </td>
+            <td>
+                <input type="checkbox" id="end20" name="et" value =8>
+                <label for="end20"> 8pm</label><br>
+            </td>
+        </tr>
+    </table>
+    <br>
     <button>Submit</button>
 </form>
-
+<br>
     <p><a href="/events">View Events</a></p>
     <p><a href="/register"> Register for an Event</a></p>
     <p><a href="/">Home</a></p>

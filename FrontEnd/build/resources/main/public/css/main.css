@@ -6,6 +6,7 @@ body{
 a{
     color: #2c89ba;
     text-decoration: none;
+    font-size: large;
 }
 
 a:hover{
@@ -68,3 +69,21 @@ button{
 button:hover{
     background-color: #174963;
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
