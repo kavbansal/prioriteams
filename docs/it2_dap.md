@@ -40,4 +40,6 @@
 
 - Implement algorithm to determine the optimal meeting time. 
 
+# Retrospective
 
+This iteration, we were able to pick up the pace and build upon what we had started in Iteration 1 to implement many of the core user stories in our RSD. We were able to meet together when necessary and divide the work where possible to accomplish this. Our application is now able to take in and store availabilities, display relevant information about created events, and use a rudimentary algorithm to generate some suggested time for the event. We also created our handlebars files and used css and bootstrap to improve the UI. At the moment, our application is still only able to take in one continuous availability period at a time, and that is certainly something we hope to fix in iteration 3 to make the user experience less complicated. In addition, we haven't incorporated priorities yet, and that is something that we will focus on in the future. Finally, our current algorithm for determining the optimal time is very basic and we plan to work on developing a more robust algorithm in iteration 3.
