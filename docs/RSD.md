@@ -34,7 +34,7 @@ As a CA, once I have submitted my availabilities for events, I want to view what
 
 As a Professor, I want to be able to insert into the website the  full names, emails, and temporary username/password combination of the CAs and myself. 
 
-As a Professor, I want there to be a sign-in page so that only my CAs and myself can view and register for events. I don't want random users to corrupt the data being taken in by the platform; I want there to be a verification system (using the "CA Roster Information" list I entered) to ensure that only my CAs and I can actually view, manipulate, and enter data into the platform.
+As a Professor, I want there to be a sign-in page so that only my CAs and myself can view and register for events. I don't want random users to corrupt the data being taken in by the platform; I want there to be a verification system using the information entered in the User Story above to ensure that only my CAs and I can actually view, manipulate, and enter data into the platform.
 
 As a Professor, I want the software to output an optimal meeting time based on the availability submissions. 
 
