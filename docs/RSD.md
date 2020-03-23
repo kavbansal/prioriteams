@@ -23,20 +23,20 @@ A software solution can take in everyone's schedules and priorities and then use
 
 ### Must have
 
-As a CA, I want to view all the events that the Professor created.
+As a CA, I want to view all the events that the Professor created so that I can keep track of my commitments.
 
-As a CA, I want to register for an event.
+As a CA, I want to register for an event so that my availability may be taken into consideration.
 
-As a CA, once I register for an event, I want to add my availability for the event. My availabilitiy can differ by the day of the week. 
+As a CA, once I register for an event, I want to easily add my availability for the event so that finding a meeting time is as simple as possible. My availabilitiy can differ by the day of the week. 
 
-As a CA, once I have submitted my availabilities for events, I want to view what my availability submissions for these events.
+As a CA, once I have submitted my availabilities for events, I want to view my availability submissions for these events so that I can confirm they are correct.
 
 
-As a Professor, I want to be able to insert into the website the  full names, emails, priorities, and temporary username/password combination of the CAs and myself. 
+As a Professor, I want to be able to insert into the website the full names, emails, priorities, and temporary username/password combination of the CAs and myself so that collecting availabilities is as simple as possible. 
 
 As a Professor, I want there to be a sign-in page so that only my CAs and myself can view and register for events. I don't want random users to corrupt the data being taken in by the platform; I want there to be a verification system using the information entered in the User Story above to ensure that only my CAs and I can actually view, manipulate, and enter data into the platform.
 
-As a Professor, I want the software to output an optimal meeting time based on the availability submissions and priorties. 
+As a Professor, I want the software to output an optimal meeting time based on the availability submissions and priorties so that as many people as possible can attend the event, particularly those of higher priorities. 
 
 ### Nice to have
 
@@ -45,7 +45,6 @@ As a CA or a Professor, once I am signed-in, I want there to be the option to al
 As a professor, I want multiple meeting times suggested so that I have more than one option.
 
 As a professor, I want to create a poll to gauge which of the multiple schedules that was produced is ideal if their are ties in priority so that I can make a subjective judgement call above and beyond the algorithm. 
-
 
 
 
