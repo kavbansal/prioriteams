@@ -28,4 +28,4 @@ Implement a sign-in system that prevents anyone who is not signed in from access
 
 Modify the existing software so that the Professor has access to all the data collected by the software but the CAs can only see the created events and the availabilities corresponding to these events that he or she has submitted ONLY. 
 
-Work on improving UI/UX 
+Work on improving UI/UX, especially with the register page.
