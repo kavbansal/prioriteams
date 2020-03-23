@@ -31,11 +31,16 @@ As a CA, once I register for an event, I want to add my availability for the eve
 
 As a CA, once I have submitted my availabilities for events, I want to view what my availability submissions for these events.
 
-As a Professor, I want there to be a sign-in page so that only my CAs and myself can view and register for events. I don't want random users to corrupt the data being taken in by the platform; I want there to be a verification system to ensure that only my CAs and I can actually view, manipulate, and enter data into the platform.
+
+As a Professor, I want to be able to insert into the website the  full names, emails, and temporary username/password combination of the CAs and myself. 
+
+As a Professor, I want there to be a sign-in page so that only my CAs and myself can view and register for events. I don't want random users to corrupt the data being taken in by the platform; I want there to be a verification system (using the "CA Roster Information" list I entered) to ensure that only my CAs and I can actually view, manipulate, and enter data into the platform.
 
 As a Professor, I want the software to output an optimal meeting time based on the availability submissions. 
 
 ### Nice to have
+
+As a CA or a Professor, once I am signed-in, I want there to be the option to alter my username/password combination.
 
 As a professor, I want multiple meeting times suggested so that I have more than one option.
 
