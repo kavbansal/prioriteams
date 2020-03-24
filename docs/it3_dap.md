@@ -9,7 +9,7 @@
 <img src="/docs/IMG_6877.jpeg" />
 <img src="/docs/IMG_6878.jpeg" />
 <img src="/docs/IMG_6879.jpeg" />
-<img src="/docs/IMG_6873.jpeg" />
+<img src="/docs/FullSizeRender.jpeg" />
 
 # Iteration Backlog
 
