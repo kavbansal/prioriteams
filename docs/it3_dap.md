@@ -2,14 +2,14 @@
 <img src="/docs/UMLIteration2.png" />
 
 # Wireframe 
-<img src="/docs/it3wf1.jpg" />
-<img src="/docs/it3wf2.jpg" />
-<img src="/docs/it3wf3.jpg" />
-<img src="/docs/it3wf4.jpg" />
-<img src="/docs/it3wf5.jpg" />
-<img src="/docs/it3wf6.jpg" />
-<img src="/docs/it3wf7.jpg" />
-<img src="/docs/it3wf8.jpg" />
+<img src="/docs/IMG_6873.jpeg" />
+<img src="/docs/IMG_6874.jpeg" />
+<img src="/docs/IMG_6875.jpeg" />
+<img src="/docs/IMG_6876.jpeg" />
+<img src="/docs/IMG_6877.jpeg" />
+<img src="/docs/IMG_6878.jpeg" />
+<img src="/docs/IMG_6879.jpeg" />
+<img src="/docs/IMG_6873.jpeg" />
 
 # Iteration Backlog
 
