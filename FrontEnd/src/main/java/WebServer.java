@@ -22,6 +22,10 @@ public class WebServer {
       return new ModelAndView(null, "index.hbs");
     }, new HandlebarsTemplateEngine());
 
+    get("/main", (req, res) -> {
+      return new ModelAndView(null, "main.hbs");
+    }, new HandlebarsTemplateEngine());
+
     get("/create", (req, res) -> {
       return new ModelAndView(null, "create.hbs");
     }, new HandlebarsTemplateEngine());
