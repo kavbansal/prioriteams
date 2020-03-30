@@ -167,13 +167,13 @@ public class WebServer {
         et = profAvails.get(i).getEndTime();
         tempScore = 0;
         for (Map.Entry<Integer, List<Availability>> entry : personIdtoAvailabilities.entrySet()) {
-          //loop through everyone else's availability
+          //loop through everyone's availability (that is not the Prof)
           if (entry.getKey().intValue() != profId) {
-              tempList = entry.getValue();
-              priority = pDao.findPersonbyPersonId(entry.getKey().intValue()).get(0).getPriority();
-              for (int j = 0; j < tempList.size(); ++j) {
+              tempList = entry.getValue(); //tempList contains the availabilities of this person for this event
+              priority = pDao.findPersonbyPersonId(entry.getKey().intValue()).get(0).getPriority(); //the priority associated with this person
+              for (int j = 0; j < tempList.size(); ++j) { //loop thru this persons availabilities
                 if (tempList.get(j).getDow()!=dow) {
-                  continue;
+                  continue; // skip if this specific availability is not on the same day as the Professor's
                 }
                 //dow match
                 if (tempList.get(j).getStartTime()<= st) {
@@ -214,6 +214,8 @@ public class WebServer {
             continue;
           }
         }
+        //at the end of this for loop, temp score should be the sum of the following terms: each persons's overlapping availability
+        // with the Professor's availability weighted by 1/priority
 
 
         List<Availability> sameDayAvails = new ArrayList<>();
@@ -301,8 +303,10 @@ public class WebServer {
           }
 
         }
-        tempScore= (float) ((0.2 * tempScore) + (0.8 * bestTotal));
-
+          tempScore= (float) ((0.2 * tempScore) + (0.8 * bestTotal));
+          //tempScore is weighted sum
+          //first term: 0.2 * (sum of each's person's overall overlap with Prof times 1/priority) + (0.8 * total number people
+          //that can meet at once)
 
 
 
