@@ -8,11 +8,13 @@ public class Event {
     private String eventName;
     private String location;
     private int id;
+    private int optimalTime;
 
-    public Event(int d, String e, String l) {
+    public Event(int d, String e, String l, int optimalTime) {
         this.duration = d;
         this.eventName = e;
         this.location = l;
+        this.optimalTime = optimalTime;
     }
 
 
@@ -48,6 +50,10 @@ public class Event {
     public void setId(int i) {
         this.id = i;
     }
+
+    public int getOptimalTime() {return this.optimalTime;}
+
+    public void setOptimalTime(int i) {}
 
     @Override
     public int hashCode() {

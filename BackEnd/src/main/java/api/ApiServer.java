@@ -33,6 +33,7 @@ public class ApiServer {
         app.get("/", ctx -> ctx.result("Welcome to the Lads' App"));
         getEvents(eventDao);
         getEventbyId(eventDao);
+        getUpdate(eventDao);
         postEvents(eventDao);
         getAvailabilities(availDao);
         getAllPeople(personDao);
@@ -77,6 +78,15 @@ public class ApiServer {
             List<Event> event = eventDao.findEventbyId(Integer.parseInt(ctx.pathParam("id")));
             ctx.json(event);
             ctx.status(200);
+        });
+    }
+
+    private static void getUpdate(EventDao eventDao) {
+        app.get("/events/:eId/:optTime",ctx->{
+            int eId = Integer.parseInt(ctx.pathParam("eId"));
+            int optTime = Integer.parseInt(ctx.pathParam("optTime"));
+            eventDao.updateEvent(eId,optTime);
+           ctx.status(200);
         });
     }
 
@@ -201,8 +211,8 @@ public class ApiServer {
     }
 
     private static void initData(EventDao eventDao) {
-        eventDao.add(new Event(60, "Oose Staff Meeting", "Malone"));
-        eventDao.add(new Event(30, "DS Staff Meeting", "Hackerman"));
+        eventDao.add(new Event(60, "Oose Staff Meeting", "Malone",0));
+        eventDao.add(new Event(30, "DS Staff Meeting", "Hackerman",0));
     }
 
     private static void initAvails(AvailabilityDao aDao) {
@@ -225,7 +235,8 @@ public class ApiServer {
                 "id INTEGER PRIMARY KEY," +
                 "duration INTEGER," +
                 "eventName VARCHAR(100) NOT NULL," +
-                "location VARCHAR(100)" +
+                "location VARCHAR(100)," +
+                "optimalTime INTEGER" +
                 ");";
         try (Connection conn = sql2o.open()) {
             conn.createQuery(sql).executeUpdate();

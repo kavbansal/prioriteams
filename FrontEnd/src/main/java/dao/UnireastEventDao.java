@@ -65,6 +65,24 @@ public class UnireastEventDao implements EventDao {
 
 
     @Override
+    public void updateEvent(int eventId, int optTime) {
+        final String URL = BASE_URL + "events/" +eventId + "/" + optTime;
+        HttpResponse<JsonNode> jsonResponse = null;
+        try {
+            jsonResponse = Unirest.get(URL).asJson();
+        }
+        catch (UnirestException e) {
+            // TODO Error
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+
+/*
+    @Override
     public List<Event> calcOTime(int id, List<Availability> aList) {
         final String URL = BASE_URL + "events";
         List<Event> eList = null;
@@ -113,4 +131,6 @@ public class UnireastEventDao implements EventDao {
 
         return eList;
     }
+
+ */
 }

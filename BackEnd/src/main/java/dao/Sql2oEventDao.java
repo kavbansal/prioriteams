@@ -16,7 +16,7 @@ public class Sql2oEventDao implements EventDao {
     @Override
     public void add(Event event) throws DaoException {
         try (Connection conn = sql2o.open()) {
-            String sql = "INSERT INTO Events(duration, eventName, location) VALUES(:duration, :eventName, :location);";
+            String sql = "INSERT INTO Events(duration, eventName, location, optimalTime) VALUES(:duration, :eventName, :location, :optimalTime);";
             int id = (int) conn.createQuery(sql)
                     .bind(event)
                     .executeUpdate()
@@ -44,5 +44,11 @@ public class Sql2oEventDao implements EventDao {
         }
     }
 
+    public void updateEvent(int eId, int optT) {
+        String sql = "Update Events set Events.optimalTime=:optT where Events.id=:eId";
+        try (Connection conn = sql2o.open()) {
+             conn.createQuery(sql).addParameter("optT",optT).addParameter("eId",eId).executeUpdate();
+        }
+    }
 
 }

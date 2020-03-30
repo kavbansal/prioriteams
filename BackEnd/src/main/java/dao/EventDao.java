@@ -11,4 +11,6 @@ public interface EventDao {
     List<Event> findAllEvents();
 
     public List<Event> findEventbyId(int eId);
+
+    void updateEvent(int eId, int optT);
 }

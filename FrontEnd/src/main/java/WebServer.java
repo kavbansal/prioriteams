@@ -63,7 +63,8 @@ public class WebServer {
       int eventId = Integer.parseInt(request.queryParams("eId"));
       //call helper function
       int optimalTime = calculateOptimalTime(eventId, eventDao, aDao, personDao);
-      model.put("eventList", eventDao.calcOTime(Integer.parseInt(request.queryParams("eId")), aDao.findAvailabilitiesbyEventId(Integer.parseInt(request.queryParams("eId")))));
+      eventDao.updateEvent(eventId,optimalTime);
+      model.put("eventList", eventDao.findAllEvents());
       return new ModelAndView(model, "events.hbs");
     }), new HandlebarsTemplateEngine());
 
@@ -97,7 +98,7 @@ public class WebServer {
     Map<Integer, List<Availability>> personIdtoAvailabilities = new HashMap<>();
     if (event.size()!=1) {
       //event does not exist!
-      return -1;
+      return 10000;
     }
     else {
       //event does indeed exist
@@ -106,7 +107,7 @@ public class WebServer {
 
       if (availabilities.size()==0) {
         //no one has registered for it!!!
-        return -1;
+        return 10000;
       }
 
       int pId;
