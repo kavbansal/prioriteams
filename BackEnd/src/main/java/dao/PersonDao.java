@@ -11,6 +11,7 @@ public interface PersonDao {
     List<Person> findAllPeople();
     List<Person> findPersonbyUsername(String username);
     List<Person> findPerson(String username, String password);
-    public List<Person> findAllProfessors();
+    List<Person> findAllProfessors();
+    List<Person> findPersonbyPersonId(int pId);
 }
 

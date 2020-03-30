@@ -30,6 +30,23 @@ public class UnireastEventDao implements EventDao {
     }
 
     @Override
+    public List<Event> findEventbyId(int id) {
+        final String URL = BASE_URL + "events/" + id;
+        HttpResponse<JsonNode> jsonResponse = null;
+        try {
+            jsonResponse = Unirest.get(URL).asJson();
+            Event[] events = gson.fromJson(jsonResponse.getBody().toString(), Event[].class);
+            return new ArrayList<>(Arrays.asList(events));
+        }
+        catch (UnirestException e) {
+            // TODO Error
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    @Override
     public List<Event> findAllEvents() {
         final String URL = BASE_URL + "events";
         HttpResponse<JsonNode> jsonResponse = null;
@@ -44,6 +61,8 @@ public class UnireastEventDao implements EventDao {
 
         return null;
     }
+
+
 
     @Override
     public List<Event> calcOTime(int id, List<Availability> aList) {
@@ -71,6 +90,8 @@ public class UnireastEventDao implements EventDao {
         if (event == null) {
             return eList;
         }
+        // event variable holds the event for which we want to calculate the optimal time
+        // aList is a list of availabilities associated with that event
 
         Random rand = new Random();
         if (aList.size() == 0) {
@@ -78,6 +99,14 @@ public class UnireastEventDao implements EventDao {
         }
         //Write method to find availability by associated persons priority, temporarily use this by selecting
         //a person in priority 1's time as bestAvailability. Later use this in algorithm.
+
+
+
+
+
+
+
+
         Availability bestAvailability = aList.get(rand.nextInt(aList.size()));
 
         event.setOptimalTime(bestAvailability.getStartTime());

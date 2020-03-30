@@ -43,7 +43,7 @@ public class Sql2oAvailabilityDao implements AvailabilityDao {
     public List<Availability> findAvailabilitiesbyPersonId(int pId) {
         String sql = "SELECT * FROM Availabilities where Availabilities.personId=:pId;";
         try (Connection conn = sql2o.open()) {
-            return conn.createQuery(sql)
+            return conn.createQuery(sql).addParameter("pId", pId)
                     .executeAndFetch(Availability.class);
         }
     }

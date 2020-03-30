@@ -32,9 +32,11 @@ public class ApiServer {
         app = startServer();
         app.get("/", ctx -> ctx.result("Welcome to the Lads' App"));
         getEvents(eventDao);
+        getEventbyId(eventDao);
         postEvents(eventDao);
         getAvailabilities(availDao);
         getAllPeople(personDao);
+        getPersonbyPersonId(personDao);
         getProfessors(personDao);
         getPerson(personDao);
         getAvailabilitiesByEventId(availDao);
@@ -70,6 +72,14 @@ public class ApiServer {
         });
     }
 
+    private static void getEventbyId(EventDao eventDao) {
+        app.get("/events/:id", ctx -> {
+            List<Event> event = eventDao.findEventbyId(Integer.parseInt(ctx.pathParam("id")));
+            ctx.json(event);
+            ctx.status(200);
+        });
+    }
+
     private static void getAllPeople(PersonDao personDao) {
         app.get("/People",ctx->{
             List<Person> persons= personDao.findAllPeople();
@@ -102,6 +112,15 @@ public class ApiServer {
         app.get("/Person/:username",ctx->{
            String username=ctx.pathParam("username");
            List<Person> person = pDao.findPersonbyUsername(username);
+           ctx.json(person);
+           ctx.status(200);
+        });
+    }
+
+    private static void getPersonbyPersonId(PersonDao pDao) {
+        app.get("/Person/:pId",ctx->{
+           int pId = Integer.parseInt(ctx.pathParam("pId"));
+           List<Person> person = pDao.findPersonbyPersonId(pId);
            ctx.json(person);
            ctx.status(200);
         });

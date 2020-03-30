@@ -43,6 +43,21 @@ public class UnireastPersonDao implements PersonDao {
     }
 
     @Override
+    public List<Person> findPersonbyPersonId(int pId) {
+        final String URL = BASE_URL + "Person/"+pId;
+        HttpResponse<JsonNode> jsonResponse = null;
+        try {
+            jsonResponse = Unirest.get(URL).asJson();
+            Person[] people = gson.fromJson(jsonResponse.getBody().toString(), Person[].class);
+            return new ArrayList<>(Arrays.asList(people));
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    @Override
     public List<Person> findPersonbyUsername(String username) {
         final String URL = BASE_URL + "Person" + "/" + username;
         HttpResponse<JsonNode> jsonResponse = null;

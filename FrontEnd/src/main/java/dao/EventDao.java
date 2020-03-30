@@ -12,4 +12,6 @@ public interface EventDao {
     List<Event> findAllEvents();
 
     List<Event> calcOTime(int id, List<Availability> aList);
+
+    List<Event> findEventbyId(int id);
 }

@@ -39,6 +39,13 @@ public class Sql2oPersonDao implements PersonDao {
         }
     }
 
+    @Override
+    public List<Person> findPersonbyPersonId(int pId) {
+        String sql = "Select * From People where People.id=:pId";
+        try (Connection conn = sql2o.open()) {
+            return conn.createQuery(sql).addParameter("pId",pId).executeAndFetch(Person.class);
+        }
+    }
 
     public List<Person> findPerson(String username, String password) {
         String sql="Select * FROM People where username=:username AND password=:password";

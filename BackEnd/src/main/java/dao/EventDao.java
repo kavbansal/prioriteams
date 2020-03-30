@@ -9,4 +9,6 @@ public interface EventDao {
     void add(Event event) throws DaoException;
 
     List<Event> findAllEvents();
+
+    public List<Event> findEventbyId(int eId);
 }
