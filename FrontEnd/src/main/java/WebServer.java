@@ -5,10 +5,7 @@ import model.Person;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static spark.Spark.*;
 
@@ -109,13 +106,18 @@ public class WebServer {
 
       if (availabilities.size()==0) {
         //no one has registered for it!!!
+        return -1;
       }
 
       int pId;
       List<Person> p = null;
       Person person = null;
+
+      //loop through availabilities
+
       for (int i = 0; i < availabilities.size(); ++i) {
-        pId = availabilities.get(i).getPersonId();
+        pId = availabilities.get(i).getPersonId(); //get personId that's associated with each availability
+
         if (personIdtoPriority.containsKey(new Integer(pId))) {
           // this person is already in our personIdtoPriority so its safe to assume it is also in the personIdtoAvailabilties map
           personIdtoAvailabilities.get(pId).add(availabilities.get(i)); //add this availability to the corresponding person whose availability it is
@@ -140,16 +142,16 @@ public class WebServer {
       //Assumption: Professor must be in attendance and is the most important person. So, loop through the map to find
       // the highest priority person (ie lowest priority value)
       int curpId = -1;
-      int curHighestPriority = 10000; //intialize to be very high!
+      int curLowestPriority = 10000; //intialize to be very high!
       for (Map.Entry<Integer, Integer> entry : personIdtoPriority.entrySet()) {
-        if (entry.getValue()< curHighestPriority) {
-          curHighestPriority = entry.getValue();
+        if (entry.getValue()< curLowestPriority) {
+          curLowestPriority = entry.getValue();
           curpId = entry.getKey();
         }
       }
       int profId = curpId;
       //profId contains the id of the professor
-      List<Availability> profAvails = personIdtoAvailabilities.get(profId); //Professors Availabilities
+      List<Availability> profAvails = personIdtoAvailabilities.get(profId); //profAvails contains Professors Availabilities
       List<Availability> tempList;
       float cur_Bestscore=-1;
       int best_index=0;
@@ -213,11 +215,105 @@ public class WebServer {
           }
         }
 
+
+        List<Availability> sameDayAvails = new ArrayList<>();
+        for (Map.Entry<Integer,List<Availability>> entry : personIdtoAvailabilities.entrySet()) {
+          // loop through entries of map
+          if (entry.getKey()==profId) {
+            continue;
+          }
+          for (int j = 0; j < entry.getValue().size(); ++j) {
+            if (entry.getValue().get(j).getDow() == dow) {
+              sameDayAvails.add(entry.getValue().get(j));
+            }
+          }
+        }
+        if (sameDayAvails.size()==0) {
+          //other people are not available on this day
+          continue;
+        }
+        ArrayList<Integer> sorted_st = new ArrayList<>();
+        ArrayList<Integer> sorted_et = new ArrayList<>();
+        ArrayList<int[]> overlappingIntervalsWithProf = new ArrayList<>();
+        for (int j = 0; j < sameDayAvails.size();++j) {
+          //note these availabilities are same dow
+          if (sameDayAvails.get(j).getStartTime()<= st) {
+            //person is available at least as early as prof
+            if (sameDayAvails.get(j).getEndTime()<=st) {
+              //no overlap
+            }
+            else if (sameDayAvails.get(j).getEndTime()<=et) {
+              //overlap is [st,  persons et]
+              overlappingIntervalsWithProf.add(new int[] {st, sameDayAvails.get(j).getStartTime()});
+            }
+            else {
+              //overlap is [st, et]
+              overlappingIntervalsWithProf.add(new int[] {st,et});
+            }
+
+          }
+          else if (sameDayAvails.get(j).getStartTime() >= et) {
+            //no overlap; person is available after professors availability
+          }
+          else {
+            //overlap
+            //overlap is [persons st, min (persons et, profs et)]
+            if (sameDayAvails.get(j).getEndTime() < et) {
+              overlappingIntervalsWithProf.add(new int[] {sameDayAvails.get(j).getStartTime(),sameDayAvails.get(j).getEndTime()});
+            }
+            else {
+              overlappingIntervalsWithProf.add(new int[] {sameDayAvails.get(j).getStartTime(),et});
+            }
+          }
+        }
+        //populate arraylist with start times and end times
+        for (int j = 0; j < overlappingIntervalsWithProf.size();++j) {
+          sorted_st.add(new Integer(overlappingIntervalsWithProf.get(j)[0]));
+          sorted_et.add(new Integer(overlappingIntervalsWithProf.get(j)[1]));
+        }
+        Collections.sort(sorted_st);
+        Collections.sort(sorted_et);
+
+        //sorted_st and sorted_et now contain, respectively, the sorted start times and sorted end times derived from
+        // the set of intervals that represent each student's overlap with the professors availability
+
+        //implement the algorithm to find max overlap
+
+        int bestTime = sorted_st.get(0).intValue();
+        int curIdxSt=0;
+        int curIdxEt=0;
+        int curTotal = 1;
+        int bestTotal = 1;
+        while (curIdxSt < sorted_st.size()-1) {
+          if (sorted_st.get(curIdxSt+1)<sorted_et.get(curIdxEt)) {
+            //next person arrives before an exit
+            ++curTotal;
+            if (curTotal > bestTotal) {
+              bestTotal = curTotal;
+              bestTime = sorted_st.get(curIdxSt + 1);
+            }
+            ++curIdxSt;
+          }
+          else {
+            //next person arrives after an exit
+            --curTotal;
+            ++curIdxEt;
+          }
+
+        }
+        tempScore= (float) ((0.2 * tempScore) + (0.8 * bestTotal));
+
+
+
+
         if (tempScore>cur_Bestscore) {
           cur_Bestscore=tempScore;
           best_index=i;
         }
       }
+
+
+
       return profAvails.get(best_index).getStartTime();
     }
 

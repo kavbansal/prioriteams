@@ -3,17 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1dc813c4-0799-4417-8a71-45e9a7eb248f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/EventDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/EventDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/PersonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/PersonDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/Sql2oAvailabilityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/Sql2oAvailabilityDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/Sql2oEventDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/Sql2oEventDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/Sql2oPersonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/Sql2oPersonDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/WebServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/WebServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/EventDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/EventDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/PersonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/PersonDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastEventDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastEventDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastPersonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastPersonDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,6 +144,7 @@
       <workItem from="1583856741923" duration="5049000" />
       <workItem from="1584819920573" duration="2759000" />
       <workItem from="1585010443220" duration="3454000" />
+      <workItem from="1585590537065" duration="597000" />
     </task>
     <task id="LOCAL-00001" summary="adding functionality">
       <created>1583208566414</created>
