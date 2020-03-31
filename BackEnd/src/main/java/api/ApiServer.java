@@ -186,9 +186,9 @@ public class ApiServer {
             eventDao.remove(eId);
 
             try {
-                //eventDao.add(event);
+                eventDao.add(event);
                 ctx.status(201);
-                //ctx.json(null);
+                ctx.json(null);
             } catch (DaoException ex) {
                 throw new ApiError(ex.getMessage(), 500); // server internal error
             }
@@ -323,11 +323,15 @@ public class ApiServer {
 
 
     private static void initPeople(PersonDao personDao) {
-        personDao.add(new Person("Irfan Jamil","ijamil1@jhu.edu", "ijamil1", "irfan",2));
-        personDao.add(new Person("Vishnu Joshi", "vjoshi1@jhu.edu", "vjoshi6", "vishnu",2));
-        personDao.add(new Person("Ryan Hubley","rhubley1@jhu.edu", "rhubley1", "ryan",2));
-        personDao.add(new Person("Dara Moini", "dmoini1@jhu.edu", "dmoini1", "dara",2));
-        personDao.add(new Person("Kavan Bansal","kbansal1@jhu.edu", "kbansal1", "kavan",2));
-        personDao.add(new Person("Justin Song","LauFalls69@jhu.edu", "jsong1", "justin",2));
+        personDao.add(new Person("Prof Madooei", "madooei@jhu.edu","amadooei", "ali", 1));
+        personDao.add(new Person("Yash", "yash@jhu.edu", "yash", "kumar",2));
+        personDao.add(new Person("Adeshola", "adeshola@jhu.edu", "adeshola1", "adesholaJHU", 2));
+        personDao.add(new Person("Shreya", "shreya@jhu.edu", "shreya123", "shreya_hopkins",2));
+        personDao.add(new Person("Irfan Jamil","ijamil1@jhu.edu", "ijamil1", "irfan",3));
+        personDao.add(new Person("Vishnu Joshi", "vjoshi1@jhu.edu", "vjoshi6", "vishnu",3));
+        personDao.add(new Person("Ryan Hubley","rhubley1@jhu.edu", "rhubley1", "ryan",3));
+        personDao.add(new Person("Dara Moini", "dmoini1@jhu.edu", "dmoini1", "dara",3));
+        personDao.add(new Person("Kavan Bansal","kbansal1@jhu.edu", "kbansal1", "kavan",3));
+        personDao.add(new Person("Justin Song","LauFalls69@jhu.edu", "jsong1", "justin",3));
     }
 }

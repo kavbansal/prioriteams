@@ -72,7 +72,7 @@ public class WebServer {
       Map<String, Object> model = new HashMap<>();
       model.put("eventList", eventDao.findAllEvents());
       model.put("AvailList", aDao.findAllAvails());
-      return new ModelAndView(model,"register.hbs");
+      return new ModelAndView(model,"registerToTestAlgo.hbs");
     }),new HandlebarsTemplateEngine());
 
     post("/register", ((request,response)->{
@@ -92,15 +92,14 @@ public class WebServer {
   }
 
   private static int calculateOptimalTime(int eventId, EventDao eDao, AvailabilityDao aDao, PersonDao pDao) {
-      return 23;
-      /*
+
       List<Event> event = eDao.findEventbyId(eventId);
       List<Availability> availabilities = null;
       Map<Integer, Integer> personIdtoPriority = new HashMap<>();
       Map<Integer, List<Availability>> personIdtoAvailabilities = new HashMap<>();
         if (event.size()!=1) {
         //event does not exist!
-            return 10000;
+            return 0;
         }
         else {
         //event does indeed exist
@@ -111,6 +110,7 @@ public class WebServer {
         //no one has registered for it!!!
         return 10000;
       }
+
 
       int pId;
       List<Person> p = null;
@@ -147,9 +147,9 @@ public class WebServer {
       int curpId = -1;
       int curLowestPriority = 10000; //intialize to be very high!
       for (Map.Entry<Integer, Integer> entry : personIdtoPriority.entrySet()) {
-        if (entry.getValue()< curLowestPriority) {
-          curLowestPriority = entry.getValue();
-          curpId = entry.getKey();
+        if (entry.getValue().intValue()< curLowestPriority) {
+          curLowestPriority = entry.getValue().intValue();
+          curpId = entry.getKey().intValue();
         }
       }
       int profId = curpId;
@@ -188,11 +188,11 @@ public class WebServer {
                     //determine which end time is earlier
                     if (tempList.get(j).getEndTime()<=et) {
                       //overlap is [st, tempList(j) end time]
-                      tempScore+= (1/priority)*(st-tempList.get(j).getEndTime());
+                      tempScore+= (1/priority)*(tempList.get(j).getEndTime()-st);
                     }
                     else {
                       //overlap is [st,et]
-                      tempScore+=(1/priority)*(st-et);
+                      tempScore+=(1/priority)*(et-st);
                     }
                   }
                 }
@@ -204,11 +204,11 @@ public class WebServer {
                   //start in middle of prof's avail so overlap is [tempList(j) st, min(et, tempList(j) et)]
                   if (tempList.get(j).getEndTime()<et) {
                     //overlap is [tempList(j) st, tempList(j) et]
-                    tempScore+=(1/priority)*(tempList.get(j).getStartTime()-tempList.get(j).getEndTime());
+                    tempScore+=(1/priority)*(tempList.get(j).getEndTime()-tempList.get(j).getStartTime());
                   }
                   else {
                     //overlap is [tempList(j) st, et]
-                    tempScore+=(1/priority)*(tempList.get(j).getStartTime()-et);
+                    tempScore+=(1/priority)*(et-tempList.get(j).getStartTime());
                   }
                 }
               }
@@ -220,7 +220,11 @@ public class WebServer {
         //at the end of this for loop, temp score should be the sum of the following terms: each persons's overlapping availability
         // with the Professor's availability weighted by 1/priority
 
-
+        if (tempScore>cur_Bestscore) {
+          cur_Bestscore=tempScore;
+          best_index=i;
+        }
+/*
         List<Availability> sameDayAvails = new ArrayList<>();
         for (Map.Entry<Integer,List<Availability>> entry : personIdtoAvailabilities.entrySet()) {
           // loop through entries of map
@@ -317,13 +321,17 @@ public class WebServer {
           cur_Bestscore=tempScore;
           best_index=i;
         }
+
+ */
       }
 
 
 
       return profAvails.get(best_index).getStartTime();
+
+
     }
-*/
+
   }
 
 

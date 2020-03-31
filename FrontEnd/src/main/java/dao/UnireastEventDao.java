@@ -66,7 +66,7 @@ public class UnireastEventDao implements EventDao {
 
     @Override
     public void removeAndUpdateOptTime(int eventId, int optTime) {
-        final String URL = BASE_URL + "events" + eventId + "/" + optTime;
+        final String URL = BASE_URL + "events/" + eventId + "/" + optTime;
         try {
             Unirest.post(URL).body(gson.toJson(null)).asJson();
         } catch (UnirestException e) {
