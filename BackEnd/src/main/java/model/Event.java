@@ -53,7 +53,7 @@ public class Event {
 
     public int getOptimalTime() {return this.optimalTime;}
 
-    public void setOptimalTime(int i) {}
+    public void setOptimalTime(int i) {this.optimalTime = i;}
 
     @Override
     public int hashCode() {

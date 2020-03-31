@@ -33,7 +33,7 @@ public class ApiServer {
         app.get("/", ctx -> ctx.result("Welcome to the Lads' App"));
         getEvents(eventDao);
         getEventbyId(eventDao);
-        getUpdate(eventDao);
+        postUpdate(eventDao);
         postEvents(eventDao);
         getAvailabilities(availDao);
         getAllPeople(personDao);
@@ -81,14 +81,7 @@ public class ApiServer {
         });
     }
 
-    private static void getUpdate(EventDao eventDao) {
-        app.get("/events/:eId/:optTime",ctx->{
-            int eId = Integer.parseInt(ctx.pathParam("eId"));
-            int optTime = Integer.parseInt(ctx.pathParam("optTime"));
-            eventDao.updateEvent(eId,optTime);
-           ctx.status(200);
-        });
-    }
+
 
     private static void getAllPeople(PersonDao personDao) {
         app.get("/People",ctx->{
@@ -180,6 +173,26 @@ public class ApiServer {
             } catch (DaoException ex) {
                 throw new ApiError(ex.getMessage(), 500); // server internal error
             }
+        });
+    }
+
+    private static void postUpdate(EventDao eventDao) {
+        app.post("/events/:eId/:optTime",ctx->{
+            int eId = Integer.parseInt(ctx.pathParam("eId"));
+            int optTime = Integer.parseInt(ctx.pathParam("optTime"));
+            List<Event> event_List = eventDao.findEventbyId(eId);
+            Event event = event_List.get(0);
+            event.setOptimalTime(optTime);
+            eventDao.remove(eId);
+
+            try {
+                //eventDao.add(event);
+                ctx.status(201);
+                //ctx.json(null);
+            } catch (DaoException ex) {
+                throw new ApiError(ex.getMessage(), 500); // server internal error
+            }
+
         });
     }
 

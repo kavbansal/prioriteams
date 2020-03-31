@@ -46,7 +46,7 @@ public class WebServer {
       String location = request.queryParams("location");
       int duration = Integer.parseInt(request.queryParams("duration"));
       // TODO create (and add) a event
-      eventDao.add(new Event(duration, eventName, location));
+      eventDao.add(new Event(duration, eventName, location,0));
       // TODO refresh create page to show the new addition
       response.redirect("/create");
       return null;
@@ -63,9 +63,9 @@ public class WebServer {
       int eventId = Integer.parseInt(request.queryParams("eId"));
       //call helper function
       int optimalTime = calculateOptimalTime(eventId, eventDao, aDao, personDao);
-      eventDao.updateEvent(eventId,optimalTime);
-      model.put("eventList", eventDao.findAllEvents());
-      return new ModelAndView(model, "events.hbs");
+      eventDao.removeAndUpdateOptTime(eventId, optimalTime);
+      response.redirect("/events");
+      return null;
     }), new HandlebarsTemplateEngine());
 
     get("/register",((request,response)->{
@@ -92,16 +92,18 @@ public class WebServer {
   }
 
   private static int calculateOptimalTime(int eventId, EventDao eDao, AvailabilityDao aDao, PersonDao pDao) {
-    List<Event> event = eDao.findEventbyId(eventId);
-    List<Availability> availabilities = null;
-    Map<Integer, Integer> personIdtoPriority = new HashMap<>();
-    Map<Integer, List<Availability>> personIdtoAvailabilities = new HashMap<>();
-    if (event.size()!=1) {
-      //event does not exist!
-      return 10000;
-    }
-    else {
-      //event does indeed exist
+      return 23;
+      /*
+      List<Event> event = eDao.findEventbyId(eventId);
+      List<Availability> availabilities = null;
+      Map<Integer, Integer> personIdtoPriority = new HashMap<>();
+      Map<Integer, List<Availability>> personIdtoAvailabilities = new HashMap<>();
+        if (event.size()!=1) {
+        //event does not exist!
+            return 10000;
+        }
+        else {
+        //event does indeed exist
 
       availabilities = aDao.findAvailabilitiesbyEventId(eventId);
 
@@ -321,7 +323,7 @@ public class WebServer {
 
       return profAvails.get(best_index).getStartTime();
     }
-
+*/
   }
 
 

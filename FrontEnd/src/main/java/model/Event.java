@@ -10,10 +10,11 @@ public class Event {
     private int id;
     private int optimalTime;
 
-    public Event(int d, String e, String l) {
+    public Event(int d, String e, String l,int i) {
         this.duration = d;
         this.eventName = e;
         this.location = l;
+        this.optimalTime = i;
     }
 
     public int getDuration() {

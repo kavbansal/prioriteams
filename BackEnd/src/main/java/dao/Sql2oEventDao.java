@@ -44,10 +44,11 @@ public class Sql2oEventDao implements EventDao {
         }
     }
 
-    public void updateEvent(int eId, int optT) {
-        String sql = "Update Events set Events.optimalTime=:optT where Events.id=:eId";
+    @Override
+    public void remove(int eventId) {
+        String sql = "Delete From Events where id=:eId";
         try (Connection conn = sql2o.open()) {
-             conn.createQuery(sql).addParameter("optT",optT).addParameter("eId",eId).executeUpdate();
+             conn.createQuery(sql).addParameter("eId",eventId).executeUpdate();
         }
     }
 
