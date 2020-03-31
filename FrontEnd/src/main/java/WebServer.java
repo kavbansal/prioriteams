@@ -93,6 +93,12 @@ public class WebServer {
 
   private static int calculateOptimalTime(int eventId, EventDao eDao, AvailabilityDao aDao, PersonDao pDao) {
 
+    //Assumption: Professor has the lowest numeric priority value to signify that he or she is the most
+    // important person. The professor needs to be present at the meeting. So, the algorithm is predicated on that assumption.
+
+
+
+
       List<Event> event = eDao.findEventbyId(eventId);
       List<Availability> availabilities = null;
       Map<Integer, Integer> personIdtoPriority = new HashMap<>();
@@ -224,7 +230,7 @@ public class WebServer {
           cur_Bestscore=tempScore;
           best_index=i;
         }
-/*
+
         List<Availability> sameDayAvails = new ArrayList<>();
         for (Map.Entry<Integer,List<Availability>> entry : personIdtoAvailabilities.entrySet()) {
           // loop through entries of map
@@ -322,7 +328,7 @@ public class WebServer {
           best_index=i;
         }
 
- */
+
       }
 
 
