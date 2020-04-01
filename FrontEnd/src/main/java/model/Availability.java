@@ -5,11 +5,11 @@ public class Availability {
     private int eventId;
     private int personId;
     private int availabilityId;
-    private double startTime;
-    private double endTime;
+    private int startTime;
+    private int endTime;
     private int dow;
 
-    public Availability(int eId, int pId, double st, double et, int dow) {
+    public Availability(int eId, int pId, int st, int et, int dow) {
         this.eventId=eId;
         this.personId=pId;
         this.startTime=st;
@@ -41,7 +41,7 @@ public class Availability {
         this.availabilityId = availabilityId;
     }
 
-    public double getStartTime() {
+    public int getStartTime() {
         return startTime;
     }
 
@@ -49,7 +49,7 @@ public class Availability {
         this.startTime = startTime;
     }
 
-    public double getEndTime() {
+    public int getEndTime() {
         return endTime;
     }
 

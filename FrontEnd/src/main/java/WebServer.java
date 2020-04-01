@@ -62,7 +62,7 @@ public class WebServer {
       Map<String, Object> model = new HashMap<>();
       int eventId = Integer.parseInt(request.queryParams("eId"));
       //call helper function
-      double optimalTime = calculateOptimalTime(eventId, eventDao, aDao, personDao);
+      int optimalTime = calculateOptimalTime(eventId, eventDao, aDao, personDao);
       eventDao.removeAndUpdateOptTime(eventId, optimalTime);
       response.redirect("/events");
       return null;
@@ -79,8 +79,8 @@ public class WebServer {
       int eId=Integer.parseInt(request.queryParams("eId"));
       //int pId=1; //default
       int pId=Integer.parseInt(request.queryParams("pId"));
-      double st = Double.parseDouble(request.queryParams("st"));
-      double et = Double.parseDouble(request.queryParams("et"));
+      int st=Integer.parseInt(request.queryParams("st"));
+      int et = Integer.parseInt(request.queryParams("et"));
       int dow = Integer.parseInt(request.queryParams("dow"));
       Availability a = new Availability(eId,pId,st,et,dow);
       aDao.addAvailability(a);
@@ -91,7 +91,7 @@ public class WebServer {
 
   }
 
-  private static double calculateOptimalTime(int eventId, EventDao eDao, AvailabilityDao aDao, PersonDao pDao) {
+  private static int calculateOptimalTime(int eventId, EventDao eDao, AvailabilityDao aDao, PersonDao pDao) {
     //Assumption: Professor has the lowest numeric priority value to signify that he or she is the most
     // important person. The professor needs to be present at the meeting. So, the algorithm is predicated on that assumption.
       List<Event> event = eDao.findEventbyId(eventId);
@@ -158,10 +158,10 @@ public class WebServer {
       List<Availability> tempList;
       float cur_Bestscore=-1;
       int best_index=0;
-      double bestTime=-1;
-      double tempBestTime=0;
-      double Profst;
-      double Profet;
+      int bestTime=-1;
+      int tempBestTime=0;
+      int Profst;
+      int Profet;
       int Profdow;
       int latestEventStart;
       int priority;
@@ -183,8 +183,8 @@ public class WebServer {
             if ((Profet-Profst) * 60 < eventDuration) {
               continue; //in the case that the Prof's availability is not even as long as the event that he/she signed up for
             }
-            latestEventStart = (int) (Profet-(int)Math.ceil(eventDuration/60));
-            for (int j = (int)Math.floor(Profst); j <= latestEventStart; ++j) {
+            latestEventStart = Profet-(int)Math.ceil(eventDuration/60);
+            for (int j = Profst; j <= latestEventStart; ++j) {
               //loop thru each of the possible "event duration" sized intervals within the Professor's availability chunk with a stride of 1 hour
               //evaluating interval [j, j+ceil(eventDuration/60)]
               tempIntervalScore = 0;
