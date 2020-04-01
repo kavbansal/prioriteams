@@ -5,13 +5,11 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import model.Availability;
 import model.Event;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class UnireastEventDao implements EventDao {
 
@@ -65,7 +63,7 @@ public class UnireastEventDao implements EventDao {
 
 
     @Override
-    public void removeAndUpdateOptTime(int eventId, int optTime) {
+    public void removeAndUpdateOptTime(int eventId, double optTime) {
         final String URL = BASE_URL + "events/" + eventId + "/" + optTime;
         try {
             Unirest.post(URL).body(gson.toJson(null)).asJson();
