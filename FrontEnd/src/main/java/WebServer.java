@@ -79,7 +79,7 @@ public class WebServer {
       int eId=Integer.parseInt(request.queryParams("eId"));
       //int pId=1; //default
       int pId=Integer.parseInt(request.queryParams("pId"));
-      double st=Double.parseDouble(request.queryParams("st"));
+      double st = Double.parseDouble(request.queryParams("st"));
       double et = Double.parseDouble(request.queryParams("et"));
       int dow = Integer.parseInt(request.queryParams("dow"));
       Availability a = new Availability(eId,pId,st,et,dow);

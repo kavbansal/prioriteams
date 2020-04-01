@@ -249,7 +249,7 @@ public class ApiServer {
                 "duration INTEGER," +
                 "eventName VARCHAR(100) NOT NULL," +
                 "location VARCHAR(100)," +
-                "optimalTime INTEGER" +
+                "optimalTime Double" +
                 ");";
         try (Connection conn = sql2o.open()) {
             conn.createQuery(sql).executeUpdate();
@@ -263,8 +263,8 @@ public class ApiServer {
                 "id INTEGER PRIMARY KEY," +
                 "eventId Integer NOT NULL," +
                 "personId Integer NOT NULL," +
-                "startTime Integer NOT NULL," +
-                "endTime Integer NOT NULL," +
+                "startTime Float NOT NULL," +
+                "endTime Float NOT NULL," +
                 "dow Integer NOT NULL" +
                 ");";
         try (Connection conn = sql2o.open()) {
