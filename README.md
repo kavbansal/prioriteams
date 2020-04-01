@@ -17,9 +17,7 @@ Below are steps that guides one through our product. Following these steps will 
 
 5. You are now at our home page. 
 
-6. Create an event. Enter availabilities for the event. Calculate the optimal time for the event. Below, we attach a link to explain/walk-thru how this can be done. We also describe how the algorithm computes optimal times. 
-
-LINK : https://docs.google.com/document/d/1LS3R74FsS_ZpW8D1q_xm9Y4nXISpXSi6bD8GDnW8F50/edit?usp=sharing
+6. Create an event. Enter availabilities for the event. Calculate the optimal time for the event. Below, we explain/walk-thru how this can be done. We also describe how the algorithm computes optimal times. 
 
 
 
