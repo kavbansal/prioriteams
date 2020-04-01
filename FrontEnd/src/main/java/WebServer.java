@@ -92,14 +92,10 @@ public class WebServer {
   }
 
   private static int calculateOptimalTime(int eventId, EventDao eDao, AvailabilityDao aDao, PersonDao pDao) {
-
     //Assumption: Professor has the lowest numeric priority value to signify that he or she is the most
     // important person. The professor needs to be present at the meeting. So, the algorithm is predicated on that assumption.
-
-
-
-
       List<Event> event = eDao.findEventbyId(eventId);
+      int eventDuration;
       List<Availability> availabilities = null;
       Map<Integer, Integer> personIdtoPriority = new HashMap<>();
       Map<Integer, List<Availability>> personIdtoAvailabilities = new HashMap<>();
@@ -109,21 +105,21 @@ public class WebServer {
         }
         else {
         //event does indeed exist
+        eventDuration = event.get(0).getDuration(); //note event duration is taken in with respect to number of minutes the event lasts
 
       availabilities = aDao.findAvailabilitiesbyEventId(eventId);
 
       if (availabilities.size()==0) {
         //no one has registered for it!!!
-        return 10000;
+        return 0;
       }
-
 
       int pId;
       List<Person> p = null;
       Person person = null;
 
-      //loop through availabilities
 
+      //loop through availabilities
       for (int i = 0; i < availabilities.size(); ++i) {
         pId = availabilities.get(i).getPersonId(); //get personId that's associated with each availability
 
@@ -142,11 +138,9 @@ public class WebServer {
           personIdtoAvailabilities.get(pId).add(availabilities.get(i));
         }
       }
-
       // We have now looped through the availabilities associated with this specific event and extracted the people that
       // have registered for this event and created a map that maps personId to priority
       // Also, we have created a map that maps personId to his or her availabilities for this event
-
 
       //Assumption: Professor must be in attendance and is the most important person. So, loop through the map to find
       // the highest priority person (ie lowest priority value)
@@ -164,11 +158,67 @@ public class WebServer {
       List<Availability> tempList;
       float cur_Bestscore=-1;
       int best_index=0;
-      int st;
-      int et;
-      int dow;
+      int bestTime=-1;
+      int tempBestTime=0;
+      int Profst;
+      int Profet;
+      int Profdow;
+      int latestEventStart;
       int priority;
-      float tempScore;
+      float tempAvailScore;
+      float tempIntervalScore;
+      // note, we  check to see if each of the Professor's availabilities for this event are actually as long as the duration of the event
+          //if it is not, we just return a random opt time
+
+          //right now, the availabilities are defined in terms of start time and end time; both of which are integer valued.
+
+
+          for (int i = 0; i < profAvails.size(); ++i) {
+            //loop through all of the Professor's availabilities
+            tempAvailScore=0;
+            tempBestTime=0;
+            Profst = profAvails.get(i).getStartTime();
+            Profet = profAvails.get(i).getEndTime();
+            Profdow = profAvails.get(i).getDow();
+            if ((Profet-Profst) * 60 < eventDuration) {
+              continue; //in the case that the Prof's availability is not even as long as the event that he/she signed up for
+            }
+            latestEventStart = Profet-(int)Math.ceil(eventDuration/60);
+            for (int j = Profst; j <= latestEventStart; ++j) {
+              //loop thru each of the possible "event duration" sized intervals within the Professor's availability chunk with a stride of 1 hour
+              //evaluating interval [j, j+ceil(eventDuration/60)]
+              tempIntervalScore = 0;
+              for (Map.Entry<Integer,List<Availability>> entry : personIdtoAvailabilities.entrySet()) {
+                //loop thru every person who registered for this event
+                if (entry.getKey().intValue()==profId) {
+                  continue;
+                }
+                priority = pDao.findPersonbyPersonId(entry.getKey().intValue()).get(0).getPriority();
+                for (int k = 0; k < entry.getValue().size();++k) {
+                  //loop thru all of the availabilities for the x person to register for this event
+                  //evaluating interval [j, j+ceil(eventDuration/60)]
+                  if (entry.getValue().get(k).getStartTime()<=j) {
+                    if (entry.getValue().get(k).getEndTime()>= (int)j+Math.ceil(eventDuration/60)) {
+                      //then this person is available for the full length of this interval
+                      tempIntervalScore+=(float)(100.0/priority);
+                    }
+                  }
+                }
+              }
+
+              if (tempIntervalScore > tempAvailScore) {
+                tempAvailScore = tempIntervalScore;
+                tempBestTime = j;
+              }
+            }
+            if (tempAvailScore > cur_Bestscore) {
+              cur_Bestscore = tempAvailScore;
+              bestTime = tempBestTime;
+            }
+          }
+          return bestTime;
+
+/*
       for (int i = 0; i < profAvails.size(); ++i) {
         // loop thru professors availabilities
         dow = profAvails.get(i).getDow();
@@ -334,7 +384,7 @@ public class WebServer {
 
 
       return profAvails.get(best_index).getStartTime();
-
+*/
 
     }
 
