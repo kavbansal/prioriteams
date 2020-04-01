@@ -179,7 +179,7 @@ public class ApiServer {
     private static void postUpdate(EventDao eventDao) {
         app.post("/events/:eId/:optTime",ctx->{
             int eId = Integer.parseInt(ctx.pathParam("eId"));
-            int optTime = Integer.parseInt(ctx.pathParam("optTime"));
+            double optTime = Double.parseDouble(ctx.pathParam("optTime"));
             List<Event> event_List = eventDao.findEventbyId(eId);
             Event event = event_List.get(0);
             event.setOptimalTime(optTime);
@@ -188,7 +188,7 @@ public class ApiServer {
             try {
                 eventDao.add(event);
                 ctx.status(201);
-                ctx.json(null);
+                ctx.json(event);
             } catch (DaoException ex) {
                 throw new ApiError(ex.getMessage(), 500); // server internal error
             }
@@ -231,7 +231,7 @@ public class ApiServer {
     private static void initAvails(AvailabilityDao aDao) {
         aDao.addAvailability(new Availability(1,1,9,12,1));
         aDao.addAvailability(new Availability(1,2,10,11,1));
-        aDao.addAvailability(new Availability(1,3,9,1,1));
+        aDao.addAvailability(new Availability(1,3,9,10,1));
     }
 
     private static Javalin startServer() {
