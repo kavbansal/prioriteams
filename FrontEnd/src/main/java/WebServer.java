@@ -197,6 +197,9 @@ public class WebServer {
                 for (int k = 0; k < entry.getValue().size();++k) {
                   //loop thru all of the availabilities for the x person to register for this event
                   //evaluating interval [j, j+ceil(eventDuration/60)]
+                    if (entry.getValue().get(k).getDow()!=Profdow) {
+                        continue; //if the day of the weeks dont match up, skip
+                    }
                   if (entry.getValue().get(k).getStartTime()<=j) {
                     if (entry.getValue().get(k).getEndTime()>= (int)j+Math.ceil(eventDuration/60)) {
                       //then this person is available for the full length of this interval
