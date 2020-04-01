@@ -72,7 +72,8 @@ public class WebServer {
       Map<String, Object> model = new HashMap<>();
       model.put("eventList", eventDao.findAllEvents());
       model.put("AvailList", aDao.findAllAvails());
-      return new ModelAndView(model,"registerToTestAlgo.hbs");
+      model.put("personList", personDao.findAllPeople());
+      return new ModelAndView(model,"register.hbs");
     }),new HandlebarsTemplateEngine());
 
     post("/register", ((request,response)->{
