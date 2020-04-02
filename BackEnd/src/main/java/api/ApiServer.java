@@ -33,7 +33,7 @@ public class ApiServer {
         app.get("/", ctx -> ctx.result("Welcome to the Lads' App"));
         getEvents(eventDao);
         getEventbyId(eventDao);
-        postUpdateNew(eventDao);
+        getUpdate(eventDao);
         postEvents(eventDao);
         getAvailabilities(availDao);
         getAllPeople(personDao);
@@ -176,31 +176,12 @@ public class ApiServer {
         });
     }
 
-    private static void postUpdate(EventDao eventDao) {
-        app.post("/events/:eId/:optTime",ctx->{
+    private static void getUpdate(EventDao eventDao) {
+        app.get("/events/:eId/:optTime/:optDay",ctx->{
             int eId = Integer.parseInt(ctx.pathParam("eId"));
             int optTime = Integer.parseInt(ctx.pathParam("optTime"));
-            List<Event> event_List = eventDao.findEventbyId(eId);
-            Event event = event_List.get(0);
-            event.setOptimalTime(optTime);
-            eventDao.remove(eId);
-
-            try {
-                eventDao.add(event);
-                ctx.status(201);
-                ctx.json(event);
-            } catch (DaoException ex) {
-                throw new ApiError(ex.getMessage(), 500); // server internal error
-            }
-
-        });
-    }
-
-    private static void postUpdateNew(EventDao eventDao) {
-        app.get("/events/:eId/:optTime",ctx->{
-            int eId = Integer.parseInt(ctx.pathParam("eId"));
-            int optTime = Integer.parseInt(ctx.pathParam("optTime"));
-            eventDao.update(optTime, eId);
+            int optDay = Integer.parseInt(ctx.pathParam("optDay"));
+            eventDao.update(optTime, eId, optDay);
             List<Event> temp = eventDao.findEventbyId(eId);
             ctx.json(temp);
             ctx.contentType("application/json");
@@ -236,8 +217,8 @@ public class ApiServer {
     }
 
     private static void initData(EventDao eventDao) {
-        eventDao.add(new Event(60, "Oose Staff Meeting", "Malone",0));
-        eventDao.add(new Event(30, "DS Staff Meeting", "Hackerman",0));
+        eventDao.add(new Event(60, "Oose Staff Meeting", "Malone",-1, -1));
+        eventDao.add(new Event(30, "DS Staff Meeting", "Hackerman",-1, -1));
     }
 
     private static void initAvails(AvailabilityDao aDao) {
@@ -261,8 +242,8 @@ public class ApiServer {
                 "duration INTEGER," +
                 "eventName VARCHAR(100) NOT NULL," +
                 "location VARCHAR(100)," +
-                "optimalTime INTEGER" +
-                ");";
+                "optimalTime INTEGER, " +
+                "optimalDay INTEGER);";
         try (Connection conn = sql2o.open()) {
             conn.createQuery(sql).executeUpdate();
         }

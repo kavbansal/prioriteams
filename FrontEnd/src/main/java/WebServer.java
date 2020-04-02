@@ -41,13 +41,10 @@ public class WebServer {
 //    }, new HandlebarsTemplateEngine());
 
     post("/create", ((request, response) -> {
-      // TODO Capture client's input
       String eventName = request.queryParams("eventname");
       String location = request.queryParams("location");
       int duration = Integer.parseInt(request.queryParams("duration"));
-      // TODO create (and add) a event
-      eventDao.add(new Event(duration, eventName, location,0));
-      // TODO refresh create page to show the new addition
+      eventDao.add(new Event(duration, eventName, location,-1, -1));
       response.redirect("/create");
       return null;
     }), new HandlebarsTemplateEngine());
@@ -62,8 +59,8 @@ public class WebServer {
       Map<String, Object> model = new HashMap<>();
       int eventId = Integer.parseInt(request.queryParams("eId"));
       //call helper function
-      int optimalTime = calculateOptimalTime(eventId, eventDao, aDao, personDao);
-      eventDao.removeAndUpdateOptTime(eventId, optimalTime);
+      int[] optimals = calculateOptimalTime(eventId, eventDao, aDao, personDao);
+      eventDao.removeAndUpdateOptTime(eventId, optimals[0], optimals[1]);
       response.redirect("/events");
       return null;
     }), new HandlebarsTemplateEngine());
@@ -92,9 +89,10 @@ public class WebServer {
 
   }
 
-  private static int calculateOptimalTime(int eventId, EventDao eDao, AvailabilityDao aDao, PersonDao pDao) {
+  private static int[] calculateOptimalTime(int eventId, EventDao eDao, AvailabilityDao aDao, PersonDao pDao) {
     //Assumption: Professor has the lowest numeric priority value to signify that he or she is the most
     // important person. The professor needs to be present at the meeting. So, the algorithm is predicated on that assumption.
+      int[] returnArray = {-1, -1};
       List<Event> event = eDao.findEventbyId(eventId);
       int eventDuration;
       List<Availability> availabilities = null;
@@ -102,7 +100,7 @@ public class WebServer {
       Map<Integer, List<Availability>> personIdtoAvailabilities = new HashMap<>();
         if (event.size()!=1) {
         //event does not exist!
-            return 0;
+            return returnArray;
         }
         else {
         //event does indeed exist
@@ -112,7 +110,7 @@ public class WebServer {
 
             if (availabilities.size()==0) {
                 //no one has registered for it!!!
-                return 0;
+                return returnArray;
             }
 
             int pId;
@@ -168,6 +166,7 @@ public class WebServer {
             int priority;
             float tempAvailScore;
             float tempIntervalScore;
+            int bestDOW = -1;
 
             // note, we  check to see if each of the Professor's availabilities for this event are actually as long as the duration of the event
             //if it is not, we just return a random opt time
@@ -218,9 +217,12 @@ public class WebServer {
             if (tempAvailScore > cur_Bestscore) {
               cur_Bestscore = tempAvailScore;
               bestTime = tempBestTime;
+              bestDOW = Profdow;
             }
           }
-          return bestTime;
+            returnArray[0] = bestTime;
+            returnArray[1] = bestDOW;
+            return returnArray;
 
 /*
       for (int i = 0; i < profAvails.size(); ++i) {

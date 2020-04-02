@@ -9,15 +9,23 @@ public class Event {
     private String location;
     private int id;
     private int optimalTime;
+    private int optimalDay;
 
-    public Event(int d, String e, String l, int optimalTime) {
+    public Event(int d, String e, String l, int optimalTime, int x) {
         this.duration = d;
         this.eventName = e;
         this.location = l;
         this.optimalTime = optimalTime;
+        this.optimalDay = x;
     }
 
+    public int getOptimalDay() {
+        return optimalDay;
+    }
 
+    public void setOptimalDay(int optimalDay) {
+        this.optimalDay = optimalDay;
+    }
 
     public int getDuration() {
         return this.duration;

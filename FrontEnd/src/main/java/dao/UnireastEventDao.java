@@ -22,7 +22,6 @@ public class UnireastEventDao implements EventDao {
         try {
             Unirest.post(URL).body(gson.toJson(event)).asJson();
         } catch (UnirestException e) {
-            // TODO error
             e.printStackTrace();
         }
     }
@@ -37,7 +36,6 @@ public class UnireastEventDao implements EventDao {
             return new ArrayList<>(Arrays.asList(events));
         }
         catch (UnirestException e) {
-            // TODO Error
             e.printStackTrace();
         }
         return null;
@@ -63,8 +61,8 @@ public class UnireastEventDao implements EventDao {
 
 
     @Override
-    public List<Event> removeAndUpdateOptTime(int eventId, int optTime) {
-        final String URL = BASE_URL + "events/" + eventId + "/" + optTime;
+    public List<Event> removeAndUpdateOptTime(int eventId, int optTime, int optDay) {
+        final String URL = BASE_URL + "events/" + eventId + "/" + optTime + "/" + optDay;
         HttpResponse<JsonNode> jsonResponse = null;
         try {
             jsonResponse = Unirest.get(URL).asJson();

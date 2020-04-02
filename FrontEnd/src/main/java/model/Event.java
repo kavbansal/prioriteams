@@ -9,12 +9,40 @@ public class Event {
     private String location;
     private int id;
     private int optimalTime;
+    private int optimalDay;
+    private String optDayString;
 
-    public Event(int d, String e, String l,int i) {
+    public Event(int d, String e, String l,int i,int x) {
         this.duration = d;
         this.eventName = e;
         this.location = l;
         this.optimalTime = i;
+        this.optimalDay = x;
+    }
+
+    public String getOptDayString() {
+        switch(this.optimalDay) {
+            case 1:
+                return "Monday";
+            case 2:
+                return "Tuesday";
+            case 3:
+                return "Wednesday";
+            case 4:
+                return "Thursday";
+            case 5:
+                return "Friday";
+            case 6:
+                return "Saturday";
+            case 7:
+                return "Sunday";
+
+        }
+        return "-1";
+    }
+
+    public void setOptDayString(String optDayString) {
+        this.optDayString = optDayString;
     }
 
     public int getDuration() {
@@ -53,6 +81,14 @@ public class Event {
 
     public void setOptimalTime(int o) {
         this.optimalTime = o;
+    }
+
+    public void setOptimalDay(int d) {
+        this.optimalDay = d;
+    }
+
+    public int getOptimalDay() {
+        return optimalDay;
     }
 
     @Override

@@ -2,7 +2,7 @@
     <h1>Register for Event</h1>
     <ul>
     {{#each eventList}}
-        <li> {{ eventName }} at {{location}} for {{duration}} minutes  </li>
+        <li> {{ id }}: {{ eventName }} at {{location}} for {{duration}} minutes  </li>
     {{/each}}
     </ul>
 
@@ -18,18 +18,21 @@
 <form action="/register" method="post">
 
     <p> <a> Select Event </a> <select id="eId" name ="eId">
+        <option disabled selected value></option>
             {{#each eventList}}
                 <option value = {{id}}> {{ eventName }} </option>
             {{/each}}
     </select>
     </p>
-    <p> <a> Person ID </a> <select id="pId" name ="pId">
+    <p> <a> Select Person </a> <select id="pId" name ="pId">
+        <option disabled selected value></option>
             {{#each personList}}
                 <option value = {{id}}> {{ name }} </option>
             {{/each}}
     </select>
     </p>
    <p> <a> Select available day </a> <select id="dow" name ="dow">
+        <option disabled selected value></option>
         <option value=1>Monday</option>
         <option value=2>Tuesday</option>
         <option value=3>Wednesday</option>
@@ -41,6 +44,7 @@
    </p>
     <p>
         <a> Start time </a> <select id="st" name = "st">
+        <option disabled selected value></option>
         <option value=8>8 AM</option>
         <option value=9>9 AM</option>
         <option value=10>10 AM</option>
@@ -59,6 +63,7 @@
         <br>
         <br>
         <a> End time </a> <select id="et" name = "et">
+        <option disabled selected value></option>
         <option value=8>8 AM</option>
         <option value=9>9 AM</option>
         <option value=10>10 AM</option>
