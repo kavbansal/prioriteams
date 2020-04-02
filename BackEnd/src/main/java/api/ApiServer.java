@@ -33,7 +33,7 @@ public class ApiServer {
         app.get("/", ctx -> ctx.result("Welcome to the Lads' App"));
         getEvents(eventDao);
         getEventbyId(eventDao);
-        postUpdate(eventDao);
+        postUpdateNew(eventDao);
         postEvents(eventDao);
         getAvailabilities(availDao);
         getAllPeople(personDao);
@@ -188,11 +188,23 @@ public class ApiServer {
             try {
                 eventDao.add(event);
                 ctx.status(201);
-                ctx.json(null);
+                ctx.json(event);
             } catch (DaoException ex) {
                 throw new ApiError(ex.getMessage(), 500); // server internal error
             }
 
+        });
+    }
+
+    private static void postUpdateNew(EventDao eventDao) {
+        app.get("/events/:eId/:optTime",ctx->{
+            int eId = Integer.parseInt(ctx.pathParam("eId"));
+            int optTime = Integer.parseInt(ctx.pathParam("optTime"));
+            eventDao.update(optTime, eId);
+            List<Event> temp = eventDao.findEventbyId(eId);
+            ctx.json(temp);
+            ctx.contentType("application/json");
+            ctx.status(200);
         });
     }
 

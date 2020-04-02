@@ -51,7 +51,9 @@ public class Event {
         this.id = i;
     }
 
-    public void setOptimalTime(int o) { this.optimalTime = o; }
+    public void setOptimalTime(int o) {
+        this.optimalTime = o;
+    }
 
     @Override
     public int hashCode() {

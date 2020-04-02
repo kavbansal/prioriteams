@@ -15,5 +15,5 @@ public interface EventDao {
 
     List<Event> findEventbyId(int id);
 
-    void removeAndUpdateOptTime(int eventId, int optTime);
+    List<Event> removeAndUpdateOptTime(int eventId, int optTime);
 }

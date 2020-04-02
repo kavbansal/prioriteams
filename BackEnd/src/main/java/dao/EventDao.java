@@ -8,6 +8,8 @@ import java.util.List;
 public interface EventDao {
     void add(Event event) throws DaoException;
 
+    void update(int time, int eId);
+
     List<Event> findAllEvents();
 
     public List<Event> findEventbyId(int eId);

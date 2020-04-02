@@ -1,9 +1,9 @@
 {{#partial "content"}}
     <h1>All Events</h1>
 
-    <ul>
+    <ul style="font-size: 12px">
         {{#each eventList}}
-            <li> {{ eventName }} at {{ location }} for {{ duration }} minutes............OptimalTime: {{ optimalTime }}</li>
+            <li> {{ eventName }} at {{ location }} for {{ duration }} minutes with an optimal meeting time at {{ optimalTime }} </li>
         {{/each}}
     </ul>
 

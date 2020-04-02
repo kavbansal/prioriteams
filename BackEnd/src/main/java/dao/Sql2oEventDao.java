@@ -28,6 +28,16 @@ public class Sql2oEventDao implements EventDao {
     }
 
     @Override
+    public void update(int time, int eId) {
+        try (Connection conn = sql2o.open()) {
+            String sql = "update Events set optimalTime = :ot where id = :eid";
+            conn.createQuery(sql).addParameter("ot", time).addParameter("eid", eId).executeUpdate();
+        } catch (Sql2oException ex) {
+            throw new DaoException("Unable to update the event", ex);
+        }
+    }
+
+    @Override
     public List<Event> findAllEvents() {
         String sql = "SELECT * FROM Events;";
         try (Connection conn = sql2o.open()) {
