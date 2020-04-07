@@ -2,6 +2,13 @@
 <img src="/docs/UMLIteration2.png" />
 
 # Wireframe 
+<img src="/docs/it4wf1.jpeg" />
+<img src="/docs/it4wf2.jpeg" />
+<img src="/docs/it4wf3.jpeg" />
+<img src="/docs/it4wf4.jpeg" />
+<img src="/docs/it4wf5.jpeg" />
+<img src="/docs/it4wf6.jpeg" />
+<img src="/docs/it4wf7.jpeg" />
 
 # Iteration Backlog
 
