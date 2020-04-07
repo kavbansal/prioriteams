@@ -11,15 +11,15 @@ As a Professor, I want there to be a sign-in page so that only my CAs and myself
 
 # Tasks
 
+Implement Sign-in
+
 Register for an event should have unique endpoint for each event
 
-Resister page just becomes one user entering their availability… thats it
+Register page just becomes one user entering their availability… that's it
 
-Profile page will have list of meetings that have been registered for
+Profile page will have list of meetings that have been registered for (only shows MY events)
 
-Events page only shows MY events
-
-Upon submission of availabilities, calculate time
+Upon submission of availabilities, calculate/update optimal time
 
 Deal with edge cases with algorithm
 
