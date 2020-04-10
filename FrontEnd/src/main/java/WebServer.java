@@ -27,9 +27,17 @@ public class WebServer {
     post("/main", ((request, response) -> {
           String username = request.queryParams("usernm");
           String password = request.queryParams("passwd");
+          System.out.println(username);
+          if (username == null || password == null) {
+              response.redirect("/");
+              return null;
+          }
           //int duration = Integer.parseInt(request.queryParams("duration"));
           List<Person> p = personDao.findPerson(username, password);
-          if (p.size() == 1) {
+          if (p == null) {
+              response.redirect("/");
+          }
+          else if (p.size() == 1) {
               response.redirect("/main");
           } else {
               response.redirect("/");
