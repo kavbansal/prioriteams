@@ -4,10 +4,12 @@
 
 {{#partial "content"}}
 
+    {{#if priority}}
     <div class="form-actions">
         <a href="/create" class="btn btn-primary sunset_color white btn-lg active mb-3" role="button"
            aria-pressed="true">Create an Event</a>
     </div>
+    {{/if}}
     <div class="form-actions">
         <a href="/register" class="btn btn-primary btn-lg active mb-3" role="button" aria-pressed="true">Register for an
             Existing Event</a>
@@ -15,6 +17,7 @@
     <div class="form-actions">
         <a href="/events" class="btn btn-primary btn-lg active mb-3" rol="button" aria-pressed="true">View Events</a>
     </div>
+    <a href="/signout">Sign out</a></p>
     </body>
     </html>
 {{/partial}}

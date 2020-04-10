@@ -1,3 +1,4 @@
+import com.github.jknack.handlebars.Handlebars;
 import dao.*;
 import model.Availability;
 import model.Event;
@@ -17,14 +18,20 @@ public class WebServer {
     PersonDao personDao = new UnireastPersonDao();
     staticFiles.location("/public");
     get("/", (req, res) -> {
+        Map<String, String> model = new HashMap<>();
+        model.put("personid", req.cookie("personid"));
+        model.put("priority", req.cookie("priority"));
       return new ModelAndView(null, "index.hbs");
     }, new HandlebarsTemplateEngine());
 
     get("/main", (req, res) -> {
-      return new ModelAndView(null, "main.hbs");
+        Map<String, String> model = new HashMap<>();
+        model.put("personid", req.cookie("personid"));
+        model.put("priority", req.cookie("priority"));
+      return new ModelAndView(model, "main.hbs");
     }, new HandlebarsTemplateEngine());
 
-    post("/main", ((request, response) -> {
+    post("/", ((request, response) -> {
           String username = request.queryParams("usernm");
           String password = request.queryParams("passwd");
           System.out.println(username);
@@ -38,6 +45,10 @@ public class WebServer {
               response.redirect("/");
           }
           else if (p.size() == 1) {
+
+              response.cookie("personid", Integer.toString(p.get(0).getId()));
+              if (p.get(0).getPriority() == 1)
+                response.cookie("priority", Integer.toString(p.get(0).getPriority()));
               response.redirect("/main");
           } else {
               response.redirect("/");
@@ -109,6 +120,11 @@ public class WebServer {
       return null;
     }), new HandlebarsTemplateEngine());
 
+      get("/signout", ((request, response) -> {
+          response.removeCookie("personid");
+          response.removeCookie("priority");
+          response.redirect("/"); return null;
+      }), new HandlebarsTemplateEngine());
 
   }
 
