@@ -24,6 +24,21 @@ public class WebServer {
       return new ModelAndView(null, "main.hbs");
     }, new HandlebarsTemplateEngine());
 
+    post("/main", ((request, response) -> {
+          String username = request.queryParams("usernm");
+          String password = request.queryParams("passwd");
+          //int duration = Integer.parseInt(request.queryParams("duration"));
+          List<Person> p = personDao.findPerson(username, password);
+          if (p.size() == 1) {
+              response.redirect("/main");
+          } else {
+              response.redirect("/");
+          }
+          System.out.println(username);
+          System.out.println(password);
+          return null;
+    }), new HandlebarsTemplateEngine());
+
     get("/create", (req, res) -> {
       return new ModelAndView(null, "create.hbs");
     }, new HandlebarsTemplateEngine());

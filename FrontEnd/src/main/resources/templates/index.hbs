@@ -3,7 +3,7 @@
 {{/partial}}
 
 {{#partial "content"}}
-
+    <!--</body>
     <div class="form-actions">
         <a href="/main" class="btn btn-primary sunset_color white btn-lg active mb-3" role="button"
              aria-pressed="true"> Are you a Professor</a>
@@ -15,7 +15,24 @@
         <a href="/main" class="btn btn-primary btn-lg active mb-3" role="button"
             aria-pressed="true">Are you a Student?</a>
     </div>
-    </body>
+    </body>!-->
+    <div class="login_page">
+        <div class="form">
+            <form class="register-form">
+                <input type="text" placeholder="name"/>
+                <input type="password" placeholder="password"/>
+                <input type="text" placeholder="email address"/>
+                <button>create</button>
+                <p class="message">Already registered? <a href="/main">Sign In</a></p>
+            </form>
+            <form class="login-form" action="/main" method="post">
+                <input id = "usernm" name = "usernm" type="text" placeholder="username"/>
+                <input id = "passwd" name = "passwd" type="password" placeholder="password"/>
+                <button type = "submit">login</button>
+                <p class="message">Not registered? <a href="/register">Create an account</a></p>
+            </form>
+        </div>
+    </div>
     </html>
 {{/partial}}
 
