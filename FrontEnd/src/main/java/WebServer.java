@@ -107,6 +107,22 @@ public class WebServer {
       return new ModelAndView(model,"register.hbs");
     }),new HandlebarsTemplateEngine());
 
+    get("/register/:id",((request, response) -> {
+        return new ModelAndView(null, "register1.hbs");
+    }), new HandlebarsTemplateEngine());
+
+    post("/register/:id", ((request,response)->{
+          int eId=Integer.parseInt(request.params(":id"));
+          int pId=Integer.parseInt(request.queryParams("pId"));
+          int st=Integer.parseInt(request.queryParams("st"));
+          int et = Integer.parseInt(request.queryParams("et"));
+          int dow = Integer.parseInt(request.queryParams("dow"));
+          Availability a = new Availability(eId,pId,st,et,dow);
+          aDao.addAvailability(a);
+          response.redirect("/register/"+eId);
+          return null;
+      }), new HandlebarsTemplateEngine());
+
     post("/register", ((request,response)->{
       int eId=Integer.parseInt(request.queryParams("eId"));
       //int pId=1; //default

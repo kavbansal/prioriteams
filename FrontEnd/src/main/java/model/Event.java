@@ -57,9 +57,7 @@ public class Event {
         return this.location;
     }
 
-    public int getId() {
-        return this.id;
-    }
+    public int getId() { return this.id; }
 
     public int getOptimalTime() { return this.optimalTime; }
 
