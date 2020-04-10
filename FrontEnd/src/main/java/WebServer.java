@@ -194,7 +194,7 @@ public class WebServer {
             //profId contains the id of the professor
             List<Availability> profAvails = personIdtoAvailabilities.get(profId); //profAvails contains Professors Availabilities
             List<Availability> tempList;
-            float cur_Bestscore=-1;
+            float cur_Bestscore=-2;
             int best_index=0;
             int bestTime=-1;
             int tempBestTime=0;
@@ -214,8 +214,11 @@ public class WebServer {
 
             for (int i = 0; i < profAvails.size(); ++i) {
                 //loop through all of the Professor's availabilities
-                tempAvailScore=0;
-                tempBestTime=0;
+                if (pDao.findPersonbyPersonId(profId).get(0).getPriority()!=1) {
+                    break;
+                }
+                tempAvailScore=-1;
+                tempBestTime=-1;
                 Profst = profAvails.get(i).getStartTime();
                 Profet = profAvails.get(i).getEndTime();
                 Profdow = profAvails.get(i).getDow();
@@ -248,7 +251,7 @@ public class WebServer {
                     }
                   }
 
-                  if (tempIntervalScore > tempAvailScore) {
+                  if ((tempIntervalScore > tempAvailScore) && (tempIntervalScore!=0)) {
                         tempAvailScore = tempIntervalScore;
                         tempBestTime = j;
                   }
@@ -259,6 +262,99 @@ public class WebServer {
               bestDOW = Profdow;
             }
           }
+
+            int tempTime=0;
+            double tempScore;
+            double maxScore=0;
+            int maxTime=0;
+            int maxDow=0;
+
+            List<int[]> sorted_stDow = new ArrayList<>();
+            List<int[]> sorted_etDow = new ArrayList<>();
+            int[] tempAr = new int[] {0,0};
+            int stIdx=0;
+            int etIdx=0;
+            int it;
+            List<Integer> intervalAvailIdxs = new ArrayList<>();
+            if (bestTime == -1) {
+                // there exist no overlapping availabilities with that of the Professor's
+                //DEALS WITH NO OVERLAPPING AVAILABILITIES WITH THAT OF PROFESSOR'S by finding the time and day of the week in which the most
+                //people can meet at once
+                for (int i = 1; i <= 7; ++i) {
+                    //loop thru days of the week
+                    tempScore=0;
+                    sorted_stDow.clear();
+                    sorted_etDow.clear();
+
+                    for (int j = 0; j < availabilities.size(); ++j) {
+                        //loop thru availabilites and add start times and end times of the availabilties associated to this specific dow
+                        if (availabilities.get(j).getDow()==i) {
+                            sorted_stDow.add(new int[]{availabilities.get(j).getStartTime(),j});
+                            sorted_etDow.add(new int[]{availabilities.get(j).getEndTime(),j});
+
+                        }
+                    }
+                    //sorted_stDow int[start time, availabilties index]
+                    for (int j = 1; j < sorted_stDow.size();++j) {
+                        it = j;
+                        while ((it > 0) && (sorted_stDow.get(it)[0]<sorted_stDow.get(it-1)[0])) {
+                            tempAr[0] = sorted_stDow.get(it-1)[0];
+                            tempAr[1] = sorted_stDow.get(it-1)[1];
+                            sorted_stDow.get(it-1)[0]=sorted_stDow.get(it)[0];
+                            sorted_stDow.get(it-1)[1]=sorted_stDow.get(it)[1];
+                            --it;
+                            sorted_stDow.get(it+1)[0]=tempAr[0];
+                            sorted_stDow.get(it+1)[1]=tempAr[1];
+                        }
+                    }
+
+                    for (int j = 1; j < sorted_etDow.size(); ++j) {
+                        it = j;
+                        while ((it > 0) && (sorted_etDow.get(it)[0]<sorted_etDow.get(it-1)[0])) {
+                            tempAr[0] = sorted_etDow.get(it-1)[0];
+                            tempAr[1] = sorted_etDow.get(it-1)[1];
+                            sorted_etDow.get(it-1)[0]=sorted_etDow.get(it)[0];
+                            sorted_etDow.get(it-1)[1]=sorted_etDow.get(it)[1];
+                            --it;
+                            sorted_etDow.get(it+1)[0]=tempAr[0];
+                            sorted_etDow.get(it+1)[1]=tempAr[1];
+                        }
+                    }
+
+
+                    //Now, sorted_stDow and sorted_etDow are sorted array lists w.r.t start time/end times where each index contains an array of size 1
+                    //with the first element in the array being the start/end time and the second element is the index in the availability array list that
+                    //it corresponds to
+
+
+                    stIdx=0;
+                    etIdx=0;
+                    intervalAvailIdxs.clear();
+                    intervalAvailIdxs.add(sorted_stDow.get(0)[1]);
+                    tempScore = calculateMaxPeopleDividedByAveragePriority(pDao,availabilities,intervalAvailIdxs);
+                    while (stIdx < sorted_stDow.size()-1) {
+                        if (sorted_stDow.get(stIdx+1)[0]<sorted_etDow.get(etIdx)[0]) {
+                            ++stIdx;
+                            intervalAvailIdxs.add(sorted_stDow.get(stIdx)[1]);
+                            tempScore=calculateMaxPeopleDividedByAveragePriority(pDao,availabilities,intervalAvailIdxs);
+                            if (tempScore > maxScore) {
+                                maxScore = tempScore;
+                                maxTime = sorted_stDow.get(stIdx)[0];
+                                maxDow = i;
+                            }
+                        }
+                        else {
+                            //
+                            intervalAvailIdxs = removeAvailIdx(intervalAvailIdxs,sorted_etDow.get(etIdx)[1]);
+                            ++etIdx;
+
+                        }
+                    }
+                }
+                returnArray[0] = maxTime;
+                returnArray[1] = maxDow;
+                return returnArray;
+            }
             returnArray[0] = bestTime;
             returnArray[1] = bestDOW;
             return returnArray;
@@ -433,6 +529,29 @@ public class WebServer {
 
     }
 
+  }
+
+  private static double calculateMaxPeopleDividedByAveragePriority(PersonDao pDao, List<Availability> avails, List<Integer> intervalAvailIdxs) {
+      double numPeople = (double)intervalAvailIdxs.size();
+      double cumalativePriority = 0;
+      for (int i = 0; i < intervalAvailIdxs.size();++i) {
+          cumalativePriority+=pDao.findPersonbyPersonId(avails.get(intervalAvailIdxs.get(i)).getPersonId()).get(0).getPriority();
+      }
+      double avgPriority = cumalativePriority/numPeople;
+      return (numPeople/avgPriority);
+
+  }
+
+  private static List<Integer> removeAvailIdx(List<Integer> intervalAvailIdxs, int idx2remove) {
+      boolean iterate = true;
+      int i = 0;
+      while ((iterate) && (i < intervalAvailIdxs.size())) {
+          if (intervalAvailIdxs.get(i).intValue()==idx2remove) {
+              intervalAvailIdxs.remove(i);
+              iterate=false;
+          }
+      }
+      return intervalAvailIdxs;
   }
 
 
