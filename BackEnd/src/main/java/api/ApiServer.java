@@ -324,7 +324,7 @@ public class ApiServer {
         personDao.add(new Person("Vishnu Joshi", "vjoshi1@jhu.edu", "vjoshi6", "vishnu",3));
         personDao.add(new Person("Ryan Hubley","rhubley1@jhu.edu", "rhubley1", "ryan",3));
         personDao.add(new Person("Dara Moini", "dmoini1@jhu.edu", "dmoini1", "dara",3));
-        personDao.add(new Person("Kavan Bansal","kbansal1@jhu.edu", "kbansal1", "kavan",3));
+        personDao.add(new Person("Kavan Bansal","kbansal2@jhu.edu", "kbansal2", "kavan",3));
         personDao.add(new Person("Justin Song","LauFalls69@jhu.edu", "jsong1", "justin",3));
     }
 }

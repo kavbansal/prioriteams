@@ -108,38 +108,164 @@ public class WebServer {
     }),new HandlebarsTemplateEngine());
 
     get("/register/:id",((request, response) -> {
-        return new ModelAndView(null, "register1.hbs");
+        Map<String, Object> model = new HashMap<>();
+        model.put("eventList", eventDao.findEventbyId(Integer.parseInt(request.params(":id"))));
+        model.put("AvailList", aDao.findAllAvails());
+        model.put("personList", personDao.findAllPeople());
+        return new ModelAndView(model, "register1.hbs");
     }), new HandlebarsTemplateEngine());
 
     post("/register/:id", ((request,response)->{
-          int eId=Integer.parseInt(request.params(":id"));
-          int pId=Integer.parseInt(request.queryParams("pId"));
-          int st=Integer.parseInt(request.queryParams("st"));
-          int et = Integer.parseInt(request.queryParams("et"));
-          int dow = Integer.parseInt(request.queryParams("dow"));
-          Availability a = new Availability(eId,pId,st,et,dow);
-          aDao.addAvailability(a);
+        int eId=Integer.parseInt(request.params(":id"));
+        int pId=Integer.parseInt(request.queryParams("pId"));
+        int dow = Integer.parseInt(request.queryParams("dow"));
+        int st = 0;
+        int et = 0;
+        int curNum = 8;
+        String curM = "am";
+        String tempString = "";
+        String queryString = curNum + curM;
+        int temp = 0;
+        while (curNum < 8 || curM.compareTo("am") == 0 || curNum == 12) {
+            queryString = curNum + curM;
+            tempString = request.queryParams(queryString);
+            if (tempString != null) {
+                temp = Integer.parseInt(tempString);
+            } else {
+                temp = 0;
+            }
+            if (temp == 1) {
+                st = curNum;
+                if (st != 12 && curM.compareTo("pm") == 0) {
+                    st += 12;
+                }
+                et = curNum + 1;
+                //Find end time for this start time
+                while (temp == 1) {
+                    curNum++;
+                    if (curNum == 12) {
+                        curM = "pm";
+                    }
+                    if (curNum >= 13) {
+                        curNum -= 12;
+                    }
+                    queryString = curNum + curM;
+                    if (curNum == 8) {
+                        break;
+                    }
+                    tempString = request.queryParams(queryString);
+                    if (tempString != null) {
+                        temp = Integer.parseInt(tempString);
+                    } else {
+                        temp = 0;
+                    }
+                }
+                et = curNum;
+                if (et != 12 && curM.compareTo("pm") == 0) {
+                    et += 12;
+                }
+                Availability a = new Availability(eId, pId, st, et, dow);
+                aDao.addAvailability(a);
+            }
+            curNum++;
+            if (curNum == 12) {
+                curM = "pm";
+            }
+            if (curNum >= 13) {
+                curNum -= 12;
+            }
+        }
           response.redirect("/register/"+eId);
           return null;
+
+        /*
+        Old code:
+        int eId=Integer.parseInt(request.params(":id"));
+        int pId=Integer.parseInt(request.queryParams("pId"));
+        int st=Integer.parseInt(request.queryParams("st"));
+        int et = Integer.parseInt(request.queryParams("et"));
+        int dow = Integer.parseInt(request.queryParams("dow"));
+        Availability a = new Availability(eId,pId,st,et,dow);
+        aDao.addAvailability(a);
+        response.redirect("/register/"+eId);
+        return null;
+         */
       }), new HandlebarsTemplateEngine());
 
     post("/register", ((request,response)->{
-      int eId=Integer.parseInt(request.queryParams("eId"));
-      //int pId=1; //default
-      int pId=Integer.parseInt(request.queryParams("pId"));
-      int st=Integer.parseInt(request.queryParams("st"));
-      int et = Integer.parseInt(request.queryParams("et"));
-      int dow = Integer.parseInt(request.queryParams("dow"));
-      Availability a = new Availability(eId,pId,st,et,dow);
-      aDao.addAvailability(a);
-      response.redirect("/register");
-      return null;
+        int eId=Integer.parseInt(request.queryParams("eId"));
+        //int pId=1; //default
+        int pId=Integer.parseInt(request.queryParams("pId"));
+        int dow = Integer.parseInt(request.queryParams("dow"));
+        int st = 0;
+        int et = 0;
+        int curNum = 8;
+        String curM = "am";
+        String tempString = "";
+        String queryString = curNum + curM;
+        int temp = 0;
+        while (curNum < 8 || curM.compareTo("am") == 0 || curNum == 12) {
+            queryString = curNum + curM;
+            tempString = request.queryParams(queryString);
+            if (tempString != null) {
+                temp = Integer.parseInt(tempString);
+            } else {
+                temp = 0;
+            }
+            if (temp == 1) {
+                st = curNum;
+                if (st != 12 && curM.compareTo("pm") == 0) {
+                    st += 12;
+                }
+                et = curNum + 1;
+
+
+                //Find end time for this start time
+                while (temp == 1) {
+                    curNum++;
+                    if (curNum == 12) {
+                        curM = "pm";
+                    }
+                    if (curNum >= 13) {
+                        curNum -= 12;
+                    }
+                    queryString = curNum + curM;
+                    if (curNum == 8) {
+                        break;
+                    }
+                    tempString = request.queryParams(queryString);
+                    if (tempString != null) {
+                        temp = Integer.parseInt(tempString);
+                    } else {
+                        temp = 0;
+                    }
+                }
+
+                et = curNum;
+                if (et != 12 && curM.compareTo("pm") == 0) {
+                    et += 12;
+                }
+                Availability a = new Availability(eId, pId, st, et, dow);
+                aDao.addAvailability(a);
+            }
+            curNum++;
+            if (curNum == 12) {
+                curM = "pm";
+            }
+            if (curNum >= 13) {
+                curNum -= 12;
+            }
+        }
+
+        response.redirect("/register");
+        return null;
     }), new HandlebarsTemplateEngine());
 
       get("/signout", ((request, response) -> {
           response.removeCookie("personid");
           response.removeCookie("priority");
-          response.redirect("/"); return null;
+          response.redirect("/");
+          return null;
       }), new HandlebarsTemplateEngine());
 
   }
