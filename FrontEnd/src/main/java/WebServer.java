@@ -271,209 +271,214 @@ public class WebServer {
   }
 
   private static int[] calculateOptimalTime(int eventId, EventDao eDao, AvailabilityDao aDao, PersonDao pDao) {
-    //Assumption: Professor has the lowest numeric priority value to signify that he or she is the most
-    // important person. The professor needs to be present at the meeting. So, the algorithm is predicated on that assumption.
+      //Assumption: Professor has the lowest numeric priority value to signify that he or she is the most
+      // important person. The professor needs to be present at the meeting. So, the algorithm is predicated on that assumption.
       int[] returnArray = {-1, -1};
       List<Event> event = eDao.findEventbyId(eventId);
       int eventDuration;
       List<Availability> availabilities = null;
       Map<Integer, Integer> personIdtoPriority = new HashMap<>();
       Map<Integer, List<Availability>> personIdtoAvailabilities = new HashMap<>();
-        if (event.size()!=1) {
-        //event does not exist!
-            return returnArray;
-        }
-        else {
-        //event does indeed exist
-            eventDuration = event.get(0).getDuration(); //note event duration is taken in with respect to number of minutes the event lasts
+      if (event.size() != 1) {
+          //event does not exist!
+          return returnArray;
+      } else {
+          //event does indeed exist
+          eventDuration = event.get(0).getDuration(); //note event duration is taken in with respect to number of minutes the event lasts
 
-            availabilities = aDao.findAvailabilitiesbyEventId(eventId);
+          availabilities = aDao.findAvailabilitiesbyEventId(eventId);
 
-            if (availabilities.size()==0) {
-                //no one has registered for it!!!
-                return returnArray;
-            }
+          if (availabilities.size() == 0) {
+              //no one has registered for it!!!
+              return returnArray;
+          }
 
-            int pId;
-            List<Person> p = null;
-            Person person = null;
+          int pId;
+          List<Person> p = null;
+          Person person = null;
 
 
-            //loop through availabilities
-            for (int i = 0; i < availabilities.size(); ++i) {
-                pId = availabilities.get(i).getPersonId(); //get personId that's associated with each availability
+          //loop through availabilities
+          for (int i = 0; i < availabilities.size(); ++i) {
+              pId = availabilities.get(i).getPersonId(); //get personId that's associated with each availability
 
-                if (personIdtoPriority.containsKey(new Integer(pId))) {
-                    // this person is already in our personIdtoPriority so its safe to assume it is also in the personIdtoAvailabilties map
-                    personIdtoAvailabilities.get(pId).add(availabilities.get(i)); //add this availability to the corresponding person whose availability it is
-                    continue;
-                }
-                else {
-                    // person is not in our map so let's add them by (pId, priority)
-                    p = pDao.findPersonbyPersonId(pId);
-                    //ASSUMING THAT pID WILL BE IN THE RESPECTIVE DATABASE
-                    person = p.get(0);
-                    personIdtoPriority.put(new Integer(pId),new Integer(person.getPriority()));
-                    personIdtoAvailabilities.put(new Integer(pId),new ArrayList<Availability>());
-                    personIdtoAvailabilities.get(pId).add(availabilities.get(i));
-                }
-            }
-            // We have now looped through the availabilities associated with this specific event and extracted the people that
-            // have registered for this event and created a map that maps personId to priority
-            // Also, we have created a map that maps personId to his or her availabilities for this event
+              if (personIdtoPriority.containsKey(new Integer(pId))) {
+                  // this person is already in our personIdtoPriority so its safe to assume it is also in the personIdtoAvailabilties map
+                  personIdtoAvailabilities.get(pId).add(availabilities.get(i)); //add this availability to the corresponding person whose availability it is
+                  continue;
+              } else {
+                  // person is not in our map so let's add them by (pId, priority)
+                  p = pDao.findPersonbyPersonId(pId);
+                  //ASSUMING THAT pID WILL BE IN THE RESPECTIVE DATABASE
+                  person = p.get(0);
+                  personIdtoPriority.put(new Integer(pId), new Integer(person.getPriority()));
+                  personIdtoAvailabilities.put(new Integer(pId), new ArrayList<Availability>());
+                  personIdtoAvailabilities.get(pId).add(availabilities.get(i));
+              }
+          }
+          // We have now looped through the availabilities associated with this specific event and extracted the people that
+          // have registered for this event and created a map that maps personId to priority
+          // Also, we have created a map that maps personId to his or her availabilities for this event
 
-            //Assumption: Professor must be in attendance and is the most important person. So, loop through the map to find
-            // the highest priority person (ie lowest priority value)
-            int curpId = -1;
-            int curLowestPriority = 10000; //intialize to be very high!
-            for (Map.Entry<Integer, Integer> entry : personIdtoPriority.entrySet()) {
-                if (entry.getValue().intValue()< curLowestPriority) {
-                    curLowestPriority = entry.getValue().intValue();
-                    curpId = entry.getKey().intValue();
-                }
-            }
-            int profId = curpId;
-            //profId contains the id of the professor
-            List<Availability> profAvails = personIdtoAvailabilities.get(profId); //profAvails contains Professors Availabilities
-            List<Availability> tempList;
-            float cur_Bestscore=-2;
-            int best_index=0;
-            int bestTime=-1;
-            int tempBestTime=0;
-            int Profst;
-            int Profet;
-            int Profdow;
-            int latestEventStart;
-            int priority;
-            float tempAvailScore;
-            float tempIntervalScore;
-            int bestDOW = -1;
+          //Assumption: Professor must be in attendance and is the most important person. So, loop through the map to find
+          // the highest priority person (ie lowest priority value)
+          int curpId = -1;
+          int curLowestPriority = 10000; //intialize to be very high!
+          for (Map.Entry<Integer, Integer> entry : personIdtoPriority.entrySet()) {
+              if (entry.getValue().intValue() < curLowestPriority) {
+                  curLowestPriority = entry.getValue().intValue();
+                  curpId = entry.getKey().intValue();
+              }
+          }
+          int profId = curpId;
+          //profId contains the id of the professor
+          List<Availability> profAvails = personIdtoAvailabilities.get(profId); //profAvails contains Professors Availabilities
+          List<Availability> tempList;
+          float cur_Bestscore = -2;
+          int best_index = 0;
+          int bestTime = -1;
+          int tempBestTime = 0;
+          int Profst;
+          int Profet;
+          int Profdow;
+          int latestEventStart;
+          int priority;
+          float tempAvailScore;
+          float tempIntervalScore;
+          int bestDOW = -1;
 
-            // note, we  check to see if each of the Professor's availabilities for this event are actually as long as the duration of the event
-            //if it is not, we just return a random opt time
+          // note, we  check to see if each of the Professor's availabilities for this event are actually as long as the duration of the event
+          //if it is not, we just return a random opt time
 
-            //right now, the availabilities are defined in terms of start time and end time; both of which are integer valued.
+          //right now, the availabilities are defined in terms of start time and end time; both of which are integer valued.
 
-            for (int i = 0; i < profAvails.size(); ++i) {
-                //loop through all of the Professor's availabilities
-                if (pDao.findPersonbyPersonId(profId).get(0).getPriority()!=1) {
-                    break;
-                }
-                tempAvailScore=-1;
-                tempBestTime=-1;
-                Profst = profAvails.get(i).getStartTime();
-                Profet = profAvails.get(i).getEndTime();
-                Profdow = profAvails.get(i).getDow();
-                if ((Profet-Profst) * 60 < eventDuration) {
+          for (int i = 0; i < profAvails.size(); ++i) {
+              //loop through all of the Professor's availabilities
+              if (pDao.findPersonbyPersonId(profId).get(0).getPriority() != 1) {
+                  break;
+              }
+              tempAvailScore = -1;
+              tempBestTime = -1;
+              Profst = profAvails.get(i).getStartTime();
+              Profet = profAvails.get(i).getEndTime();
+              Profdow = profAvails.get(i).getDow();
+              if ((Profet - Profst) * 60 < eventDuration) {
                   continue; //in the case that the Prof's availability is not even as long as the event that he/she signed up for
-                }
-                latestEventStart = Profet-(int)Math.ceil(eventDuration/60);
-                for (int j = Profst; j <= latestEventStart; ++j) {
+              }
+              latestEventStart = Profet - (int) Math.ceil(eventDuration / 60.0);
+              for (int j = Profst; j <= latestEventStart; ++j) {
                   //loop thru each of the possible "event duration" sized intervals within the Professor's availability chunk with a stride of 1 hour
                   //evaluating interval [j, j+ceil(eventDuration/60)]
                   tempIntervalScore = 0;
-                  for (Map.Entry<Integer,List<Availability>> entry : personIdtoAvailabilities.entrySet()) {
-                    //loop thru every person who registered for this event
-                    if (entry.getKey().intValue()==profId) {
-                        continue;
-                    }
-                    priority = pDao.findPersonbyPersonId(entry.getKey().intValue()).get(0).getPriority();
-                    for (int k = 0; k < entry.getValue().size();++k) {
-                        //loop thru all of the availabilities for the x person to register for this event
-                        //evaluating interval [j, j+ceil(eventDuration/60)]
-                        if (entry.getValue().get(k).getDow()!=Profdow) {
-                            continue; //if the day of the weeks dont match up, skip
-                        }
-                        if (entry.getValue().get(k).getStartTime()<=j) {
-                            if (entry.getValue().get(k).getEndTime()>= (int)j+Math.ceil(eventDuration/60)) {
-                                //then this person is available for the full length of this interval
-                                tempIntervalScore+=(float)(100.0/priority);
-                            }
-                        }
-                    }
+                  for (Map.Entry<Integer, List<Availability>> entry : personIdtoAvailabilities.entrySet()) {
+                      //loop thru every person who registered for this event
+                      if (entry.getKey().intValue() == profId) {
+                          continue;
+                      }
+                      priority = pDao.findPersonbyPersonId(entry.getKey().intValue()).get(0).getPriority();
+                      for (int k = 0; k < entry.getValue().size(); ++k) {
+                          //loop thru all of the availabilities for the x person to register for this event
+                          //evaluating interval [j, j+ceil(eventDuration/60)]
+                          if (entry.getValue().get(k).getDow() != Profdow) {
+                              continue; //if the day of the weeks dont match up, skip
+                          }
+                          if (entry.getValue().get(k).getStartTime() <= j) {
+                              if (entry.getValue().get(k).getEndTime() >= (int) j + Math.ceil(eventDuration / 60.0)) {
+                                  //then this person is available for the full length of this interval
+                                  tempIntervalScore += (float) (100.0 / priority);
+                              }
+                          }
+                      }
                   }
 
-                  if ((tempIntervalScore > tempAvailScore) && (tempIntervalScore!=0)) {
-                        tempAvailScore = tempIntervalScore;
-                        tempBestTime = j;
+                  if ((tempIntervalScore > tempAvailScore) && (tempIntervalScore != 0)) {
+                      tempAvailScore = tempIntervalScore;
+                      tempBestTime = j;
                   }
-                }
-            if (tempAvailScore > cur_Bestscore) {
-              cur_Bestscore = tempAvailScore;
-              bestTime = tempBestTime;
-              bestDOW = Profdow;
-            }
+              }
+              if (tempAvailScore > cur_Bestscore) {
+                  cur_Bestscore = tempAvailScore;
+                  bestTime = tempBestTime;
+                  bestDOW = Profdow;
+              }
           }
 
-            int tempTime=0;
-            double tempScore;
-            double maxScore=0;
-            int maxTime=0;
-            int maxDow=0;
+          int tempTime = 0;
+          double tempScore;
+          double maxScore = 0;
+          int maxTime = 0;
+          int maxDow = 0;
 
-            List<int[]> sorted_stDow = new ArrayList<>();
-            List<int[]> sorted_etDow = new ArrayList<>();
-            int[] tempAr = new int[] {0,0};
-            int stIdx=0;
-            int etIdx=0;
-            int it;
-            List<Integer> intervalAvailIdxs = new ArrayList<>();
-            if (bestTime == -1) {
-                // there exist no overlapping availabilities with that of the Professor's
-                //DEALS WITH NO OVERLAPPING AVAILABILITIES WITH THAT OF PROFESSOR'S by finding the time and day of the week in which the most
-                //people can meet at once
-                for (int i = 1; i <= 7; ++i) {
-                    //loop thru days of the week
-                    tempScore=0;
-                    sorted_stDow.clear();
-                    sorted_etDow.clear();
-
-                    for (int j = 0; j < availabilities.size(); ++j) {
-                        //loop thru availabilites and add start times and end times of the availabilties associated to this specific dow
-                        if (availabilities.get(j).getDow()==i) {
-                            sorted_stDow.add(new int[]{availabilities.get(j).getStartTime(),j});
-                            sorted_etDow.add(new int[]{availabilities.get(j).getEndTime(),j});
-
-                        }
-                    }
-                    //sorted_stDow int[start time, availabilties index]
-                    for (int j = 1; j < sorted_stDow.size();++j) {
-                        it = j;
-                        while ((it > 0) && (sorted_stDow.get(it)[0]<sorted_stDow.get(it-1)[0])) {
-                            tempAr[0] = sorted_stDow.get(it-1)[0];
-                            tempAr[1] = sorted_stDow.get(it-1)[1];
-                            sorted_stDow.get(it-1)[0]=sorted_stDow.get(it)[0];
-                            sorted_stDow.get(it-1)[1]=sorted_stDow.get(it)[1];
-                            --it;
-                            sorted_stDow.get(it+1)[0]=tempAr[0];
-                            sorted_stDow.get(it+1)[1]=tempAr[1];
-                        }
-                    }
-
-                    for (int j = 1; j < sorted_etDow.size(); ++j) {
-                        it = j;
-                        while ((it > 0) && (sorted_etDow.get(it)[0]<sorted_etDow.get(it-1)[0])) {
-                            tempAr[0] = sorted_etDow.get(it-1)[0];
-                            tempAr[1] = sorted_etDow.get(it-1)[1];
-                            sorted_etDow.get(it-1)[0]=sorted_etDow.get(it)[0];
-                            sorted_etDow.get(it-1)[1]=sorted_etDow.get(it)[1];
-                            --it;
-                            sorted_etDow.get(it+1)[0]=tempAr[0];
-                            sorted_etDow.get(it+1)[1]=tempAr[1];
-                        }
-                    }
+          List<int[]> sorted_stDow = new ArrayList<>();
+          List<int[]> sorted_etDow = new ArrayList<>();
+          int[] tempAr = new int[]{0, 0};
+          int stIdx = 0;
+          int etIdx = 0;
+          int it;
+          List<Integer> intervalAvailIdxs = new ArrayList<>();
 
 
-                    //Now, sorted_stDow and sorted_etDow are sorted array lists w.r.t start time/end times where each index contains an array of size 1
-                    //with the first element in the array being the start/end time and the second element is the index in the availability array list that
-                    //it corresponds to
+          if (bestTime == -1) {
+              // there exist no overlapping availabilities with that of the Professor's
+              //DEALS WITH NO OVERLAPPING AVAILABILITIES WITH THAT OF PROFESSOR'S by finding the time and day of the week in which the most
+              //people can meet at once
+              for (int i = 1; i <= 7; ++i) {
+                  //loop thru days of the week
+                  tempScore = 0;
+                  sorted_stDow.clear();
+                  sorted_etDow.clear();
+
+                  for (int j = 0; j < availabilities.size(); ++j) {
+                      //loop thru availabilities and add start times and end times of the availabilities associated to this specific dow
+                      if (availabilities.get(j).getDow() == i) {
+                          sorted_stDow.add(new int[]{availabilities.get(j).getStartTime(), j});
+                          sorted_etDow.add(new int[]{availabilities.get(j).getEndTime(), j});
+
+                      }
+                  }
+                  if (sorted_stDow.size() == 0) {
+                      continue;
+                  }
+                  //sorted_stDow int[start time, availabilties index]
+                  for (int j = 1; j < sorted_stDow.size(); ++j) {
+                      it = j;
+                      while ((it > 0) && (sorted_stDow.get(it)[0] < sorted_stDow.get(it - 1)[0])) {
+                          tempAr[0] = sorted_stDow.get(it - 1)[0];
+                          tempAr[1] = sorted_stDow.get(it - 1)[1];
+                          sorted_stDow.get(it - 1)[0] = sorted_stDow.get(it)[0];
+                          sorted_stDow.get(it - 1)[1] = sorted_stDow.get(it)[1];
+                          --it;
+                          sorted_stDow.get(it + 1)[0] = tempAr[0];
+                          sorted_stDow.get(it + 1)[1] = tempAr[1];
+                      }
+                  }
+
+                  for (int j = 1; j < sorted_etDow.size(); ++j) {
+                      it = j;
+                      while ((it > 0) && (sorted_etDow.get(it)[0] < sorted_etDow.get(it - 1)[0])) {
+                          tempAr[0] = sorted_etDow.get(it - 1)[0];
+                          tempAr[1] = sorted_etDow.get(it - 1)[1];
+                          sorted_etDow.get(it - 1)[0] = sorted_etDow.get(it)[0];
+                          sorted_etDow.get(it - 1)[1] = sorted_etDow.get(it)[1];
+                          --it;
+                          sorted_etDow.get(it + 1)[0] = tempAr[0];
+                          sorted_etDow.get(it + 1)[1] = tempAr[1];
+                      }
+                  }
 
 
-                    stIdx=0;
-                    etIdx=0;
-                    intervalAvailIdxs.clear();
-                    intervalAvailIdxs.add(sorted_stDow.get(0)[1]);
-                    tempScore = calculateMaxPeopleDividedByAveragePriority(pDao,availabilities,intervalAvailIdxs);
+                  //Now, sorted_stDow and sorted_etDow are sorted array lists w.r.t start time/end times where each index contains an array of size 1
+                  //with the first element in the array being the start/end time and the second element is the index in the availability array list that
+                  //it corresponds to
+
+
+                  stIdx = 0;
+                  etIdx = 0;
+                  intervalAvailIdxs.clear();
+                  intervalAvailIdxs.add(sorted_stDow.get(0)[1]);
+                  tempScore = calculateMaxPeopleDividedByAveragePriority(pDao, availabilities, intervalAvailIdxs);
+
+
                     while (stIdx < sorted_stDow.size()-1) {
                         if (sorted_stDow.get(stIdx+1)[0]<sorted_etDow.get(etIdx)[0]) {
                             ++stIdx;
@@ -669,9 +674,10 @@ public class WebServer {
       return profAvails.get(best_index).getStartTime();
 */
 
-    }
+              }
 
-  }
+          }
+
 
   private static double calculateMaxPeopleDividedByAveragePriority(PersonDao pDao, List<Availability> avails, List<Integer> intervalAvailIdxs) {
       double numPeople = (double)intervalAvailIdxs.size();
