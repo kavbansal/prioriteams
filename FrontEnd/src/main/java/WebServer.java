@@ -110,10 +110,12 @@ public class WebServer {
     get("/register/:id",((request, response) -> {
         Map<String, Object> model = new HashMap<>();
         model.put("eventList", eventDao.findEventbyId(Integer.parseInt(request.params(":id"))));
-        model.put("AvailList", aDao.findAllAvails());
+        model.put("AvailList", aDao.findAvailabilitiesbyEventId(Integer.parseInt(request.params(":id"))));
         model.put("personList", personDao.findAllPeople());
         return new ModelAndView(model, "register1.hbs");
     }), new HandlebarsTemplateEngine());
+
+
 
     post("/register/:id", ((request,response)->{
         int eId=Integer.parseInt(request.params(":id"));
@@ -192,10 +194,99 @@ public class WebServer {
          */
       }), new HandlebarsTemplateEngine());
 
+      post("/specificevent", ((request,response)->{
+          int eId=Integer.parseInt(request.queryParams("eId"));
+
+          //int dow = Integer.parseInt(request.queryParams("dow"));
+
+          response.redirect("/register/" + eId);
+          return null;
+      }), new HandlebarsTemplateEngine());
+
+      post("/register/:id/addnewavail", ((request,response)->{
+          //int eId=Integer.parseInt(request.queryParams("eId"));
+          int eId=Integer.parseInt(request.params("id"));
+          //int pId=Integer.parseInt(request.queryParams("pId"));
+          int dow = Integer.parseInt(request.queryParams("dow"));
+          int st = 0;
+          int et = 0;
+          int curNum = 8;
+          String curM = "am";
+          String tempString = "";
+          String queryString = curNum + curM;
+          int temp = 0;
+          while (curNum < 8 || curM.compareTo("am") == 0 || curNum == 12) {
+              queryString = curNum + curM;
+              tempString = request.queryParams(queryString);
+              if (tempString != null) {
+                  temp = Integer.parseInt(tempString);
+              } else {
+                  temp = 0;
+              }
+              if (temp == 1) {
+                  st = curNum;
+                  if (st != 12 && curM.compareTo("pm") == 0) {
+                      st += 12;
+                  }
+                  et = curNum + 1;
+                  //Find end time for this start time
+                  while (temp == 1) {
+                      curNum++;
+                      if (curNum == 12) {
+                          curM = "pm";
+                      }
+                      if (curNum >= 13) {
+                          curNum -= 12;
+                      }
+                      queryString = curNum + curM;
+                      if (curNum == 8) {
+                          break;
+                      }
+                      tempString = request.queryParams(queryString);
+                      if (tempString != null) {
+                          temp = Integer.parseInt(tempString);
+                      } else {
+                          temp = 0;
+                      }
+                  }
+                  et = curNum;
+                  if (et != 12 && curM.compareTo("pm") == 0) {
+                      et += 12;
+                  }
+                  Availability a = new Availability(eId, Integer.parseInt(request.cookie("personid")), st, et, dow);
+                  aDao.addAvailability(a);
+              }
+              curNum++;
+              if (curNum == 12) {
+                  curM = "pm";
+              }
+              if (curNum >= 13) {
+                  curNum -= 12;
+              }
+          }
+          response.redirect("/register/"+eId);
+          return null;
+
+        /*
+        Old code:
+        int eId=Integer.parseInt(request.params(":id"));
+        int pId=Integer.parseInt(request.queryParams("pId"));
+        int st=Integer.parseInt(request.queryParams("st"));
+        int et = Integer.parseInt(request.queryParams("et"));
+        int dow = Integer.parseInt(request.queryParams("dow"));
+        Availability a = new Availability(eId,pId,st,et,dow);
+        aDao.addAvailability(a);
+        response.redirect("/register/"+eId);
+        return null;
+         */
+          //int dow = Integer.parseInt(request.queryParams("dow"));
+
+      }), new HandlebarsTemplateEngine());
+
     post("/register", ((request,response)->{
         int eId=Integer.parseInt(request.queryParams("eId"));
         //int pId=1; //default
-        int pId=Integer.parseInt(request.queryParams("pId"));
+        //int pId=Integer.parseInt(request.queryParams("pId"));
         int dow = Integer.parseInt(request.queryParams("dow"));
         int st = 0;
         int et = 0;
@@ -245,7 +336,7 @@ public class WebServer {
                 if (et != 12 && curM.compareTo("pm") == 0) {
                     et += 12;
                 }
-                Availability a = new Availability(eId, pId, st, et, dow);
+                Availability a = new Availability(eId, Integer.parseInt(request.cookie("personid")), st, et, dow);
                 aDao.addAvailability(a);
             }
             curNum++;
@@ -274,17 +365,16 @@ public class WebServer {
       //Assumption: Professor has the lowest numeric priority value to signify that he or she is the most
       // important person. The professor needs to be present at the meeting. So, the algorithm is predicated on that assumption.
       int[] returnArray = {-1, -1};
-      List<Event> event = eDao.findEventbyId(eventId);
+      Event event = eDao.findEventbyId(eventId);
       int eventDuration;
       List<Availability> availabilities = null;
       Map<Integer, Integer> personIdtoPriority = new HashMap<>();
       Map<Integer, List<Availability>> personIdtoAvailabilities = new HashMap<>();
-      if (event.size() != 1) {
-          //event does not exist!
+      if (event == null) {
           return returnArray;
       } else {
           //event does indeed exist
-          eventDuration = event.get(0).getDuration(); //note event duration is taken in with respect to number of minutes the event lasts
+          eventDuration = event.getDuration(); //note event duration is taken in with respect to number of minutes the event lasts
 
           availabilities = aDao.findAvailabilitiesbyEventId(eventId);
 
@@ -504,7 +594,6 @@ public class WebServer {
             }
             returnArray[0] = bestTime;
             returnArray[1] = bestDOW;
-            return returnArray;
 
 /*
       for (int i = 0; i < profAvails.size(); ++i) {
@@ -675,8 +764,9 @@ public class WebServer {
 */
 
               }
+      return returnArray;
 
-          }
+  }
 
 
   private static double calculateMaxPeopleDividedByAveragePriority(PersonDao pDao, List<Availability> avails, List<Integer> intervalAvailIdxs) {

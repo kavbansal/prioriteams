@@ -1,21 +1,24 @@
 {{#partial "content"}}
-    <h1>Register for Event</h1>
+    <h1>Your Events</h1>
     <ul>
         {{#each eventList}}
             <li> {{ id }}. {{ eventName }} at {{location}} for {{duration}} minutes  </li>
         {{/each}}
     </ul>
 
+    <!--
     <h3 style='margin:50px 0 30px'>Previously Entered Availabilities</h3>
+
 
     <ul style='margin:0 0 50px'>
         {{#each AvailList}}
             <li>  Person {{ personId }} can attend Event {{ eventId }} from {{ startTime }} to {{ endTime }} on day {{ dow }}  of the week.  </li>
         {{/each}}
     </ul>
+    !-->
+    <h2>Select the Event to Register</h2>
 
-
-    <form action="/register" method="post">
+    <form action="/specificevent" method="post">
 
         <p> <a> Select Event </a> <select id="eId" name ="eId">
             <option disabled selected value></option>
@@ -24,63 +27,6 @@
                 {{/each}}
         </select>
         </p>
-        <p> <a> Select Person </a> <select id="pId" name ="pId">
-            <option disabled selected value></option>
-                {{#each personList}}
-                    <option value = {{id}}> {{ name }} </option>
-                {{/each}}
-        </select>
-        </p>
-        <p> <a> Select available day </a> <select id="dow" name ="dow">
-            <option disabled selected value></option>
-            <option value=1>Monday</option>
-            <option value=2>Tuesday</option>
-            <option value=3>Wednesday</option>
-            <option value=4>Thursday</option>
-            <option value=5>Friday</option>
-            <option value=6>Saturday</option>
-            <option value=7>Sunday</option>
-        </select>
-        </p>
-
-
-        <input type="checkbox" id="8am" name="8am" value =1>
-        <label for="8am"> 8 am - 9 am</label><br>
-
-        <input type="checkbox" id="9am" name="9am" value =1>
-        <label for="9am"> 9 am - 10 am</label><br>
-
-        <input type="checkbox" id="10am" name="10am" value =1>
-        <label for="10am"> 10 am - 11 am</label><br>
-
-        <input type="checkbox" id="11am" name="11am" value =1>
-        <label for="11am"> 11 am - 12 pm</label><br>
-
-
-        <input type="checkbox" id="12pm" name="12pm" value =1>
-        <label for="12pm"> 12 pm - 1 pm</label><br>
-
-        <input type="checkbox" id="1pm" name="1pm" value =1>
-        <label for="1pm"> 1 pm - 2 pm</label><br>
-
-        <input type="checkbox" id="2pm" name="2pm" value =1>
-        <label for="2pm"> 2 pm - 3 pm</label><br>
-
-        <input type="checkbox" id="3pm" name="3pm" value =1>
-        <label for="3pm"> 3 pm - 4 pm</label><br>
-
-        <input type="checkbox" id="4pm" name="4pm" value =1>
-        <label for="4pm"> 4 pm - 5 pm</label><br>
-
-        <input type="checkbox" id="5pm" name="5pm" value =1>
-        <label for="5pm"> 5 pm - 6 pm</label><br>
-
-        <input type="checkbox" id="6pm" name="6pm" value =1>
-        <label for="6pm"> 6 pm - 7 pm</label><br>
-
-        <input type="checkbox" id="7pm" name="7pm" value =1>
-        <label for="7pm"> 7 pm - 8 pm</label><br>
-
         <br>
 
         <br>

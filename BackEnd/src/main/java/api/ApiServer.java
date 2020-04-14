@@ -225,6 +225,7 @@ public class ApiServer {
         aDao.addAvailability(new Availability(1,1,9,12,1));
         aDao.addAvailability(new Availability(1,2,10,11,1));
         aDao.addAvailability(new Availability(1,3,9,1,1));
+        aDao.addAvailability((new Availability(2, 4, 10, 11, 2)));
     }
 
     private static Javalin startServer() {

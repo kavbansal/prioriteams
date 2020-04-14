@@ -27,13 +27,17 @@ public class UnireastEventDao implements EventDao {
     }
 
     @Override
-    public List<Event> findEventbyId(int id) {
+    public Event findEventbyId(int id) {
         final String URL = BASE_URL + "events/" + id;
         HttpResponse<JsonNode> jsonResponse = null;
         try {
             jsonResponse = Unirest.get(URL).asJson();
             Event[] events = gson.fromJson(jsonResponse.getBody().toString(), Event[].class);
-            return new ArrayList<>(Arrays.asList(events));
+            ArrayList<Event> EventList = new ArrayList<>(Arrays.asList(events));
+            if (EventList.size() == 0) {
+                return null;
+            }
+            return EventList.get(0);
         }
         catch (UnirestException e) {
             e.printStackTrace();

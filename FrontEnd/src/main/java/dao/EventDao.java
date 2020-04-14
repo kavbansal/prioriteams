@@ -13,7 +13,7 @@ public interface EventDao {
 
     //List<Event> calcOTime(int id, List<Availability> aList);
 
-    List<Event> findEventbyId(int id);
+    Event findEventbyId(int id);
 
     List<Event> removeAndUpdateOptTime(int eventId, int optTime, int optDay);
 }
