@@ -3,8 +3,8 @@
         {{eventList.eventName}}
 
     </h1>
-    <ul>
-        <!--
+    <!-- <ul>
+
     {{#each eventList}}
     <li> at {{location}} for {{duration}} minutes  </li>
     {{/each}}
@@ -31,59 +31,423 @@
         </select>
         </p>
         !-->
-        <p> <a> Select available day </a> <select id="dow" name ="dow">
-            <option disabled selected value></option>
-            <option value=1>Monday</option>
-            <option value=2>Tuesday</option>
-            <option value=3>Wednesday</option>
-            <option value=4>Thursday</option>
-            <option value=5>Friday</option>
-            <option value=6>Saturday</option>
-            <option value=7>Sunday</option>
-        </select>
-        </p>
+
+        <table align="center">
+
+            <tr>
+                <th>Availability</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
+            </tr>
+
+            <tr>
+                <th>8 am - 9 am</th>
+                <td>
+        <input type="checkbox" id="8am1" name="8am1" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="8am2" name="8am2" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="8am3" name="8am3" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="8am4" name="8am4" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="8am5" name="8am5" value =1>
+                </td>
+                <td>
+                    <input type="checkbox" id="8am6" name="8am6" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="8am7" name="8am7" value =1>
+                </td>
+            </tr>
 
 
-        <input type="checkbox" id="8am" name="8am" value =1>
-        <label for="8am"> 8 am - 9 am</label><br>
+            <tr>
+                <th>9 am - 10 am</th>
+                <td>
+                    <input type="checkbox" id="9am1" name="9am1" value =1>
+                </td>
 
-        <input type="checkbox" id="9am" name="9am" value =1>
-        <label for="9am"> 9 am - 10 am</label><br>
+                <td>
+                    <input type="checkbox" id="9am2" name="9am2" value =1>
+                </td>
 
-        <input type="checkbox" id="10am" name="10am" value =1>
-        <label for="10am"> 10 am - 11 am</label><br>
+                <td>
+                    <input type="checkbox" id="9am3" name="9am3" value =1>
+                </td>
 
-        <input type="checkbox" id="11am" name="11am" value =1>
-        <label for="11am"> 11 am - 12 pm</label><br>
+                <td>
+                    <input type="checkbox" id="9am4" name="9am4" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="9am5" name="9am5" value =1>
+                </td>
+                <td>
+                    <input type="checkbox" id="9am6" name="9am6" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="9am7" name="9am7" value =1>
+                </td>
+            </tr>
 
 
-        <input type="checkbox" id="12pm" name="12pm" value =1>
-        <label for="12pm"> 12 pm - 1 pm</label><br>
 
-        <input type="checkbox" id="1pm" name="1pm" value =1>
-        <label for="1pm"> 1 pm - 2 pm</label><br>
 
-        <input type="checkbox" id="2pm" name="2pm" value =1>
-        <label for="2pm"> 2 pm - 3 pm</label><br>
 
-        <input type="checkbox" id="3pm" name="3pm" value =1>
-        <label for="3pm"> 3 pm - 4 pm</label><br>
+            <tr>
+                <th>10 am - 11 am</th>
+                <td>
+                    <input type="checkbox" id="10am1" name="10am1" value =1>
+                </td>
 
-        <input type="checkbox" id="4pm" name="4pm" value =1>
-        <label for="4pm"> 4 pm - 5 pm</label><br>
+                <td>
+                    <input type="checkbox" id="10am2" name="10am2" value =1>
+                </td>
 
-        <input type="checkbox" id="5pm" name="5pm" value =1>
-        <label for="5pm"> 5 pm - 6 pm</label><br>
+                <td>
+                    <input type="checkbox" id="10am3" name="10am3" value =1>
+                </td>
 
-        <input type="checkbox" id="6pm" name="6pm" value =1>
-        <label for="6pm"> 6 pm - 7 pm</label><br>
+                <td>
+                    <input type="checkbox" id="10am4" name="10am4" value =1>
+                </td>
 
-        <input type="checkbox" id="7pm" name="7pm" value =1>
-        <label for="7pm"> 7 pm - 8 pm</label><br>
+                <td>
+                    <input type="checkbox" id="10am5" name="10am5" value =1>
+                </td>
+                <td>
+                    <input type="checkbox" id="10am6" name="10am6" value =1>
+                </td>
 
+                <td>
+                    <input type="checkbox" id="10am7" name="10am7" value =1>
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <th>11 am - 12 pm</th>
+                <td>
+                    <input type="checkbox" id="11am1" name="11am1" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="11am2" name="11am2" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="11am3" name="11am3" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="11am4" name="11am4" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="11am5" name="11am5" value =1>
+                </td>
+                <td>
+                    <input type="checkbox" id="11am6" name="11am6" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="11am7" name="11am7" value =1>
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <th>12 pm - 1 pm</th>
+                <td>
+                    <input type="checkbox" id="12pm1" name="12pm1" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="12pm2" name="12pm2" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="12pm3" name="12pm3" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="12pm4" name="12pm4" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="12pm5" name="12pm5" value =1>
+                </td>
+                <td>
+                    <input type="checkbox" id="12pm6" name="12pm6" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="12pm7" name="12pm7" value =1>
+                </td>
+            </tr>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <th>1 pm - 2 pm</th>
+                <td>
+                    <input type="checkbox" id="1pm1" name="1pm1" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="1pm2" name="1pm2" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="1pm3" name="1pm3" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="1pm4" name="1pm4" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="1pm5" name="1pm5" value =1>
+                </td>
+                <td>
+                    <input type="checkbox" id="1pm6" name="1pm6" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="1pm7" name="1pm7" value =1>
+                </td>
+            </tr>
+
+
+
+
+
+            <tr>
+                <th>2 pm - 3 pm</th>
+                <td>
+                    <input type="checkbox" id="2pm1" name="2pm1" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="2pm2" name="2pm2" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="2pm3" name="2pm3" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="2pm4" name="2pm4" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="2pm5" name="2pm5" value =1>
+                </td>
+                <td>
+                    <input type="checkbox" id="2pm6" name="2pm6" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="2pm7" name="2pm7" value =1>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <th>3 pm - 4 pm</th>
+                <td>
+                    <input type="checkbox" id="3pm1" name="3pm1" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="3pm2" name="3pm2" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="3pm3" name="3pm3" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="3pm4" name="3pm4" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="3pm5" name="3pm5" value =1>
+                </td>
+                <td>
+                    <input type="checkbox" id="3pm6" name="3pm6" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="3pm7" name="3pm7" value =1>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <th>4 pm - 5 pm</th>
+                <td>
+                    <input type="checkbox" id="4pm1" name="4pm1" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="4pm2" name="4pm2" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="4pm3" name="4pm3" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="4pm4" name="4pm4" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="4pm5" name="4pm5" value =1>
+                </td>
+                <td>
+                    <input type="checkbox" id="4pm6" name="4pm6" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="4pm7" name="4pm7" value =1>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <th>5 pm - 6 pm</th>
+                <td>
+                    <input type="checkbox" id="5pm1" name="5pm1" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="5pm2" name="5pm2" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="5pm3" name="5pm3" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="5pm4" name="5pm4" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="5pm5" name="5pm5" value =1>
+                </td>
+                <td>
+                    <input type="checkbox" id="5pm6" name="5pm6" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="5pm7" name="5pm7" value =1>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <th>6 pm - 7 pm</th>
+                <td>
+                    <input type="checkbox" id="6pm1" name="6pm1" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="6pm2" name="6pm2" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="6pm3" name="6pm3" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="6pm4" name="6pm4" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="6pm5" name="6pm5" value =1>
+                </td>
+                <td>
+                    <input type="checkbox" id="6pm6" name="6pm6" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="6pm7" name="6pm7" value =1>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <th>7 pm - 8 pm</th>
+                <td>
+                    <input type="checkbox" id="7pm1" name="7pm1" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="7pm2" name="7pm2" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="7pm3" name="7pm3" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="7pm4" name="7pm4" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="7pm5" name="7pm5" value =1>
+                </td>
+                <td>
+                    <input type="checkbox" id="7pm6" name="7pm6" value =1>
+                </td>
+
+                <td>
+                    <input type="checkbox" id="7pm7" name="7pm7" value =1>
+                </td>
+            </tr>
+
+
+
+        </table>
         <br>
 
         <br>
+
         <button>Submit</button>
     </form>
     <br>
