@@ -1,39 +1,20 @@
+
+<h1 class="headedit">PrioriTeams</h1>
+<nav id="nav-1">
+    <a class="link-1" href="/main">Home</a>
+    <a class="link-1" href="/register">Register</a>
+    <a class="link-1" href="/events">View Events</a>
+</nav>
 {{#partial "content"}}
     <h1>Register for
         {{eventList.eventName}}
-
     </h1>
-    <!-- <ul>
-
-    {{#each eventList}}
-    <li> at {{location}} for {{duration}} minutes  </li>
-    {{/each}}
-    </ul> !-->
-
-
-    <h3 style='margin:50px 0 30px'>Previously Entered Availabilities</h3>
-
-
-    <ul style='margin:0 0 50px'>
-        {{#each AvailList}}
-            <li>  Person {{ personId }} can attend from {{ startTime }} to {{ endTime }} on day {{ dow }}  of the week.  </li>
-        {{/each}}
-    </ul>
-
+    <li> at {{eventList.location}} for {{eventList.duration}} minutes </li>
+    <br>
 
     <form action="/register/{{eventList.id}}/addnewavail" method="post">
-        <!--
-        <p> <a> Select Person </a> <select id="pId" name ="pId">
-            <option disabled selected value></option>
-                {{#each personList}}
-                    <option value = {{id}}> {{ name }} </option>
-                {{/each}}
-        </select>
-        </p>
-        !-->
-
+        <br>
         <table align="center">
-
             <tr>
                 <th>Availability</th>
                 <th>Mon</th>
@@ -44,7 +25,6 @@
                 <th>Sat</th>
                 <th>Sun</th>
             </tr>
-
             <tr>
                 <th>8 am - 9 am</th>
                 <td>
@@ -441,18 +421,20 @@
                 </td>
             </tr>
 
-
-
         </table>
         <br>
 
         <br>
-
         <button>Submit</button>
     </form>
-    <br>
-    <p><a href="/events">View Events</a></p>
-    <p><a href="/register"> Register for an Event</a></p>
-    <p><a href="/">Home</a></p>
+
+    <h3 style='margin:50px 0 30px'>Previously Entered Availabilities</h3>
+
+
+    <ul style='margin:0 0 50px'>
+        {{#each AvailList}}
+            <li>  Person {{ personId }} can attend from {{ startTime }} to {{ endTime }} on day {{ dow }}  of the week.  </li>
+        {{/each}}
+    </ul>
 {{/partial}}
 {{> base.hbs }}

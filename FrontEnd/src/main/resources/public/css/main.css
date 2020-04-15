@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
 body{
     background-color: #eaeaea;
     font-family: "Helvetica Neue";
@@ -7,11 +9,6 @@ a{
     color: #2c89ba;
     text-decoration: none;
     font-size: large;
-}
-
-a:hover{
-    color: #174963;
-    text-decoration: underline;
 }
 
 ul{
@@ -80,8 +77,6 @@ table {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login_page {
   width: 360px;
@@ -171,6 +166,38 @@ tr:nth-child(even) {
 .container .info span .fa {
   color: #EF3B3A;
 }
+
+nav {
+    margin-top: 40px;
+    padding: 24px;
+    text-align: center;
+    font-family: Raleway;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+#nav-1 {
+    background: #3fa46a;
+}
+
+.link-1 {
+    transition: 0.3s ease;
+    background: #3fa46a;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    border-top: 4px solid #3fa46a;
+    border-bottom: 4px solid #3fa46a;
+    padding: 20px 0;
+    margin: 0 20px;
+}
+.link-1:hover {
+    border-top: 4px solid #ffffff;
+    border-bottom: 4px solid #ffffff;
+    padding: 6px 0;
+    text-decoration: none;
+    color: lightblue;
+}
+
 body {
   background: #76b852; /* fallback for old browsers */
   background: -webkit-linear-gradient(right, #76b852, #8DC26F);
