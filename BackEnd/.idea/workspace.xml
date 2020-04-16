@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1dc813c4-0799-4417-8a71-45e9a7eb248f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,6 +163,8 @@
       <workItem from="1586977915061" duration="1711000" />
       <workItem from="1586983921772" duration="1310000" />
       <workItem from="1587001610636" duration="204000" />
+      <workItem from="1587002555039" duration="50000" />
+      <workItem from="1587006819997" duration="33000" />
     </task>
     <task id="LOCAL-00001" summary="adding functionality">
       <created>1583208566414</created>
@@ -257,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586553215461</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fixed bug with ports">
+      <created>1587002585082</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1587002585082</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +292,8 @@
     <MESSAGE value="refactored classes" />
     <MESSAGE value="revamped the algorithm after speaking with teammates about it; now, it considers each &quot;eventDuration&quot; sized interval within each of the Prof's availabilities and chooses the starting time of the &quot;eventDuration&quot; sized interval with the highest score. Scores of each interval are sums of the term (100/person's priority) if the person can stay for the FULL interval" />
     <MESSAGE value="Adjusted the algorithm to handle when no one has an overlapping availability with that of the Prof or if there isn’t actually a Prof registered for the event.. what the algo now does in both of these instance is return the day of the week and time at which the following quantity is largest:  Number of people that can meet at once/Avg priority of the people meeting since high numerical priority values corresponds to low importance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusted the algorithm to handle when no one has an overlapping availability with that of the Prof or if there isn’t actually a Prof registered for the event.. what the algo now does in both of these instance is return the day of the week and time at which the following quantity is largest:  Number of people that can meet at once/Avg priority of the people meeting since high numerical priority values corresponds to low importance" />
+    <MESSAGE value="Fixed bug with ports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug with ports" />
   </component>
   <component name="WindowStateProjectService">
     <state x="524" y="190" key="#ApiServer" timestamp="1586448977624">
@@ -314,14 +322,14 @@
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state x="465" y="171" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.828@0.23.1440.828" timestamp="1583464159385" />
-    <state x="0" y="23" key="CommitChangelistDialog2" timestamp="1586553215135">
-      <screen x="0" y="23" width="1440" height="828" />
+    <state x="0" y="23" key="CommitChangelistDialog2" timestamp="1587002583950">
+      <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="292" y="23" key="CommitChangelistDialog2/0.23.1440.826@0.23.1440.826" timestamp="1583265531144" />
     <state x="292" y="23" key="CommitChangelistDialog2/0.23.1440.827@0.23.1440.827" timestamp="1583468684118" />
     <state x="0" y="23" key="CommitChangelistDialog2/0.23.1440.828@0.23.1440.828" timestamp="1586553215135" />
     <state x="292" y="23" key="CommitChangelistDialog2/0.23.1440.829@0.23.1440.829" timestamp="1585602841980" />
-    <state x="0" y="23" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1585798644473" />
+    <state x="0" y="23" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1587002583950" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1584801708251">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -398,12 +406,13 @@
       <screen x="0" y="23" width="1680" height="962" />
     </state>
     <state x="328" y="85" key="SettingsEditor/0.23.1680.962@0.23.1680.962" timestamp="1586793179238" />
-    <state x="326" y="157" key="Vcs.Push.Dialog.v2" timestamp="1586553223221">
-      <screen x="0" y="23" width="1440" height="828" />
+    <state x="380" y="189" key="Vcs.Push.Dialog.v2" timestamp="1587002596867">
+      <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="326" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.826@0.23.1440.826" timestamp="1583265537133" />
     <state x="326" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.827@0.23.1440.827" timestamp="1583468694065" />
     <state x="326" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.828@0.23.1440.828" timestamp="1586553223221" />
+    <state x="380" y="189" key="Vcs.Push.Dialog.v2/0.23.1680.1027@0.23.1680.1027" timestamp="1587002596867" />
     <state x="382" y="247" key="com.intellij.ide.util.TipDialog" timestamp="1586977916678">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

@@ -20,8 +20,7 @@ public class ApiServer {
 
     public static void main(String[] args) {
 
-        final int PORT = getHerokuAssignedPort();
-        app = Javalin.create().start(PORT);
+        app = startServer();
 
         Sql2o sql2o = getSql2o();
         createEventTable(sql2o);
@@ -243,7 +242,7 @@ public class ApiServer {
         Gson gson = new Gson();
         JavalinJson.setFromJsonMapper(gson::fromJson);
         JavalinJson.setToJsonMapper(gson::toJson);
-        final int PORT = 7000;
+        final int PORT = getHerokuAssignedPort();
         return Javalin.create().start(PORT);
     }
 
