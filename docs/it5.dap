@@ -3,7 +3,7 @@
 Fix create account functionality
 
 Show person name and day of the week instead of id and a number from 1-7
-
+ 
 Make font bigger and text easier to read on many of the pages
 
 Don't show -1 on day -1 for optimal time for an event if there isnt any availabilities yet
