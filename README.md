@@ -15,7 +15,7 @@ Professor Madooei's login-
 
 SAME AS LAST WEEK! Changes are UI changes, a more robust algorithm, and a reconfiguration of the flow.
 
-Below are steps that guides one through our product. Following these steps will allow one to view all the features of the product. 
+Below are steps that guides one through our product. Following these steps will allow one to view all the features of the product. THESE ARE THE STEPS WHEN RUN LOCALLY BUT STEPS SHOULD BE VERY SIMILAR WHEN ON HEROKU OTHER THAN STEPS 1-4.
 
 1. Open both the FrontEnd and BackEnd projects in different intelliJ windows.
 
