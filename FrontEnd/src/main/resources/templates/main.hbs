@@ -1,23 +1,23 @@
 {{#partial "title"}}
     <h1 class="headedit">Welcome to PrioriTeams!</h1>
+    <a href="/signout" class="signoutbutton" aria-pressed="true">Sign out</a>
 {{/partial}}
 
 {{#partial "content"}}
 
     {{#if priority}}
-    <div class="form-actions">
-        <a href="/create" class="btn btn-primary sunset_color white btn-lg active mb-3" role="button"
-           aria-pressed="true">Create an Event</a>
-    </div>
+        <div class="form-actions">
+            <a href="/create" class="test" aria-pressed="true">Create an Event</a>
+        </div>
     {{/if}}
     <div class="form-actions">
-        <a href="/register" class="btn btn-primary btn-lg active mb-3" role="button" aria-pressed="true">Register for an
+        <a href="/register" class="test" aria-pressed="true">Register for an
             Existing Event</a>
     </div>
     <div class="form-actions">
-        <a href="/events" class="btn btn-primary btn-lg active mb-3" rol="button" aria-pressed="true">View Events</a>
+        <a href="/events" class="test" aria-pressed="true">View Events</a>
     </div>
-    <a href="/signout">Sign out</a></p>
+
     </body>
     </html>
 {{/partial}}
