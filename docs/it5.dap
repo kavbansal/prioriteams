@@ -1,4 +1,4 @@
-#To-do's
+# To-do's
 
 Fix create account functionality
 
@@ -14,3 +14,4 @@ Deal with location overlaps when optimal times for events are the same
 
 Invite people to register/put in availabilities for an event
 
+Update optimal time as soon as an availability is put in
