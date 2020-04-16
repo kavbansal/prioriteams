@@ -33,7 +33,6 @@ public class ApiServer {
         initData(eventDao);
         initAvails(availDao);
         initPeople(personDao);
-        app = startServer();
         app.get("/", ctx -> ctx.result("Welcome to the Lads' App"));
         getEvents(eventDao);
         getEventbyId(eventDao);
