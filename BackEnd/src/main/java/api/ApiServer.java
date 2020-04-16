@@ -19,6 +19,10 @@ public class ApiServer {
     private static Javalin app;
 
     public static void main(String[] args) {
+
+        final int PORT = getHerokuAssignedPort();
+        app = Javalin.create().start(PORT);
+
         Sql2o sql2o = getSql2o();
         createEventTable(sql2o);
         createAvailabilityTable(sql2o);
@@ -59,6 +63,14 @@ public class ApiServer {
             // run after all requests
             ctx.contentType("application/json");
         });
+    }
+
+    private static int getHerokuAssignedPort() {
+        String herokuPort = System.getenv("PORT");
+        if (herokuPort != null) {
+            return Integer.parseInt(herokuPort);
+        }
+        return 7000;
     }
 
     private static EventDao getEventDao(Sql2o sql2o) { return new Sql2oEventDao(sql2o); }

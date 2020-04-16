@@ -13,6 +13,9 @@ import static spark.Spark.*;
 public class WebServer {
   public static void main(String[] args) {
 
+    final int PORT = getHerokuAssignedPort();
+    port(PORT);
+
     EventDao eventDao = new UnireastEventDao();
     AvailabilityDao aDao = new UnireastAvailabilityDao();
     PersonDao personDao = new UnireastPersonDao();
@@ -293,7 +296,15 @@ public class WebServer {
 
   }
 
-  private static int[] calculateOptimalTime(int eventId, EventDao eDao, AvailabilityDao aDao, PersonDao pDao) {
+    private static int getHerokuAssignedPort() {
+        String herokuPort = System.getenv("PORT");
+        if (herokuPort != null) {
+            return Integer.parseInt(herokuPort);
+        }
+        return 4567;
+    }
+
+    private static int[] calculateOptimalTime(int eventId, EventDao eDao, AvailabilityDao aDao, PersonDao pDao) {
       //Assumption: Professor has the lowest numeric priority value to signify that he or she is the most
       // important person. The professor needs to be present at the meeting. So, the algorithm is predicated on that assumption.
       int[] returnArray = {-1, -1};
