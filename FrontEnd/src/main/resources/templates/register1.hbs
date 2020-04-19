@@ -433,8 +433,8 @@
 
 
     <ul style='margin:0 0 50px'>
-        {{#each AvailList}}
-            <li>  Person {{ personId }} can attend from {{ startTime }} to {{ endTime }} on day {{ dow }}  of the week.  </li>
+        {{#each printableAvails}}
+                <li> {{this}}</li>
         {{/each}}
     </ul>
 {{/partial}}

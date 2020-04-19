@@ -115,88 +115,24 @@ public class WebServer {
         model.put("eventList", eventDao.findEventbyId(Integer.parseInt(request.params(":id"))));
         model.put("AvailList", aDao.findAvailabilitiesbyEventId(Integer.parseInt(request.params(":id"))));
         model.put("personList", personDao.findAllPeople());
+
+
+        List<Availability> thisEventsAvails = aDao.findAvailabilitiesbyEventId(Integer.parseInt(request.params(":id")));
+        List<String> printableAvailabilitiesWithNames = new ArrayList<>();
+
+
+        for(int i = 0; i < thisEventsAvails.size(); i++){
+            printableAvailabilitiesWithNames.add(personDao.findPersonbyPersonId(thisEventsAvails.get(i).getPersonId()).get(0).getName()
+                  + " can attend from " + thisEventsAvails.get(i).getStartTime() + " to " + thisEventsAvails.get(i).getEndTime() + " on day " +
+                    convertIntToDay(thisEventsAvails.get(i).getDow()) + " of the week.");
+        }
+
+        model.put("printableAvails", printableAvailabilitiesWithNames);
+
+
         return new ModelAndView(model, "register1.hbs");
     }), new HandlebarsTemplateEngine());
 
-
-
-    /**post("/register/:id", ((request,response)->{
-        int eId=Integer.parseInt(request.params(":id"));
-        int pId=Integer.parseInt(request.queryParams("pId"));
-        int st = 0;
-        int et = 0;
-        int curNum = 8;
-        int dow = 1;
-        String curM = "am";
-        String tempString = "";
-        String queryString = curNum + curM + dow;
-        int temp = 0;
-
-        while(dow <= 7) {
-            curNum = 8;
-            curM = "am";
-            tempString = "";
-            queryString = curNum + curM + dow;
-            st = 0;
-            et = 0;
-
-            while (curNum < 8 || curM.compareTo("am") == 0 || curNum == 12) {
-                queryString = curNum + curM + dow;
-                System.out.println(queryString);
-                tempString = request.queryParams(queryString);
-                if (tempString != null) {
-                    temp = Integer.parseInt(tempString);
-                } else {
-                    temp = 0;
-                }
-                if (temp == 1) {
-                    st = curNum;
-                    if (st != 12 && curM.compareTo("pm") == 0) {
-                        st += 12;
-                    }
-                    et = curNum + 1;
-                    //Find end time for this start time
-                    while (temp == 1) {
-                        curNum++;
-                        if (curNum == 12) {
-                            curM = "pm";
-                        }
-                        if (curNum >= 13) {
-                            curNum -= 12;
-                        }
-                        queryString = curNum + curM + dow;
-                        if (curNum == 8) {
-                            break;
-                        }
-                        tempString = request.queryParams(queryString);
-                        if (tempString != null) {
-                            temp = Integer.parseInt(tempString);
-                        } else {
-                            temp = 0;
-                        }
-                    }
-                    et = curNum;
-                    if (et != 12 && curM.compareTo("pm") == 0) {
-                        et += 12;
-                    }
-                    Availability a = new Availability(eId, pId, st, et, dow);
-                    aDao.addAvailability(a);
-                }
-                curNum++;
-                if (curNum == 12) {
-                    curM = "pm";
-                }
-                if (curNum >= 13) {
-                    curNum -= 12;
-                }
-            }
-            dow++;
-        }
-          response.redirect("/register/"+eId);
-          return null;
-      }), new HandlebarsTemplateEngine());
-
-     **/
 
       post("/specificevent", ((request,response)->{
           int eId=Integer.parseInt(request.queryParams("eId"));
@@ -735,6 +671,25 @@ public class WebServer {
       return intervalAvailIdxs;
   }
 
+    private static String convertIntToDay(int i) {
+      switch (i) {
+          case 1:
+              return "Monday";
+          case 2:
+              return "Tuesday";
+          case 3:
+              return "Wednesday";
+          case 4:
+              return "Thursday";
+          case 5:
+              return "Friday";
+          case 6:
+              return "Saturday";
+          case 7:
+              return "Sunday";
+      }
+        return " ";
+    }
 
 
 }
