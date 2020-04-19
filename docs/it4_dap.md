@@ -31,3 +31,7 @@ Upon submission of availabilities, calculate/update optimal time
 Deal with edge cases with algorithm
 
 Deploy to Heroku
+
+# Retrospective
+
+For this iteration, we set out to clean up a lot of the existing features that we have already implemented. Among these are the algorithm for the optimal time, the way that a user submits their avalability, a sign in page, and some changes in the flow of the website. We think that we did the best with parallel programming in this iteration compared to others, as we divided the tasks among us pretty well. The tasks include the enhancements that were previously mentioned, as well as deploying the app to heroku and cleaning up the UI. We will continue to strive for efficiently working together as a team to get the app working to our expectations.
