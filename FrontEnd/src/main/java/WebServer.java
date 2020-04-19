@@ -113,7 +113,8 @@ public class WebServer {
 
         for(int i = 0; i < thisEventsAvails.size(); i++){
             printableAvailabilitiesWithNames.add(personDao.findPersonbyPersonId(thisEventsAvails.get(i).getPersonId()).get(0).getName()
-                  + " can attend from " + thisEventsAvails.get(i).getStartTime() + " to " + thisEventsAvails.get(i).getEndTime() + " on " +
+                  + " can attend from " + convertIntToTimeofDayWithAmPm(thisEventsAvails.get(i).getStartTime()) + " to "
+                    + convertIntToTimeofDayWithAmPm(thisEventsAvails.get(i).getEndTime()) + " on " +
                     convertIntToDay(thisEventsAvails.get(i).getDow()) + "s.");
         }
 
@@ -680,6 +681,17 @@ public class WebServer {
       }
         return " ";
     }
+
+    private static String convertIntToTimeofDayWithAmPm(int time){
+      if(time < 12){
+          return Integer.toString(time) + "am";
+      } else if(time == 12){
+          return Integer.toString(time) + "pm";
+      }
+
+      return Integer.toString(time - 12) + "pm";
+    }
+
 
 
 }
