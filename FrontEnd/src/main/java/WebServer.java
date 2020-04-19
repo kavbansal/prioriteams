@@ -65,17 +65,7 @@ public class WebServer {
       return new ModelAndView(null, "create.hbs");
     }, new HandlebarsTemplateEngine());
 
-//    post("/", (req,res)-> {
-//      String username = req.queryParams("username");
-//      String password=req.queryParams("password");
-//      List<Person> people = personDao.findPerson(username, password);
-//      if (people.size() == 0) {
-//        res.redirect("/");
-//        return null;
-//      }
-//      res.redirect("/events");
-//      return null;
-//    }, new HandlebarsTemplateEngine());
+
 
     post("/create", ((request, response) -> {
       String eventName = request.queryParams("eventname");
@@ -123,8 +113,8 @@ public class WebServer {
 
         for(int i = 0; i < thisEventsAvails.size(); i++){
             printableAvailabilitiesWithNames.add(personDao.findPersonbyPersonId(thisEventsAvails.get(i).getPersonId()).get(0).getName()
-                  + " can attend from " + thisEventsAvails.get(i).getStartTime() + " to " + thisEventsAvails.get(i).getEndTime() + " on day " +
-                    convertIntToDay(thisEventsAvails.get(i).getDow()) + " of the week.");
+                  + " can attend from " + thisEventsAvails.get(i).getStartTime() + " to " + thisEventsAvails.get(i).getEndTime() + " on " +
+                    convertIntToDay(thisEventsAvails.get(i).getDow()) + "s.");
         }
 
         model.put("printableAvails", printableAvailabilitiesWithNames);
