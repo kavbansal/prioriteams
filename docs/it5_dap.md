@@ -32,3 +32,4 @@ Invite people to register/put in availabilities for an event
 
 Update optimal time as soon as an availability is put in
 
+Overall UI Improvements
