@@ -475,6 +475,21 @@ public class WebServer {
                           return returnArray;
                       }
                   }
+                  //So no has an overlapping time with anyone else, and there is no Prof available for this event if we get to the following
+                  //block so let's find the person with the next lowest priority and just return their first availability and dow submission
+
+                  curLowestPriority=10000;
+                  curpId=0;
+                  for (int k = 0; k < availabilities.size();++k) {
+                      if (personIdtoPriority.get(availabilities.get(k).getPersonId())<curLowestPriority) {
+                          curLowestPriority=personIdtoPriority.get(availabilities.get(k).getPersonId());
+                          curpId=availabilities.get(k).getPersonId();
+                      }
+                  }
+                  returnArray[0] = personIdtoAvailabilities.get(curpId).get(0).getStartTime();
+                  returnArray[1] = personIdtoAvailabilities.get(curpId).get(0).getDow();
+                  return returnArray;
+
               }
                 returnArray[0] = maxTime;
                 returnArray[1] = maxDow;
