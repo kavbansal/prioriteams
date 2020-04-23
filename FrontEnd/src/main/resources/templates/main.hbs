@@ -1,19 +1,33 @@
 {{#partial "title"}}
     <h1 class="headedit">Welcome to PrioriTeams!</h1>
     <a href="/signout" class="signoutbutton" aria-pressed="true">Sign out</a>
+    <nav id="nav-1">
+        <a class="link-1" href="/main">Home</a>
+        {{#if priority}}
+            <a class="link-1" href="/create">Create Event</a>
+        {{/if}}
+        <a class="link-1" href="/register">Register</a>
+        <a class="link-1" href="/events">View Events</a>
+    </nav>
 {{/partial}}
 
 {{#partial "content"}}
-
+    <h2> Hello {{ myName }}! </h2>
+    <br>
+    <br>
+    <h2>What would you like to do?</h2>
+    <br>
     {{#if priority}}
         <div class="form-actions">
             <a href="/create" class="test" aria-pressed="true">Create an Event</a>
         </div>
     {{/if}}
+    <br>
     <div class="form-actions">
         <a href="/register" class="test" aria-pressed="true">Register for an
             Existing Event</a>
     </div>
+    <br>
     <div class="form-actions">
         <a href="/events" class="test" aria-pressed="true">View Events</a>
     </div>

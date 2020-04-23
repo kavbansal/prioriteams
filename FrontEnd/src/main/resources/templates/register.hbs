@@ -2,12 +2,15 @@
 <a href="/signout" class="signoutbutton" aria-pressed="true">Sign out</a>
 <nav id="nav-1">
     <a class="link-1" href="/main">Home</a>
+    {{#if priority}}
+        <a class="link-1" href="/create">Create Event</a>
+    {{/if}}
     <a class="link-1" href="/register">Register</a>
     <a class="link-1" href="/events">View Events</a>
 </nav>
 {{#partial "content"}}
     <h1>Your Events</h1>
-    <ul>
+    <ul style="font-size: 18px">
         {{#each eventList}}
             <li> {{ id }}. {{ eventName }} at {{location}} for {{duration}} minutes  </li>
         {{/each}}
@@ -23,8 +26,9 @@
         {{/each}}
     </ul>
     !-->
+    <br>
     <h2>Select the Event to Register</h2>
-
+    <br>
     <form action="/specificevent" method="post">
 
         <p> <a> Select Event </a> <select id="eId" name ="eId">
@@ -34,8 +38,6 @@
                 {{/each}}
         </select>
         </p>
-        <br>
-
         <br>
         <button>Submit</button>
     </form>

@@ -31,6 +31,8 @@ public class WebServer {
         Map<String, String> model = new HashMap<>();
         model.put("personid", req.cookie("personid"));
         model.put("priority", req.cookie("priority"));
+        List<Person> PersonList = personDao.findPersonbyPersonId(Integer.parseInt(req.cookie("personid")));
+        model.put("myName", PersonList.get(0).getName());
       return new ModelAndView(model, "main.hbs");
     }, new HandlebarsTemplateEngine());
 
@@ -62,7 +64,9 @@ public class WebServer {
     }), new HandlebarsTemplateEngine());
 
     get("/create", (req, res) -> {
-      return new ModelAndView(null, "create.hbs");
+        Map<String, String> model = new HashMap<>();
+        model.put("priority", req.cookie("priority"));
+      return new ModelAndView(model, "create.hbs");
     }, new HandlebarsTemplateEngine());
 
 
@@ -78,6 +82,7 @@ public class WebServer {
 
     get("/events", ((request, response) -> {
       Map<String, Object> model = new HashMap<>();
+      model.put("priority", request.cookie("priority"));
       model.put("eventList", eventDao.findAllEvents());
       return new ModelAndView(model, "events.hbs");
     }),  new HandlebarsTemplateEngine());
@@ -94,6 +99,7 @@ public class WebServer {
 
     get("/register",((request,response)->{
       Map<String, Object> model = new HashMap<>();
+      model.put("priority", request.cookie("priority"));
       model.put("eventList", eventDao.findAllEvents());
       model.put("AvailList", aDao.findAllAvails());
       model.put("personList", personDao.findAllPeople());
@@ -102,6 +108,7 @@ public class WebServer {
 
     get("/register/:id",((request, response) -> {
         Map<String, Object> model = new HashMap<>();
+        model.put("priority", request.cookie("priority"));
         model.put("eventList", eventDao.findEventbyId(Integer.parseInt(request.params(":id"))));
         model.put("AvailList", aDao.findAvailabilitiesbyEventId(Integer.parseInt(request.params(":id"))));
         model.put("personList", personDao.findAllPeople());
