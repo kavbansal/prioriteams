@@ -465,6 +465,17 @@ public class WebServer {
                         }
                     }
                 }
+
+              if (maxTime==0) {
+                  //loop through and just return a Prof's time
+                  for (int k=0; k < availabilities.size();++k) {
+                      if (personIdtoPriority.get(availabilities.get(k).getPersonId())==1) {
+                          returnArray[0] = availabilities.get(k).getStartTime();
+                          returnArray[1] = availabilities.get(k).getDow();
+                          return returnArray;
+                      }
+                  }
+              }
                 returnArray[0] = maxTime;
                 returnArray[1] = maxDow;
                 return returnArray;

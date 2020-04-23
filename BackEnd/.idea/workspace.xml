@@ -15,28 +15,12 @@
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/WebServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/WebServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/public/css/login_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/public/css/login_page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/create.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/create.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/events.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/events.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/main.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/register.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/register.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/register1.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/register1.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/.idea/FrontEnd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.idea/FrontEnd.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/WebServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/WebServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/public/css/login_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/public/css/login_page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/create.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/create.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/events.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/events.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/main.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/register.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/register.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/register1.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/register1.hbs" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,18 +116,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="ApiServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -385,54 +357,54 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1584801708251" />
-    <state width="1440" height="245" key="GridCell.Tab.0.bottom" timestamp="1587324699799">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1358" height="199" key="GridCell.Tab.0.bottom" timestamp="1587654251422">
+      <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state width="1440" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587324699799" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584802579397" />
     <state width="1638" height="293" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1586536575925" />
     <state width="1358" height="199" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1583334634487" />
     <state width="1358" height="199" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1583469891636" />
-    <state width="1358" height="199" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1586635298505" />
+    <state width="1358" height="199" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1587654251422" />
     <state width="1358" height="199" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1585602908091" />
     <state width="1638" height="240" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1585832735748" />
     <state width="1638" height="253" key="GridCell.Tab.0.bottom/0.23.1680.948@0.23.1680.948" timestamp="1583853344595" />
     <state width="1638" height="255" key="GridCell.Tab.0.bottom/0.23.1680.962@0.23.1680.962" timestamp="1586797401471" />
-    <state width="1440" height="245" key="GridCell.Tab.0.center" timestamp="1587324699798">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1358" height="199" key="GridCell.Tab.0.center" timestamp="1587654251421">
+      <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state width="1440" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1587324699798" />
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584802579397" />
     <state width="1638" height="293" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1586536575924" />
     <state width="1358" height="199" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1583334634486" />
     <state width="1358" height="199" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1583469891635" />
-    <state width="1358" height="199" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1586635298505" />
+    <state width="1358" height="199" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1587654251421" />
     <state width="1358" height="199" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1585602908090" />
     <state width="1638" height="240" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1585832735748" />
     <state width="1638" height="253" key="GridCell.Tab.0.center/0.23.1680.948@0.23.1680.948" timestamp="1583853344594" />
     <state width="1638" height="255" key="GridCell.Tab.0.center/0.23.1680.962@0.23.1680.962" timestamp="1586797401469" />
-    <state width="1440" height="245" key="GridCell.Tab.0.left" timestamp="1587324699797">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1358" height="199" key="GridCell.Tab.0.left" timestamp="1587654251421">
+      <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state width="1440" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1587324699797" />
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584802579397" />
     <state width="1638" height="293" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1586536575924" />
     <state width="1358" height="199" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1583334634486" />
     <state width="1358" height="199" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1583469891634" />
-    <state width="1358" height="199" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1586635298504" />
+    <state width="1358" height="199" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1587654251421" />
     <state width="1358" height="199" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1585602908090" />
     <state width="1638" height="240" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1585832735747" />
     <state width="1638" height="253" key="GridCell.Tab.0.left/0.23.1680.948@0.23.1680.948" timestamp="1583853344593" />
     <state width="1638" height="255" key="GridCell.Tab.0.left/0.23.1680.962@0.23.1680.962" timestamp="1586797401469" />
-    <state width="1440" height="245" key="GridCell.Tab.0.right" timestamp="1587324699799">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1358" height="199" key="GridCell.Tab.0.right" timestamp="1587654251421">
+      <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state width="1440" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1587324699799" />
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584802579397" />
     <state width="1638" height="293" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1586536575925" />
     <state width="1358" height="199" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1583334634487" />
     <state width="1358" height="199" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1583469891635" />
-    <state width="1358" height="199" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1586635298505" />
+    <state width="1358" height="199" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1587654251421" />
     <state width="1358" height="199" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1585602908090" />
     <state width="1638" height="240" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1585832735748" />
     <state width="1638" height="253" key="GridCell.Tab.0.right/0.23.1680.948@0.23.1680.948" timestamp="1583853344594" />
@@ -472,11 +444,12 @@
     <state x="382" y="250" key="com.intellij.ide.util.TipDialog/0.23.1440.826@0.23.1440.826" timestamp="1583334104666" />
     <state x="382" y="250" key="com.intellij.ide.util.TipDialog/0.23.1440.827@0.23.1440.827" timestamp="1583428607995" />
     <state x="382" y="250" key="com.intellij.ide.util.TipDialog/0.23.1440.828@0.23.1440.828" timestamp="1585748730822" />
-    <state x="601" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583470384991">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state x="515" y="341" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587652504637">
+      <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state x="515" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.826@0.23.1440.826" timestamp="1583334138536" />
     <state x="515" y="340" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.827@0.23.1440.827" timestamp="1583456211774" />
+    <state x="515" y="341" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.828@0.23.1440.828" timestamp="1587652504637" />
     <state x="601" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.1027@0.23.1680.1027" timestamp="1583470384991" />
     <state x="97" y="56" key="new project wizard" timestamp="1585010488673">
       <screen x="0" y="0" width="1440" height="900" />
