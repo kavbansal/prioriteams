@@ -37,6 +37,7 @@ public class ApiServer {
         getEventbyId(eventDao);
         getUpdate(eventDao);
         postEvents(eventDao);
+        postPeople(personDao);
         getAvailabilities(availDao);
         getAllPeople(personDao);
         getPersonbyPersonId(personDao);
@@ -100,7 +101,19 @@ public class ApiServer {
             ctx.status(200);
         });
     }
-
+    private static void postPeople(PersonDao pdao) {
+        // client adds a course through HTTP POST request
+        app.post("/Person", ctx -> {
+            Person person = ctx.bodyAsClass(Person.class);
+            try {
+                pdao.add(person);
+                ctx.status(201); // created successfully
+                ctx.json(person);
+            } catch (DaoException ex) {
+                throw new ApiError(ex.getMessage(), 500); // server internal error
+            }
+        });
+    }
 
 
     private static void getProfessors(PersonDao pdao) {
@@ -199,19 +212,7 @@ public class ApiServer {
         });
     }
 
-    private static void postPeople(PersonDao pdao) {
-        // client adds a course through HTTP POST request
-        app.post("/People", ctx -> {
-            Person person = ctx.bodyAsClass(Person.class);
-            try {
-                pdao.add(person);
-                ctx.status(201); // created successfully
-                ctx.json(person);
-            } catch (DaoException ex) {
-                throw new ApiError(ex.getMessage(), 500); // server internal error
-            }
-        });
-    }
+
 
     private static void postAvailabilities(AvailabilityDao aDao) {
         app.post("/availabilities", ctx->{

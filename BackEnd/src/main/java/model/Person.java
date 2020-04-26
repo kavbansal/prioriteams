@@ -11,9 +11,9 @@ public class Person {
     public Person(String name, String email,String username, String password, int priority) {
         this.name=name;
         this.email=email;
-        this.priority=priority;
         this.username=username;
         this.password=password;
+        this.priority=priority;
     }
 
     public String getName() {

@@ -27,6 +27,22 @@ public class WebServer {
       return new ModelAndView(null, "index.hbs");
     }, new HandlebarsTemplateEngine());
 
+    get("/createaccount", (req,res)-> {
+        return new ModelAndView(null, "createAccount.hbs");
+    }, new HandlebarsTemplateEngine());
+
+    post("/createaccount", (req,res)->{
+        String name = req.queryParams("personName");
+        String username = req.queryParams("personUsername");
+        String password = req.queryParams("personPassword");
+        String email = req.queryParams("personEmail");
+        Person p = new Person(name,email,username,password,3);
+        personDao.add(p);
+        //3 is priority by default
+        res.redirect("/");
+       return null;
+    }, new HandlebarsTemplateEngine());
+
     get("/main", (req, res) -> {
         Map<String, String> model = new HashMap<>();
         model.put("personid", req.cookie("personid"));

@@ -19,7 +19,7 @@ public class UnireastPersonDao implements PersonDao {
 
     @Override
     public void add(Person p) throws DaoException {
-        final String URL = BASE_URL + "People";
+        final String URL = BASE_URL + "Person";
         try {
             Unirest.post(URL).body(gson.toJson(p)).asJson();
         } catch (UnirestException e) {

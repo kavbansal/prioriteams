@@ -12,18 +12,13 @@
 
     <div class="login_page">
       <div class="form">
-        <form class="register-form">
-          <input type="text" placeholder="name"/>
-          <input type="password" placeholder="password"/>
-          <input type="text" placeholder="email address"/>
+        <form class="register-form" action="/createaccount" method="post">
+          <input type="text" name="personName" placeholder="name"/>
+            <input type="text" name="personUsername" placeholder="username"/>
+          <input type="password" name="personPassword" placeholder="password"/>
+          <input type="text" name="personEmail" placeholder="email"/>
           <button>create</button>
           <p class="message">Already registered? <a href="#">Sign In</a></p>
-        </form>
-        <form class="login-form">
-          <input type="text" placeholder="username"/>
-          <input type="password" placeholder="password"/>
-          <button>login</button>
-          <p class="message">Not registered? <a href="#">Create an account</a></p>
         </form>
       </div>
     </div>
