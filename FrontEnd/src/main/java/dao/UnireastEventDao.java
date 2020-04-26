@@ -17,12 +17,16 @@ public class UnireastEventDao implements EventDao {
     private static Gson gson = new Gson();
 
     @Override
-    public void add(Event event) { ;
+    public int add(Event event) { ;
         final String URL = BASE_URL + "events";
+        HttpResponse<JsonNode> jsonResponse = null;
         try {
-            Unirest.post(URL).body(gson.toJson(event)).asJson();
+            jsonResponse=Unirest.post(URL).body(gson.toJson(event)).asJson();
+            Event e = gson.fromJson(jsonResponse.getBody().toString(), Event.class);
+            return e.getId();
         } catch (UnirestException e) {
             e.printStackTrace();
+            return 0;
         }
     }
 

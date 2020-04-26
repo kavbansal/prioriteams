@@ -3,6 +3,7 @@ import dao.*;
 import model.Availability;
 import model.Event;
 import model.Person;
+import model.Participants;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -19,6 +20,7 @@ public class WebServer {
     EventDao eventDao = new UnireastEventDao();
     AvailabilityDao aDao = new UnireastAvailabilityDao();
     PersonDao personDao = new UnireastPersonDao();
+    ParticipantsDao participantsDao = new UnireastParticipantsDao();
     staticFiles.location("/public");
     get("/", (req, res) -> {
         Map<String, String> model = new HashMap<>();
@@ -80,8 +82,9 @@ public class WebServer {
     }), new HandlebarsTemplateEngine());
 
     get("/create", (req, res) -> {
-        Map<String, String> model = new HashMap<>();
+        Map<String, Object> model = new HashMap<>();
         model.put("priority", req.cookie("priority"));
+        model.put("personList", personDao.findAllPeopleExceptProfs());
       return new ModelAndView(model, "create.hbs");
     }, new HandlebarsTemplateEngine());
 
@@ -91,7 +94,10 @@ public class WebServer {
       String eventName = request.queryParams("eventname");
       String location = request.queryParams("location");
       int duration = Integer.parseInt(request.queryParams("duration"));
-      eventDao.add(new Event(duration, eventName, location,-1, -1));
+      int eId = eventDao.add(new Event(duration, eventName, location,-1, -1));
+      String emailString = request.queryParams("emails");
+      Participants participants = new Participants(eId,emailString);
+      participantsDao.add(new Participants(eId,emailString));
       response.redirect("/create");
       return null;
     }), new HandlebarsTemplateEngine());

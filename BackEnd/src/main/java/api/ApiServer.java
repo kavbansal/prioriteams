@@ -26,9 +26,11 @@ public class ApiServer {
         createEventTable(sql2o);
         createAvailabilityTable(sql2o);
         createPeopleTable(sql2o);
+        createParticipantsTable(sql2o);
         EventDao eventDao = getEventDao(sql2o);
         AvailabilityDao availDao = getAvailabilityDao(sql2o);
         PersonDao personDao = getPersonDao(sql2o);
+        ParticipantsDao participantsDao = getParticipantsDao(sql2o);
         initData(eventDao);
         initAvails(availDao);
         initPeople(personDao);
@@ -36,8 +38,10 @@ public class ApiServer {
         getEvents(eventDao);
         getEventbyId(eventDao);
         getUpdate(eventDao);
+        getParticipants(participantsDao);
         postEvents(eventDao);
         postPeople(personDao);
+        postParticipants(participantsDao);
         updatePriority(personDao);
         getAvailabilities(availDao);
         getAllPeople(personDao);
@@ -77,6 +81,7 @@ public class ApiServer {
     private static EventDao getEventDao(Sql2o sql2o) { return new Sql2oEventDao(sql2o); }
     private static AvailabilityDao getAvailabilityDao(Sql2o sql2o) { return new Sql2oAvailabilityDao(sql2o);}
     private static PersonDao getPersonDao(Sql2o sql2o) { return new Sql2oPersonDao(sql2o);}
+    private static ParticipantsDao getParticipantsDao(Sql2o sql2o) {return new Sql2oParticipantsDao(sql2o);}
 
     private static void getEvents(EventDao eventDao) {
         app.get("/events", ctx -> {
@@ -202,6 +207,28 @@ public class ApiServer {
         });
     }
 
+    private static void postParticipants(ParticipantsDao participantsDao) {
+        app.post("/Participants", ctx->{
+            Participants p = ctx.bodyAsClass(Participants.class);
+            try {
+                participantsDao.add(p);
+                ctx.status(201);
+                ctx.json(p);
+            } catch (DaoException ex) {
+                throw new ApiError(ex.getMessage(), 500);
+            }
+        });
+    }
+
+    private static void getParticipants(ParticipantsDao participantsDao) {
+        app.get("/Participants/:eId", ctx->{
+            int eId = Integer.parseInt(ctx.pathParam("eId"));
+           List<Participants> p = participantsDao.getAllParticipantsbyEventId(eId);
+           ctx.json(p);
+           ctx.status(200);
+        });
+    }
+
     private static void postEvents(EventDao eventDao) {
         // client adds a course through HTTP POST request
         app.post("/events", ctx -> {
@@ -304,6 +331,24 @@ public class ApiServer {
                 "password VARCHAR(100),"+
                 "priority Integer" +
                 ");";
+        try (Connection conn = sql2o.open()) {
+            conn.createQuery(sql).executeUpdate();
+        }
+    }
+
+    private static void createParticipantsTable(Sql2o sql2o) {
+        dropParticipantsTableIfExists(sql2o);
+        String sql="CREATE TABLE IF NOT EXISTS Participants(" +
+                "id Integer Primary Key," +
+                "eId Integer," +
+                "emails VARCHAR(400));";
+        try (Connection conn = sql2o.open()) {
+            conn.createQuery(sql).executeUpdate();
+        }
+    }
+
+    private static void dropParticipantsTableIfExists(Sql2o sql2o) {
+        String sql="Drop TABLE if exists Participants;";
         try (Connection conn = sql2o.open()) {
             conn.createQuery(sql).executeUpdate();
         }

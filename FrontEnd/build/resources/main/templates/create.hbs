@@ -8,13 +8,22 @@
     <a class="link-1" href="/events">View Events</a>
 </nav>
 {{#partial "content"}}
-    <h1>Create an Event</h1>
+    <h1>Possible Participants</h1>
 
+    <ul style="font-size: 18px">
+        {{#each personList}}
+            <li> {{ name }}, {{ email }}, {{ username }} </li>
+        {{/each}}
+    </ul>
+
+
+    <h1> Create an Event </h1>
     <form action="/create" method="post">
         <br />
         <p> Event Name <input type="text" placeholder="Event Name" name="eventname"> </p>
         <p> Location <input type="text" placeholder="Location" name="location"> </p>
         <p> Duration (minutes) <input type="number" placeholder="Duration (minutes)" name="duration"> </p>
+        <p> Participants' Emails (Comma Separated!) <input type="text" placeholder="Emails" name="emails"></p>
         <br />
         <button>Create Event</button>
     </form>
