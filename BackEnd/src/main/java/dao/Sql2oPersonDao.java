@@ -47,6 +47,7 @@ public class Sql2oPersonDao implements PersonDao {
         }
     }
 
+    @Override
     public List<Person> findPerson(String username, String password) {
         String sql="Select * FROM People where username=:username AND password=:password";
         try (Connection conn = sql2o.open()) {
@@ -54,6 +55,7 @@ public class Sql2oPersonDao implements PersonDao {
         }
     }
 
+    @Override
     public List<Person> findPersonbyUsername(String username) {
         String sql="Select * From People where username=:username";
         try (Connection conn = sql2o.open()) {
@@ -61,10 +63,27 @@ public class Sql2oPersonDao implements PersonDao {
         }
     }
 
+    @Override
     public List<Person> findAllProfessors() {
         String sql="Select * From People where priority=1";
         try (Connection conn = sql2o.open()) {
             return conn.createQuery(sql).executeAndFetch(Person.class);
+        }
+    }
+
+    @Override
+    public List<Person> findAllNonProfs() {
+        String sql="Select * From People where priority!=1";
+        try (Connection conn = sql2o.open()) {
+            return conn.createQuery(sql).executeAndFetch(Person.class);
+        }
+    }
+
+    @Override
+    public void updatePriority(int pId, int priority) {
+        String sql="Update People Set priority=:priority where id=:pId";
+        try (Connection conn = sql2o.open()) {
+            conn.createQuery(sql).addParameter("priority", priority).addParameter("pId",pId).executeUpdate();
         }
     }
 

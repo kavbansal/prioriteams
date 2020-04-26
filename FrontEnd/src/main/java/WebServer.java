@@ -244,6 +244,20 @@ public class WebServer {
           return null;
       }), new HandlebarsTemplateEngine());
 
+      get("/adjustPriorities", (req, response)->{
+          Map<String, Object> map = new HashMap<>();
+          map.put("People", personDao.findAllPeopleExceptProfs());
+          return new ModelAndView(map,"adjustPriorities.hbs");
+      }, new HandlebarsTemplateEngine());
+
+      post("/adjustPriorities", (req,res)->{
+          int pId = Integer.parseInt(req.queryParams("pId"));
+          int priority = Integer.parseInt(req.queryParams("priority"));
+          personDao.updatePriority(pId, priority);
+          res.redirect("/adjustPriorities");
+          return null;
+      }, new HandlebarsTemplateEngine());
+
   }
 
     private static int getHerokuAssignedPort() {

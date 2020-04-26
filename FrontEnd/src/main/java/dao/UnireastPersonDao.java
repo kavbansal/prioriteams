@@ -29,6 +29,17 @@ public class UnireastPersonDao implements PersonDao {
     }
 
     @Override
+    public void updatePriority(int pId, int priority) {
+        final String URL = BASE_URL + "Person/" + pId + "/" + priority;
+        try {
+            Unirest.post(URL).body(gson.toJson(null)).asJson();
+        } catch (UnirestException e) {
+            // TODO error
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public List<Person> findAllPeople() {
         final String URL = BASE_URL + "People";
         HttpResponse<JsonNode> jsonResponse = null;
@@ -88,6 +99,19 @@ public class UnireastPersonDao implements PersonDao {
     @Override
     public List<Person> findAllProfessors() {
         final String URL = BASE_URL + "professors";
+        HttpResponse<JsonNode> jsonResponse = null;
+        try {
+            jsonResponse = Unirest.get(URL).asJson();
+            Person[] people = gson.fromJson(jsonResponse.getBody().toString(), Person[].class);
+            return new ArrayList<>(Arrays.asList(people));
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Person> findAllPeopleExceptProfs() {
+        final String URL = BASE_URL + "nonProfs";
         HttpResponse<JsonNode> jsonResponse = null;
         try {
             jsonResponse = Unirest.get(URL).asJson();

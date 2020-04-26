@@ -13,4 +13,6 @@ public interface PersonDao {
     List<Person> findPerson(String username, String password);
     public List<Person> findAllProfessors();
     List<Person> findPersonbyPersonId(int pId);
+    public List<Person> findAllPeopleExceptProfs();
+    public void updatePriority(int pId, int priority);
 }

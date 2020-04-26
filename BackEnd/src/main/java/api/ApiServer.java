@@ -38,11 +38,13 @@ public class ApiServer {
         getUpdate(eventDao);
         postEvents(eventDao);
         postPeople(personDao);
+        updatePriority(personDao);
         getAvailabilities(availDao);
         getAllPeople(personDao);
         getPersonbyPersonId(personDao);
         getProfessors(personDao);
         getPerson(personDao);
+        getNonProfs(personDao);
         getAvailabilitiesByEventId(availDao);
         //getCA(caDao);
         postAvailabilities(availDao);
@@ -92,7 +94,13 @@ public class ApiServer {
         });
     }
 
-
+    private static void getNonProfs(PersonDao personDao) {
+        app.get("/nonProfs", ctx->{
+            List<Person> people = personDao.findAllNonProfs();
+            ctx.json(people);
+            ctx.status(200);
+        });
+    }
 
     private static void getAllPeople(PersonDao personDao) {
         app.get("/People",ctx->{
@@ -149,6 +157,15 @@ public class ApiServer {
            List<Person> person = pDao.findPersonbyPersonId(pId);
            ctx.json(person);
            ctx.status(200);
+        });
+    }
+
+    private static void updatePriority(PersonDao personDao) {
+        app.post("Person/:pId/:priority", ctx->{
+           int pId = Integer.parseInt(ctx.pathParam("pId"));
+           int priority = Integer.parseInt(ctx.pathParam("priority"));
+           personDao.updatePriority(pId,priority);
+           ctx.status(201);
         });
     }
 
