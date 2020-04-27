@@ -38,9 +38,9 @@ public class WebServer {
         String username = req.queryParams("personUsername");
         String password = req.queryParams("personPassword");
         String email = req.queryParams("personEmail");
-        Person p = new Person(name,email,username,password,3);
+        int priority = Integer.parseInt(req.queryParams("priority"));
+        Person p = new Person(name,email,username,password, priority);
         personDao.add(p);
-        //3 is priority by default
         res.redirect("/");
        return null;
     }, new HandlebarsTemplateEngine());
@@ -238,6 +238,8 @@ public class WebServer {
               dow++;
           }
           response.redirect("/register/"+eId);
+          int[] optimals = calculateOptimalTime(eId, eventDao, aDao, personDao);
+          eventDao.removeAndUpdateOptTime(eId, optimals[0], optimals[1]);
           return null;
 
       }), new HandlebarsTemplateEngine());

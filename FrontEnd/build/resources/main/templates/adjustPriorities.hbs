@@ -1,0 +1,43 @@
+<h1 class="headedit">PrioriTeams</h1>
+<a href="/signout" class="signoutbutton" aria-pressed="true">Sign out</a>
+<nav id="nav-1">
+    <a class="link-1" href="/main">Home</a>
+    {{#if priority}}
+        <a class="link-1" href="/create">Create Event</a>
+    {{/if}}
+    <a class="link-1" href="/register">Register</a>
+    <a class="link-1" href="/events">View Events</a>
+</nav>
+{{#partial "content"}}
+    <h1>List of People</h1>
+    <ul style="font-size: 18px">
+        {{#each People}}
+            <li>  {{ name }}, {{email}}, {{priority}} </li>
+        {{/each}}
+    </ul>
+
+    <!--
+    <h3 style='margin:50px 0 30px'>Previously Entered Availabilities</h3>
+
+
+
+    !-->
+    <br>
+    <h2>Change Priorities</h2>
+    <br>
+    <form action="/adjustPriorities" method="post">
+
+        <p> <a> Select Who to Change Priority For </a> <select id="pId" name ="pId">
+            <option disabled selected value></option>
+                {{#each People}}
+                    <option value = {{id}}> {{ name }} </option>
+                {{/each}}
+        </select>
+        </p>
+        <p>  Priority <input type="number" placeholder="Priority" name="priority"> </p>
+        <br>
+        <button>Submit</button>
+    </form>
+    <br>
+{{/partial}}
+{{> base.hbs }}
