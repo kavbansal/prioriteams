@@ -38,7 +38,7 @@ public class Event {
                 return "Sunday";
 
         }
-        return "-1";
+        return "";
     }
 
     public void setOptDayString(String optDayString) {
@@ -59,7 +59,12 @@ public class Event {
 
     public int getId() { return this.id; }
 
-    public int getOptimalTime() { return this.optimalTime; }
+    public Integer getOptimalTime() {
+        if (this.optimalTime == -1) {
+            return null;
+        }
+        return this.optimalTime;
+    }
 
     public void setDuration(int d) {
         this.duration = d;

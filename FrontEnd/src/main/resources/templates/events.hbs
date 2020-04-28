@@ -5,7 +5,6 @@
     {{#if priority}}
         <a class="link-1" href="/create">Create Event</a>
     {{/if}}
-    <a class="link-1" href="/register">Register</a>
     <a class="link-1" href="/events">View Events</a>
 </nav>
 {{#partial "content"}}
@@ -15,17 +14,23 @@
                 <li>
                     <div class="card mx-auto text-white bg-secondary mb-3 border-dark" style="width: 18rem;">
                         <div class="card-body">
-                            <h5 class="card-title"><strong>Event</strong></h5>
+                            <h5 class="card-title"><strong>Event {{ id }}</strong></h5>
                             <h6 class="card-subtitle">{{ eventName }}</h6>
                         <ul>
                             <li>
                                 <strong>Location: {{ location }}</strong>
                             </li>
+                            <li style="border: none">
+                                <strong>Meeting time: {{ optimalTime }}</strong>
+                            </li>
                             <li>
-                                <strong>Duration: {{ duration }}</strong>
+                                <strong>Meeting day: {{ optDayString }}</strong>
+                            </li>
+                            <li>
+                                <strong>Duration: {{ duration }} minutes</strong>
                             </li>
                         </ul>
-                            <a href="/register">Link to register</a>
+                            <a href="/register" style="color: #3fa369">Link to register</a>
                         </div>
                     </div>
                 </li>
