@@ -12,7 +12,9 @@
 
 # Iteration Backlog
 
+Let people create an account so that they can use the application.
 
+Let the Professor adjust people's priorities so that it can be flexible and dynamic.
 
 # To-do's
 
