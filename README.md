@@ -32,4 +32,13 @@ Below are steps that guides one through our product. Following these steps will 
 LINK : https://docs.google.com/document/d/1LS3R74FsS_ZpW8D1q_xm9Y4nXISpXSi6bD8GDnW8F50/edit?usp=sharing
 
 
+# Deploying with Heroku
 
+The deployment with heroku follows similar guidelines to those mentioned on the jhu OOSE website.
+1. Download (don't clone) this git repo with the most recent branch
+2. Build the jar files for both front end and back end by using -  ./gradlew build jar
+  a. Before building the FrontEnd jar, change the URLs in each of the DAO classes to the heroku url of the BackEnd.
+3. In each of the project folders do the following - 
+  a. git init
+  b. heroku create
+  c. ./gradlew build deployHeroku
