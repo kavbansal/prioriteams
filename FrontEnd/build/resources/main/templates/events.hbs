@@ -4,6 +4,7 @@
     <a class="link-1" href="/main">Home</a>
     {{#if priority}}
         <a class="link-1" href="/create">Create Event</a>
+        <a class="link-1" href="/adjustPriorities">Adjust Priorities</a>
     {{/if}}
     <a class="link-1" href="/events">View Events</a>
 </nav>
@@ -21,16 +22,16 @@
                                 <strong>Location: {{ location }}</strong>
                             </li>
                             <li style="border: none">
-                                <strong>Meeting time: {{ optimalTime }}</strong>
+                                <strong>Meeting time: {{ optTimeString }}</strong>
                             </li>
                             <li>
                                 <strong>Meeting day: {{ optDayString }}</strong>
                             </li>
                             <li>
-                                <strong>Duration: {{ duration }} minutes</strong>
+                                <strong>Duration: {{ durationString }} </strong>
                             </li>
                         </ul>
-                            <a href="/register" style="color: #3fa369">Link to register</a>
+                            <a href="/register/{{ id }}" style="color: #3fa369">Link to register</a>
                         </div>
                     </div>
                 </li>
