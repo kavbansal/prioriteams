@@ -7,7 +7,7 @@
             <a class="link-1" href="/create">Create Event</a>
             <a class="link-1" href="/adjustPriorities">Adjust Priorities</a>
         {{/if}}
-        <a class="link-1" href="/events">View Events</a>
+        <a class="link-1" href="/events/{{personid}}">View Events</a>
     </nav>
 {{/partial}}
 
@@ -25,7 +25,7 @@
     {{/if}}
 
     <div class="form-actions">
-        <a href="/events" class="test" aria-pressed="true">View Events</a>
+        <a href="/events/{{personid}}" class="test" aria-pressed="true">View Events</a>
     </div>
 
     </body>

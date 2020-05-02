@@ -34,6 +34,7 @@ public class ApiServer {
         initData(eventDao);
         initAvails(availDao);
         initPeople(personDao);
+        initParticipants(participantsDao);
         app.get("/", ctx -> ctx.result("Welcome to the Lads' App"));
         getEvents(eventDao);
         getEventbyId(eventDao);
@@ -283,6 +284,7 @@ public class ApiServer {
         aDao.addAvailability((new Availability(2, 4, 10, 11, 2)));
     }
 
+
     private static Javalin startServer() {
         Gson gson = new Gson();
         JavalinJson.setFromJsonMapper(gson::fromJson);
@@ -400,5 +402,11 @@ public class ApiServer {
         personDao.add(new Person("Dara Moini", "dmoini1@jhu.edu", "dmoini1", "dara",3));
         personDao.add(new Person("Kavan Bansal","kbansal2@jhu.edu", "kbansal2", "kavan",3));
         personDao.add(new Person("Justin Song","LauFalls69@jhu.edu", "jsong1", "justin",3));
+    }
+
+    private static void initParticipants(ParticipantsDao participantsDao) {
+        String allEmails = "madooei@jhu.edu, yash@jhu.edu, adeshola@jhu.edu, shreya@jhu.edu, ijamil1@jhu.edu, vjoshi1@jhu.edu, rhubley1@jhu.edu, dmoini1@jhu.edu, kbansal2@jhu.edu, LauFalls69@jhu.edu";
+        participantsDao.add(new Participants(1, allEmails));
+        participantsDao.add(new Participants(2, allEmails));
     }
 }

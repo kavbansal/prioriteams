@@ -5,15 +5,15 @@
     <a class="link-1" href="/main">Home</a>
     {{#if priority}}
         <a class="link-1" href="/create">Create Event</a>
+        <a class="link-1" href="/adjustPriorities">Adjust Priorities</a>
     {{/if}}
-    <a class="link-1" href="/register">Register</a>
-    <a class="link-1" href="/events">View Events</a>
+    <a class="link-1" href="/events/{{personid}}">View Events</a>
 </nav>
 {{#partial "content"}}
     <h1>Register for
         {{eventList.eventName}}
     </h1>
-    <li> at {{eventList.location}} for {{eventList.duration}} minutes </li>
+    <li> at {{eventList.location}} for {{eventList.durationString}} </li>
     <br>
 
     <form action="/register/{{eventList.id}}/addnewavail" method="post">

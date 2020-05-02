@@ -7,23 +7,54 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Store.db" beforeDir="false" afterPath="$PROJECT_DIR$/Store.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/api/ApiServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/api/ApiServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/dao/Sql2oAvailabilityDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/dao/Sql2oAvailabilityDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/dao/Sql2oEventDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/dao/Sql2oEventDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/dao/Sql2oParticipantsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/dao/Sql2oParticipantsDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/dao/Sql2oPersonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/dao/Sql2oPersonDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/Event.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/ApiServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ParticipantsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ParticipantsDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/WebServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/WebServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/dao/ParticipantsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/dao/ParticipantsDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/dao/UnireastAvailabilityDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/dao/UnireastAvailabilityDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/dao/UnireastEventDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/dao/UnireastEventDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/dao/UnireastParticipantsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/dao/UnireastParticipantsDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/dao/UnireastPersonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/dao/UnireastPersonDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/model/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/classes/java/main/model/Event.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/adjustPriorities.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/adjustPriorities.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/create.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/create.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/events.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/events.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/model/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/main.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/register.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/register.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/register1.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/build/resources/main/templates/register1.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/WebServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/WebServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/ParticipantsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/ParticipantsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastParticipantsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/java/dao/UnireastParticipantsDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/adjustPriorities.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/adjustPriorities.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/create.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/create.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/events.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/events.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/main.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/register.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/register.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/register1.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/src/main/resources/templates/register1.hbs" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -120,9 +151,21 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="ApiServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="api.ApiServer" />
       <module name="BackEnd.main" />
@@ -195,6 +238,7 @@
       <workItem from="1588032949400" duration="1668000" />
       <workItem from="1588082461314" duration="829000" />
       <workItem from="1588263554603" duration="1204000" />
+      <workItem from="1588380017026" duration="5501000" />
     </task>
     <task id="LOCAL-00001" summary="adding functionality">
       <created>1583208566414</created>

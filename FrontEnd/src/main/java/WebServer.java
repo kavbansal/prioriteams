@@ -83,6 +83,7 @@ public class WebServer {
 
     get("/create", (req, res) -> {
         Map<String, Object> model = new HashMap<>();
+        model.put("personid", req.cookie("personid"));
         model.put("priority", req.cookie("priority"));
         model.put("personList", personDao.findAllPeopleExceptProfs());
       return new ModelAndView(model, "create.hbs");
@@ -95,29 +96,53 @@ public class WebServer {
       String location = request.queryParams("location");
       int duration = Integer.parseInt(request.queryParams("duration"));
       int eId = eventDao.add(new Event(duration, eventName, location,-1, -1));
-      String emailString = request.queryParams("emails");
+
+        List<Person> PersonList = personDao.findPersonbyPersonId(Integer.parseInt(request.cookie("personid")));
+        String emailString = PersonList.get(0).getEmail();
+        emailString = emailString.concat(request.queryParams("emails"));
       Participants participants = new Participants(eId,emailString);
       participantsDao.add(new Participants(eId,emailString));
-      response.redirect("/create");
+
+      response.redirect("/events/" + request.cookie("personid"));
       return null;
     }), new HandlebarsTemplateEngine());
 
     get("/events", ((request, response) -> {
       Map<String, Object> model = new HashMap<>();
       model.put("priority", request.cookie("priority"));
-      model.put("eventList", eventDao.findAllEvents());
+      //Automatically update optimal times before displaying
+        for (Event event: eventDao.findAllEvents()) {
+            int[] optimals = calculateOptimalTime(event.getId(), eventDao, aDao, personDao);
+            eventDao.removeAndUpdateOptTime(event.getId(), optimals[0], optimals[1]);
+        }
+        model.put("eventList", eventDao.findAllEvents());
+        model.put("personid", request.cookie("personid"));
       return new ModelAndView(model, "events.hbs");
     }),  new HandlebarsTemplateEngine());
 
-    post("/events", ((request, response) -> {
-      Map<String, Object> model = new HashMap<>();
-      int eventId = Integer.parseInt(request.queryParams("eId"));
-      //call helper function
-      int[] optimals = calculateOptimalTime(eventId, eventDao, aDao, personDao);
-      eventDao.removeAndUpdateOptTime(eventId, optimals[0], optimals[1]);
-      response.redirect("/events");
-      return null;
-    }), new HandlebarsTemplateEngine());
+      get("/events/:id", ((request, response) -> {
+          Map<String, Object> model = new HashMap<>();
+          model.put("priority", request.cookie("priority"));
+          //Automatically update optimal times before displaying
+          for (Event event: eventDao.findAllEvents()) {
+              int[] optimals = calculateOptimalTime(event.getId(), eventDao, aDao, personDao);
+              eventDao.removeAndUpdateOptTime(event.getId(), optimals[0], optimals[1]);
+          }
+          List<Event> allEvents = eventDao.findAllEvents();
+          List<Event> myEvents = new ArrayList<Event>();
+          List<Person> PersonList = personDao.findPersonbyPersonId(Integer.parseInt(request.cookie("personid")));
+          String email = PersonList.get(0).getEmail();
+          for (Event event: allEvents) {
+              List<Participants> participants = participantsDao.getAllParticipantsbyEventId(event.getId());
+              if (participants != null && participants.get(0).getEmails().contains(email)) {
+                  myEvents.add(event);
+              }
+          }
+
+          model.put("eventList", myEvents);
+          model.put("personid", request.cookie("personid"));
+          return new ModelAndView(model, "events.hbs");
+      }),  new HandlebarsTemplateEngine());
 
     get("/register",((request,response)->{
       Map<String, Object> model = new HashMap<>();
@@ -125,6 +150,7 @@ public class WebServer {
       model.put("eventList", eventDao.findAllEvents());
       model.put("AvailList", aDao.findAllAvails());
       model.put("personList", personDao.findAllPeople());
+        model.put("personid", request.cookie("personid"));
       return new ModelAndView(model,"register.hbs");
     }),new HandlebarsTemplateEngine());
 
@@ -134,6 +160,7 @@ public class WebServer {
         model.put("eventList", eventDao.findEventbyId(Integer.parseInt(request.params(":id"))));
         model.put("AvailList", aDao.findAvailabilitiesbyEventId(Integer.parseInt(request.params(":id"))));
         model.put("personList", personDao.findAllPeople());
+        model.put("personid", request.cookie("personid"));
 
 
         List<Availability> thisEventsAvails = aDao.findAvailabilitiesbyEventId(Integer.parseInt(request.params(":id")));
@@ -255,6 +282,7 @@ public class WebServer {
       get("/adjustPriorities", (req, response)->{
           Map<String, Object> map = new HashMap<>();
           map.put("People", personDao.findAllPeopleExceptProfs());
+          map.put("personid", req.cookie("personid"));
           return new ModelAndView(map,"adjustPriorities.hbs");
       }, new HandlebarsTemplateEngine());
 
